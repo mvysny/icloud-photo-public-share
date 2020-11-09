@@ -1,10 +1,23 @@
 package com.gitlab.mvysny.icloudphotopublicshare
 
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 import com.google.gson.annotations.SerializedName
 import okhttp3.MediaType
-import okhttp3.RequestBody
-import okhttp3.ResponseBody
 import java.io.Serializable
+
+public object ICloud {
+    /**
+     * All REST client calls will reuse this client.
+     */
+    public var httpClient: SimplifiedHttpClient? = null
+
+    /**
+     * The default [Gson] interface used by all serialization/deserialization methods. Simply reassign with another [Gson]
+     * instance to reconfigure. To be thread-safe, do the reassignment in your `ServletContextListener`.
+     */
+    public var gson: Gson = GsonBuilder().create()
+}
 
 /**
  * @property albumId the album ID, something like `B0R5qXGF1GeKg4d`. Usually a part of the shared photo album URL
@@ -17,21 +30,20 @@ public class ICloudClient(public val albumId: String, private var serverName: St
 
     public fun getShare(): ICloudShare {
         while (true) {
-            val request = "${this.url}/webstream".toHttpUrl().buildRequest {
-                post(RequestBody.create(mimeJson, "{\"streamCtag\":null}"))
+            val share: ICloudShare? = ICloud.httpClient!!.post("${this.url}/webstream", "{\"streamCtag\":null}") { response ->
+                if (response.code == 330) {
+                    // redirect to another server
+                    val redirect: ICloudRedirect = response.json(ICloudRedirect::class.java)
+                    serverName = redirect.xapplemmehost!!
+                    null
+                } else {
+                    response.checkOk()
+                    response.json(ICloudShare::class.java)
+                }
             }
 
-            ICloud.okHttpClient!!.newCall(request).execute().use { response ->
-                if (response.code() == 330) {
-                    // redirect to another server
-                    val redirect: ICloudRedirect = response.body()!!.use { it.json(ICloudRedirect::class.java) }
-                    serverName = redirect.xapplemmehost!!
-                } else {
-                    val body: ResponseBody = response.checkOk().body()!!
-                    body.use {
-                        return it.json(ICloudShare::class.java)
-                    }
-                }
+            if (share != null) {
+                return share
             }
         }
     }

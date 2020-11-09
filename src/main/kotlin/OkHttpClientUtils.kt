@@ -32,19 +32,6 @@ public fun Response.checkOk(): Response {
     return this
 }
 
-public object ICloud {
-    /**
-     * All REST client calls will reuse this client.
-     */
-    public var okHttpClient: OkHttpClient? = null
-
-    /**
-     * The default [Gson] interface used by all serialization/deserialization methods. Simply reassign with another [Gson]
-     * instance to reconfigure. To be thread-safe, do the reassignment in your `ServletContextListener`.
-     */
-    public var gson: Gson = GsonBuilder().create()
-}
-
 /**
  * Parses the response as a JSON and converts it to a Java object with given [clazz] using [OkHttpClientVokPlugin.gson].
  */

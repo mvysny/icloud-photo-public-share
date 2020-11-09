@@ -10,3 +10,13 @@ When you share a folder of photos in iCloud
 you can also create a public website (with an obscure URL generated when the shared folder is made public),
 such as `https://www.icloud.com/sharedalbum/#B0R5qXGF1GeKg4d`.
 You can then pass this link to this library, to list the images and/or download them.
+
+## How to use
+
+```kotlin
+public fun main() {
+    ICloud.httpClient = SimplifiedOkHttpClient(OkHttpClient())
+    val share = ICloudClient("B0R5qXGF1GeKg4d").getShare()
+    println(share)
+}
+```
