@@ -1,0 +1,2247 @@
+{
+  "userLastName": "Seres",
+  "streamCtag": "FT=-@RU=a9fdcc57-8b74-403f-8501-226907f9abe1@S=1757",
+  "itemsReturned": "0",
+  "locations": {},
+  "userFirstName": "Andrea",
+  "streamName": "Test",
+  "photos": [
+    {
+      "batchGuid": "5ADA58B9-F8A5-4DB9-981E-8691D8BE7596",
+      "derivatives": {
+        "342": {
+          "fileSize": "38961",
+          "checksum": "01a9c356dc72e68ff5a74dbe67ee01d7fc10f3762f",
+          "width": "257",
+          "height": "342"
+        },
+        "1024": {
+          "fileSize": "210186",
+          "checksum": "015c281ffb89b0c02204d548d5720b9132dd4bfb93",
+          "width": "768",
+          "height": "1024"
+        }
+      },
+      "contributorLastName": "Seres",
+      "batchDateCreated": "2020-10-20T07:19:44Z",
+      "dateCreated": "2019-10-25T05:26:58Z",
+      "contributorFirstName": "Andrea",
+      "photoGuid": "1F6DA863-398D-4BA6-9980-350C982F6276",
+      "contributorFullName": "Andrea Seres",
+      "width": "768",
+      "caption": "",
+      "height": "1024"
+    },
+    {
+      "batchGuid": "2296E11E-6C81-4417-8910-02489BD78AC4",
+      "derivatives": {
+        "342": {
+          "fileSize": "38961",
+          "checksum": "01a9c356dc72e68ff5a74dbe67ee01d7fc10f3762f",
+          "width": "257",
+          "height": "342"
+        },
+        "1024": {
+          "fileSize": "210186",
+          "checksum": "015c281ffb89b0c02204d548d5720b9132dd4bfb93",
+          "width": "768",
+          "height": "1024"
+        }
+      },
+      "contributorLastName": "Seres",
+      "batchDateCreated": "2020-10-20T07:20:14Z",
+      "dateCreated": "2019-10-25T05:26:58Z",
+      "contributorFirstName": "Andrea",
+      "photoGuid": "50E5E216-C43E-4A7A-BF1B-0E89F300E0BB",
+      "contributorFullName": "Andrea Seres",
+      "width": "768",
+      "caption": "",
+      "height": "1024"
+    },
+    {
+      "batchGuid": "11070BD8-A379-405A-B445-DA7D1976CD59",
+      "derivatives": {
+        "342": {
+          "fileSize": "38961",
+          "checksum": "01a9c356dc72e68ff5a74dbe67ee01d7fc10f3762f",
+          "width": "257",
+          "height": "342"
+        },
+        "1024": {
+          "fileSize": "210186",
+          "checksum": "015c281ffb89b0c02204d548d5720b9132dd4bfb93",
+          "width": "768",
+          "height": "1024"
+        }
+      },
+      "contributorLastName": "Seres",
+      "batchDateCreated": "2020-10-20T07:17:48Z",
+      "dateCreated": "2019-10-25T05:26:58Z",
+      "contributorFirstName": "Andrea",
+      "photoGuid": "CCD5E104-BB18-4651-B529-6ED056857D96",
+      "contributorFullName": "Andrea Seres",
+      "width": "768",
+      "caption": "",
+      "height": "1024"
+    },
+    {
+      "batchGuid": "C6D79B96-529D-47A5-A07D-E79ABBA1F901",
+      "derivatives": {
+        "342": {
+          "fileSize": "38961",
+          "checksum": "01a9c356dc72e68ff5a74dbe67ee01d7fc10f3762f",
+          "width": "257",
+          "height": "342"
+        },
+        "1024": {
+          "fileSize": "210186",
+          "checksum": "015c281ffb89b0c02204d548d5720b9132dd4bfb93",
+          "width": "768",
+          "height": "1024"
+        }
+      },
+      "contributorLastName": "Seres",
+      "batchDateCreated": "2020-10-20T07:19:32Z",
+      "dateCreated": "2019-10-25T05:26:58Z",
+      "contributorFirstName": "Andrea",
+      "photoGuid": "5D03DD80-311E-4C4B-B2DB-B1E0E90DB3F1",
+      "contributorFullName": "Andrea Seres",
+      "width": "768",
+      "caption": "",
+      "height": "1024"
+    },
+    {
+      "batchGuid": "6CF543C2-FBBC-4F50-99E3-2723DBA37412",
+      "derivatives": {
+        "342": {
+          "fileSize": "38961",
+          "checksum": "01a9c356dc72e68ff5a74dbe67ee01d7fc10f3762f",
+          "width": "257",
+          "height": "342"
+        },
+        "1024": {
+          "fileSize": "210186",
+          "checksum": "015c281ffb89b0c02204d548d5720b9132dd4bfb93",
+          "width": "768",
+          "height": "1024"
+        }
+      },
+      "contributorLastName": "Seres",
+      "batchDateCreated": "2020-10-20T07:20:00Z",
+      "dateCreated": "2019-10-25T05:26:58Z",
+      "contributorFirstName": "Andrea",
+      "photoGuid": "53AAF5D0-4D36-4A12-AA01-B52CE7A0DDB4",
+      "contributorFullName": "Andrea Seres",
+      "width": "768",
+      "caption": "",
+      "height": "1024"
+    },
+    {
+      "batchGuid": "C6D79B96-529D-47A5-A07D-E79ABBA1F901",
+      "derivatives": {
+        "342": {
+          "fileSize": "44803",
+          "checksum": "015ac3cb3a7bf37c8110693efdab4b4909827c0466",
+          "width": "342",
+          "height": "257"
+        },
+        "2049": {
+          "fileSize": "1112001",
+          "checksum": "01b1187f807d3714bb4323441d44850d2594067472",
+          "width": "2049",
+          "height": "1537"
+        }
+      },
+      "contributorLastName": "Seres",
+      "batchDateCreated": "2020-10-20T07:19:32Z",
+      "dateCreated": "2019-10-14T00:08:36Z",
+      "contributorFirstName": "Andrea",
+      "photoGuid": "FD985F54-1CE5-482F-8275-F40ABDC52045",
+      "contributorFullName": "Andrea Seres",
+      "width": "2049",
+      "caption": "",
+      "height": "1537"
+    },
+    {
+      "batchGuid": "2296E11E-6C81-4417-8910-02489BD78AC4",
+      "derivatives": {
+        "342": {
+          "fileSize": "44803",
+          "checksum": "015ac3cb3a7bf37c8110693efdab4b4909827c0466",
+          "width": "342",
+          "height": "257"
+        },
+        "2049": {
+          "fileSize": "1112001",
+          "checksum": "01b1187f807d3714bb4323441d44850d2594067472",
+          "width": "2049",
+          "height": "1537"
+        }
+      },
+      "contributorLastName": "Seres",
+      "batchDateCreated": "2020-10-20T07:20:14Z",
+      "dateCreated": "2019-10-14T00:08:36Z",
+      "contributorFirstName": "Andrea",
+      "photoGuid": "49FFEB18-6958-4D53-B407-D82D0548B5E2",
+      "contributorFullName": "Andrea Seres",
+      "width": "2049",
+      "caption": "",
+      "height": "1537"
+    },
+    {
+      "batchGuid": "6CF543C2-FBBC-4F50-99E3-2723DBA37412",
+      "derivatives": {
+        "342": {
+          "fileSize": "44803",
+          "checksum": "015ac3cb3a7bf37c8110693efdab4b4909827c0466",
+          "width": "342",
+          "height": "257"
+        },
+        "2049": {
+          "fileSize": "1112001",
+          "checksum": "01b1187f807d3714bb4323441d44850d2594067472",
+          "width": "2049",
+          "height": "1537"
+        }
+      },
+      "contributorLastName": "Seres",
+      "batchDateCreated": "2020-10-20T07:20:00Z",
+      "dateCreated": "2019-10-14T00:08:36Z",
+      "contributorFirstName": "Andrea",
+      "photoGuid": "AD89C091-3E3F-4F16-A424-3E20292B6279",
+      "contributorFullName": "Andrea Seres",
+      "width": "2049",
+      "caption": "",
+      "height": "1537"
+    },
+    {
+      "batchGuid": "5ADA58B9-F8A5-4DB9-981E-8691D8BE7596",
+      "derivatives": {
+        "342": {
+          "fileSize": "44803",
+          "checksum": "015ac3cb3a7bf37c8110693efdab4b4909827c0466",
+          "width": "342",
+          "height": "257"
+        },
+        "2049": {
+          "fileSize": "1112001",
+          "checksum": "01b1187f807d3714bb4323441d44850d2594067472",
+          "width": "2049",
+          "height": "1537"
+        }
+      },
+      "contributorLastName": "Seres",
+      "batchDateCreated": "2020-10-20T07:19:44Z",
+      "dateCreated": "2019-10-14T00:08:36Z",
+      "contributorFirstName": "Andrea",
+      "photoGuid": "77EA7565-593C-4D94-85B8-027551398566",
+      "contributorFullName": "Andrea Seres",
+      "width": "2049",
+      "caption": "",
+      "height": "1537"
+    },
+    {
+      "batchGuid": "11070BD8-A379-405A-B445-DA7D1976CD59",
+      "derivatives": {
+        "342": {
+          "fileSize": "44803",
+          "checksum": "015ac3cb3a7bf37c8110693efdab4b4909827c0466",
+          "width": "342",
+          "height": "257"
+        },
+        "2049": {
+          "fileSize": "1112001",
+          "checksum": "01b1187f807d3714bb4323441d44850d2594067472",
+          "width": "2049",
+          "height": "1537"
+        }
+      },
+      "contributorLastName": "Seres",
+      "batchDateCreated": "2020-10-20T07:17:48Z",
+      "dateCreated": "2019-10-14T00:08:36Z",
+      "contributorFirstName": "Andrea",
+      "photoGuid": "2378769B-F42A-4AE3-A2DF-AD9B2A11B9BF",
+      "contributorFullName": "Andrea Seres",
+      "width": "2049",
+      "caption": "",
+      "height": "1537"
+    },
+    {
+      "batchGuid": "2296E11E-6C81-4417-8910-02489BD78AC4",
+      "derivatives": {
+        "342": {
+          "fileSize": "51077",
+          "checksum": "016732879756fc974f3481efe375f32f4ec0a6f1b1",
+          "width": "257",
+          "height": "342"
+        },
+        "2049": {
+          "fileSize": "1056429",
+          "checksum": "016a16b720578a88f2482ec5a896746763f9dc63ae",
+          "width": "1537",
+          "height": "2049"
+        }
+      },
+      "contributorLastName": "Seres",
+      "batchDateCreated": "2020-10-20T07:20:14Z",
+      "dateCreated": "2019-10-13T22:48:12Z",
+      "contributorFirstName": "Andrea",
+      "photoGuid": "EB7CA64F-2912-4DC8-B313-A348DE85A8A1",
+      "contributorFullName": "Andrea Seres",
+      "width": "1537",
+      "caption": "",
+      "height": "2049"
+    },
+    {
+      "batchGuid": "C6D79B96-529D-47A5-A07D-E79ABBA1F901",
+      "derivatives": {
+        "342": {
+          "fileSize": "51077",
+          "checksum": "016732879756fc974f3481efe375f32f4ec0a6f1b1",
+          "width": "257",
+          "height": "342"
+        },
+        "2049": {
+          "fileSize": "1056429",
+          "checksum": "016a16b720578a88f2482ec5a896746763f9dc63ae",
+          "width": "1537",
+          "height": "2049"
+        }
+      },
+      "contributorLastName": "Seres",
+      "batchDateCreated": "2020-10-20T07:19:32Z",
+      "dateCreated": "2019-10-13T22:48:12Z",
+      "contributorFirstName": "Andrea",
+      "photoGuid": "97498126-3A51-48A5-8AC5-2AD7855232A8",
+      "contributorFullName": "Andrea Seres",
+      "width": "1537",
+      "caption": "",
+      "height": "2049"
+    },
+    {
+      "batchGuid": "5ADA58B9-F8A5-4DB9-981E-8691D8BE7596",
+      "derivatives": {
+        "342": {
+          "fileSize": "51077",
+          "checksum": "016732879756fc974f3481efe375f32f4ec0a6f1b1",
+          "width": "257",
+          "height": "342"
+        },
+        "2049": {
+          "fileSize": "1056429",
+          "checksum": "016a16b720578a88f2482ec5a896746763f9dc63ae",
+          "width": "1537",
+          "height": "2049"
+        }
+      },
+      "contributorLastName": "Seres",
+      "batchDateCreated": "2020-10-20T07:19:44Z",
+      "dateCreated": "2019-10-13T22:48:12Z",
+      "contributorFirstName": "Andrea",
+      "photoGuid": "442EB3FA-F67D-4A8F-B098-788AB7E6E50D",
+      "contributorFullName": "Andrea Seres",
+      "width": "1537",
+      "caption": "",
+      "height": "2049"
+    },
+    {
+      "batchGuid": "6CF543C2-FBBC-4F50-99E3-2723DBA37412",
+      "derivatives": {
+        "342": {
+          "fileSize": "51077",
+          "checksum": "016732879756fc974f3481efe375f32f4ec0a6f1b1",
+          "width": "257",
+          "height": "342"
+        },
+        "2049": {
+          "fileSize": "1056429",
+          "checksum": "016a16b720578a88f2482ec5a896746763f9dc63ae",
+          "width": "1537",
+          "height": "2049"
+        }
+      },
+      "contributorLastName": "Seres",
+      "batchDateCreated": "2020-10-20T07:20:00Z",
+      "dateCreated": "2019-10-13T22:48:12Z",
+      "contributorFirstName": "Andrea",
+      "photoGuid": "827C9E61-7DB3-450E-8D17-46CE8056538C",
+      "contributorFullName": "Andrea Seres",
+      "width": "1537",
+      "caption": "",
+      "height": "2049"
+    },
+    {
+      "batchGuid": "11070BD8-A379-405A-B445-DA7D1976CD59",
+      "derivatives": {
+        "342": {
+          "fileSize": "51077",
+          "checksum": "016732879756fc974f3481efe375f32f4ec0a6f1b1",
+          "width": "257",
+          "height": "342"
+        },
+        "2049": {
+          "fileSize": "1056429",
+          "checksum": "016a16b720578a88f2482ec5a896746763f9dc63ae",
+          "width": "1537",
+          "height": "2049"
+        }
+      },
+      "contributorLastName": "Seres",
+      "batchDateCreated": "2020-10-20T07:17:48Z",
+      "dateCreated": "2019-10-13T22:48:12Z",
+      "contributorFirstName": "Andrea",
+      "photoGuid": "216E20CC-6D8D-4F30-B261-2D9080CFA62F",
+      "contributorFullName": "Andrea Seres",
+      "width": "1537",
+      "caption": "",
+      "height": "2049"
+    },
+    {
+      "batchGuid": "11070BD8-A379-405A-B445-DA7D1976CD59",
+      "derivatives": {
+        "342": {
+          "fileSize": "57489",
+          "checksum": "01801a587fb187adeb8188f07595a0217ad53038a4",
+          "width": "257",
+          "height": "342"
+        },
+        "2049": {
+          "fileSize": "1380537",
+          "checksum": "018b232ece4c659687082c84bff80c62083147b034",
+          "width": "1537",
+          "height": "2049"
+        }
+      },
+      "contributorLastName": "Seres",
+      "batchDateCreated": "2020-10-20T07:17:48Z",
+      "dateCreated": "2019-10-13T22:47:04Z",
+      "contributorFirstName": "Andrea",
+      "photoGuid": "1C61006E-4FB3-4AC4-B454-DA4C99F608E5",
+      "contributorFullName": "Andrea Seres",
+      "width": "1537",
+      "caption": "",
+      "height": "2049"
+    },
+    {
+      "batchGuid": "5ADA58B9-F8A5-4DB9-981E-8691D8BE7596",
+      "derivatives": {
+        "342": {
+          "fileSize": "57489",
+          "checksum": "01801a587fb187adeb8188f07595a0217ad53038a4",
+          "width": "257",
+          "height": "342"
+        },
+        "2049": {
+          "fileSize": "1380537",
+          "checksum": "018b232ece4c659687082c84bff80c62083147b034",
+          "width": "1537",
+          "height": "2049"
+        }
+      },
+      "contributorLastName": "Seres",
+      "batchDateCreated": "2020-10-20T07:19:44Z",
+      "dateCreated": "2019-10-13T22:47:04Z",
+      "contributorFirstName": "Andrea",
+      "photoGuid": "A361E528-5CF2-47E8-9380-262C544BC9B9",
+      "contributorFullName": "Andrea Seres",
+      "width": "1537",
+      "caption": "",
+      "height": "2049"
+    },
+    {
+      "batchGuid": "6CF543C2-FBBC-4F50-99E3-2723DBA37412",
+      "derivatives": {
+        "342": {
+          "fileSize": "57489",
+          "checksum": "01801a587fb187adeb8188f07595a0217ad53038a4",
+          "width": "257",
+          "height": "342"
+        },
+        "2049": {
+          "fileSize": "1380537",
+          "checksum": "018b232ece4c659687082c84bff80c62083147b034",
+          "width": "1537",
+          "height": "2049"
+        }
+      },
+      "contributorLastName": "Seres",
+      "batchDateCreated": "2020-10-20T07:20:00Z",
+      "dateCreated": "2019-10-13T22:47:04Z",
+      "contributorFirstName": "Andrea",
+      "photoGuid": "25D01056-09B3-46A2-85E3-24035E59C00F",
+      "contributorFullName": "Andrea Seres",
+      "width": "1537",
+      "caption": "",
+      "height": "2049"
+    },
+    {
+      "batchGuid": "C6D79B96-529D-47A5-A07D-E79ABBA1F901",
+      "derivatives": {
+        "342": {
+          "fileSize": "57489",
+          "checksum": "01801a587fb187adeb8188f07595a0217ad53038a4",
+          "width": "257",
+          "height": "342"
+        },
+        "2049": {
+          "fileSize": "1380537",
+          "checksum": "018b232ece4c659687082c84bff80c62083147b034",
+          "width": "1537",
+          "height": "2049"
+        }
+      },
+      "contributorLastName": "Seres",
+      "batchDateCreated": "2020-10-20T07:19:32Z",
+      "dateCreated": "2019-10-13T22:47:04Z",
+      "contributorFirstName": "Andrea",
+      "photoGuid": "51DE8C61-D13D-4CD4-A278-F7D1700F3857",
+      "contributorFullName": "Andrea Seres",
+      "width": "1537",
+      "caption": "",
+      "height": "2049"
+    },
+    {
+      "batchGuid": "2296E11E-6C81-4417-8910-02489BD78AC4",
+      "derivatives": {
+        "342": {
+          "fileSize": "57489",
+          "checksum": "01801a587fb187adeb8188f07595a0217ad53038a4",
+          "width": "257",
+          "height": "342"
+        },
+        "2049": {
+          "fileSize": "1380537",
+          "checksum": "018b232ece4c659687082c84bff80c62083147b034",
+          "width": "1537",
+          "height": "2049"
+        }
+      },
+      "contributorLastName": "Seres",
+      "batchDateCreated": "2020-10-20T07:20:14Z",
+      "dateCreated": "2019-10-13T22:47:04Z",
+      "contributorFirstName": "Andrea",
+      "photoGuid": "93170286-174F-4D1E-B28E-66FA3531861E",
+      "contributorFullName": "Andrea Seres",
+      "width": "1537",
+      "caption": "",
+      "height": "2049"
+    },
+    {
+      "batchGuid": "11070BD8-A379-405A-B445-DA7D1976CD59",
+      "derivatives": {
+        "342": {
+          "fileSize": "45708",
+          "checksum": "010472d3b31b09bc2b61b3cd67c4642423319c0211",
+          "width": "342",
+          "height": "257"
+        },
+        "2049": {
+          "fileSize": "1170852",
+          "checksum": "01673c739312ef76ceded47d4d92e358897330f770",
+          "width": "2049",
+          "height": "1537"
+        }
+      },
+      "contributorLastName": "Seres",
+      "batchDateCreated": "2020-10-20T07:17:48Z",
+      "dateCreated": "2019-10-12T23:46:23Z",
+      "contributorFirstName": "Andrea",
+      "photoGuid": "3B3EEF2D-29C5-432F-9B0E-163AD73E0B46",
+      "contributorFullName": "Andrea Seres",
+      "width": "2049",
+      "caption": "",
+      "height": "1537"
+    },
+    {
+      "batchGuid": "5ADA58B9-F8A5-4DB9-981E-8691D8BE7596",
+      "derivatives": {
+        "342": {
+          "fileSize": "45708",
+          "checksum": "010472d3b31b09bc2b61b3cd67c4642423319c0211",
+          "width": "342",
+          "height": "257"
+        },
+        "2049": {
+          "fileSize": "1170852",
+          "checksum": "01673c739312ef76ceded47d4d92e358897330f770",
+          "width": "2049",
+          "height": "1537"
+        }
+      },
+      "contributorLastName": "Seres",
+      "batchDateCreated": "2020-10-20T07:19:44Z",
+      "dateCreated": "2019-10-12T23:46:23Z",
+      "contributorFirstName": "Andrea",
+      "photoGuid": "E0302E95-85FB-48E4-892E-28C5FC29C823",
+      "contributorFullName": "Andrea Seres",
+      "width": "2049",
+      "caption": "",
+      "height": "1537"
+    },
+    {
+      "batchGuid": "6CF543C2-FBBC-4F50-99E3-2723DBA37412",
+      "derivatives": {
+        "342": {
+          "fileSize": "45708",
+          "checksum": "010472d3b31b09bc2b61b3cd67c4642423319c0211",
+          "width": "342",
+          "height": "257"
+        },
+        "2049": {
+          "fileSize": "1170852",
+          "checksum": "01673c739312ef76ceded47d4d92e358897330f770",
+          "width": "2049",
+          "height": "1537"
+        }
+      },
+      "contributorLastName": "Seres",
+      "batchDateCreated": "2020-10-20T07:20:00Z",
+      "dateCreated": "2019-10-12T23:46:23Z",
+      "contributorFirstName": "Andrea",
+      "photoGuid": "8CED9827-022B-4F3A-9FB2-B95015CAF992",
+      "contributorFullName": "Andrea Seres",
+      "width": "2049",
+      "caption": "",
+      "height": "1537"
+    },
+    {
+      "batchGuid": "C6D79B96-529D-47A5-A07D-E79ABBA1F901",
+      "derivatives": {
+        "342": {
+          "fileSize": "45708",
+          "checksum": "010472d3b31b09bc2b61b3cd67c4642423319c0211",
+          "width": "342",
+          "height": "257"
+        },
+        "2049": {
+          "fileSize": "1170852",
+          "checksum": "01673c739312ef76ceded47d4d92e358897330f770",
+          "width": "2049",
+          "height": "1537"
+        }
+      },
+      "contributorLastName": "Seres",
+      "batchDateCreated": "2020-10-20T07:19:32Z",
+      "dateCreated": "2019-10-12T23:46:23Z",
+      "contributorFirstName": "Andrea",
+      "photoGuid": "DC5934E9-3DFB-4D25-9CA5-13E02DE3952F",
+      "contributorFullName": "Andrea Seres",
+      "width": "2049",
+      "caption": "",
+      "height": "1537"
+    },
+    {
+      "batchGuid": "2296E11E-6C81-4417-8910-02489BD78AC4",
+      "derivatives": {
+        "342": {
+          "fileSize": "45708",
+          "checksum": "010472d3b31b09bc2b61b3cd67c4642423319c0211",
+          "width": "342",
+          "height": "257"
+        },
+        "2049": {
+          "fileSize": "1170852",
+          "checksum": "01673c739312ef76ceded47d4d92e358897330f770",
+          "width": "2049",
+          "height": "1537"
+        }
+      },
+      "contributorLastName": "Seres",
+      "batchDateCreated": "2020-10-20T07:20:14Z",
+      "dateCreated": "2019-10-12T23:46:23Z",
+      "contributorFirstName": "Andrea",
+      "photoGuid": "1778BAEF-4337-4A14-AEA3-7154BCD6FF58",
+      "contributorFullName": "Andrea Seres",
+      "width": "2049",
+      "caption": "",
+      "height": "1537"
+    },
+    {
+      "batchGuid": "6CF543C2-FBBC-4F50-99E3-2723DBA37412",
+      "derivatives": {
+        "455": {
+          "fileSize": "23800",
+          "checksum": "0193284e3cbab44d978dbe034b3531405f412d6dca",
+          "width": "455",
+          "height": "104"
+        },
+        "5400": {
+          "fileSize": "1514873",
+          "checksum": "01e8629a4dbb7d12dcc686d7c4db15ee0d54709ddd",
+          "width": "5400",
+          "height": "1225"
+        }
+      },
+      "contributorLastName": "Seres",
+      "batchDateCreated": "2020-10-20T07:20:00Z",
+      "dateCreated": "2019-10-12T23:42:02Z",
+      "contributorFirstName": "Andrea",
+      "photoGuid": "44F6FFAB-D95A-4683-BB3F-9DD1C5C63064",
+      "contributorFullName": "Andrea Seres",
+      "width": "5400",
+      "caption": "",
+      "height": "1225"
+    },
+    {
+      "batchGuid": "11070BD8-A379-405A-B445-DA7D1976CD59",
+      "derivatives": {
+        "455": {
+          "fileSize": "23800",
+          "checksum": "0193284e3cbab44d978dbe034b3531405f412d6dca",
+          "width": "455",
+          "height": "104"
+        },
+        "5400": {
+          "fileSize": "1514873",
+          "checksum": "01e8629a4dbb7d12dcc686d7c4db15ee0d54709ddd",
+          "width": "5400",
+          "height": "1225"
+        }
+      },
+      "contributorLastName": "Seres",
+      "batchDateCreated": "2020-10-20T07:17:48Z",
+      "dateCreated": "2019-10-12T23:42:02Z",
+      "contributorFirstName": "Andrea",
+      "photoGuid": "6555E866-9A4E-4390-898D-A8FB8A4BD0DE",
+      "contributorFullName": "Andrea Seres",
+      "width": "5400",
+      "caption": "",
+      "height": "1225"
+    },
+    {
+      "batchGuid": "C6D79B96-529D-47A5-A07D-E79ABBA1F901",
+      "derivatives": {
+        "455": {
+          "fileSize": "23800",
+          "checksum": "0193284e3cbab44d978dbe034b3531405f412d6dca",
+          "width": "455",
+          "height": "104"
+        },
+        "5400": {
+          "fileSize": "1514873",
+          "checksum": "01e8629a4dbb7d12dcc686d7c4db15ee0d54709ddd",
+          "width": "5400",
+          "height": "1225"
+        }
+      },
+      "contributorLastName": "Seres",
+      "batchDateCreated": "2020-10-20T07:19:32Z",
+      "dateCreated": "2019-10-12T23:42:02Z",
+      "contributorFirstName": "Andrea",
+      "photoGuid": "C10AB9C1-7432-47DF-89D4-6604BEFC33F0",
+      "contributorFullName": "Andrea Seres",
+      "width": "5400",
+      "caption": "",
+      "height": "1225"
+    },
+    {
+      "batchGuid": "5ADA58B9-F8A5-4DB9-981E-8691D8BE7596",
+      "derivatives": {
+        "455": {
+          "fileSize": "23800",
+          "checksum": "0193284e3cbab44d978dbe034b3531405f412d6dca",
+          "width": "455",
+          "height": "104"
+        },
+        "5400": {
+          "fileSize": "1514873",
+          "checksum": "01e8629a4dbb7d12dcc686d7c4db15ee0d54709ddd",
+          "width": "5400",
+          "height": "1225"
+        }
+      },
+      "contributorLastName": "Seres",
+      "batchDateCreated": "2020-10-20T07:19:44Z",
+      "dateCreated": "2019-10-12T23:42:02Z",
+      "contributorFirstName": "Andrea",
+      "photoGuid": "B245267E-13A9-42EA-8E87-A0FBBB4182FD",
+      "contributorFullName": "Andrea Seres",
+      "width": "5400",
+      "caption": "",
+      "height": "1225"
+    },
+    {
+      "batchGuid": "2296E11E-6C81-4417-8910-02489BD78AC4",
+      "derivatives": {
+        "455": {
+          "fileSize": "23800",
+          "checksum": "0193284e3cbab44d978dbe034b3531405f412d6dca",
+          "width": "455",
+          "height": "104"
+        },
+        "5400": {
+          "fileSize": "1514873",
+          "checksum": "01e8629a4dbb7d12dcc686d7c4db15ee0d54709ddd",
+          "width": "5400",
+          "height": "1225"
+        }
+      },
+      "contributorLastName": "Seres",
+      "batchDateCreated": "2020-10-20T07:20:14Z",
+      "dateCreated": "2019-10-12T23:42:02Z",
+      "contributorFirstName": "Andrea",
+      "photoGuid": "EBEC7941-79CC-46B6-BD91-929918276C46",
+      "contributorFullName": "Andrea Seres",
+      "width": "5400",
+      "caption": "",
+      "height": "1225"
+    },
+    {
+      "batchGuid": "C6D79B96-529D-47A5-A07D-E79ABBA1F901",
+      "derivatives": {
+        "342": {
+          "fileSize": "46473",
+          "checksum": "01ae7229df0808a1409f4012421af2625f865fe318",
+          "width": "257",
+          "height": "342"
+        },
+        "2049": {
+          "fileSize": "1241143",
+          "checksum": "01e7ec9c52bff616a29e15411068e89618e0ba8b40",
+          "width": "1537",
+          "height": "2049"
+        }
+      },
+      "contributorLastName": "Seres",
+      "batchDateCreated": "2020-10-20T07:19:32Z",
+      "dateCreated": "2019-10-12T23:10:22Z",
+      "contributorFirstName": "Andrea",
+      "photoGuid": "43741338-8453-47D3-AC2C-B3B7C1EA9CC1",
+      "contributorFullName": "Andrea Seres",
+      "width": "1537",
+      "caption": "",
+      "height": "2049"
+    },
+    {
+      "batchGuid": "5ADA58B9-F8A5-4DB9-981E-8691D8BE7596",
+      "derivatives": {
+        "342": {
+          "fileSize": "46473",
+          "checksum": "01ae7229df0808a1409f4012421af2625f865fe318",
+          "width": "257",
+          "height": "342"
+        },
+        "2049": {
+          "fileSize": "1241143",
+          "checksum": "01e7ec9c52bff616a29e15411068e89618e0ba8b40",
+          "width": "1537",
+          "height": "2049"
+        }
+      },
+      "contributorLastName": "Seres",
+      "batchDateCreated": "2020-10-20T07:19:44Z",
+      "dateCreated": "2019-10-12T23:10:22Z",
+      "contributorFirstName": "Andrea",
+      "photoGuid": "D54AE63B-5358-47F7-81F8-B075610CE073",
+      "contributorFullName": "Andrea Seres",
+      "width": "1537",
+      "caption": "",
+      "height": "2049"
+    },
+    {
+      "batchGuid": "6CF543C2-FBBC-4F50-99E3-2723DBA37412",
+      "derivatives": {
+        "342": {
+          "fileSize": "46473",
+          "checksum": "01ae7229df0808a1409f4012421af2625f865fe318",
+          "width": "257",
+          "height": "342"
+        },
+        "2049": {
+          "fileSize": "1241143",
+          "checksum": "01e7ec9c52bff616a29e15411068e89618e0ba8b40",
+          "width": "1537",
+          "height": "2049"
+        }
+      },
+      "contributorLastName": "Seres",
+      "batchDateCreated": "2020-10-20T07:20:00Z",
+      "dateCreated": "2019-10-12T23:10:22Z",
+      "contributorFirstName": "Andrea",
+      "photoGuid": "36C8BD2A-7AF0-4C7B-8CEC-F06127B6E503",
+      "contributorFullName": "Andrea Seres",
+      "width": "1537",
+      "caption": "",
+      "height": "2049"
+    },
+    {
+      "batchGuid": "11070BD8-A379-405A-B445-DA7D1976CD59",
+      "derivatives": {
+        "342": {
+          "fileSize": "46473",
+          "checksum": "01ae7229df0808a1409f4012421af2625f865fe318",
+          "width": "257",
+          "height": "342"
+        },
+        "2049": {
+          "fileSize": "1241143",
+          "checksum": "01e7ec9c52bff616a29e15411068e89618e0ba8b40",
+          "width": "1537",
+          "height": "2049"
+        }
+      },
+      "contributorLastName": "Seres",
+      "batchDateCreated": "2020-10-20T07:17:48Z",
+      "dateCreated": "2019-10-12T23:10:22Z",
+      "contributorFirstName": "Andrea",
+      "photoGuid": "F8109872-9982-4903-9B49-9AC3315A60E5",
+      "contributorFullName": "Andrea Seres",
+      "width": "1537",
+      "caption": "",
+      "height": "2049"
+    },
+    {
+      "batchGuid": "2296E11E-6C81-4417-8910-02489BD78AC4",
+      "derivatives": {
+        "342": {
+          "fileSize": "46473",
+          "checksum": "01ae7229df0808a1409f4012421af2625f865fe318",
+          "width": "257",
+          "height": "342"
+        },
+        "2049": {
+          "fileSize": "1241143",
+          "checksum": "01e7ec9c52bff616a29e15411068e89618e0ba8b40",
+          "width": "1537",
+          "height": "2049"
+        }
+      },
+      "contributorLastName": "Seres",
+      "batchDateCreated": "2020-10-20T07:20:14Z",
+      "dateCreated": "2019-10-12T23:10:22Z",
+      "contributorFirstName": "Andrea",
+      "photoGuid": "BFBC7859-82CC-4FC4-A145-D0DEBAF8769C",
+      "contributorFullName": "Andrea Seres",
+      "width": "1537",
+      "caption": "",
+      "height": "2049"
+    },
+    {
+      "batchGuid": "C6D79B96-529D-47A5-A07D-E79ABBA1F901",
+      "derivatives": {
+        "342": {
+          "fileSize": "42926",
+          "checksum": "01ad4bbe8ea072cfceecbe934527ea29c48974863d",
+          "width": "342",
+          "height": "257"
+        },
+        "2049": {
+          "fileSize": "1032490",
+          "checksum": "01bd2a7ea21a505ba2ae24622ca7bfa422467a5d66",
+          "width": "2049",
+          "height": "1537"
+        }
+      },
+      "contributorLastName": "Seres",
+      "batchDateCreated": "2020-10-20T07:19:32Z",
+      "dateCreated": "2019-10-12T22:46:25Z",
+      "contributorFirstName": "Andrea",
+      "photoGuid": "D9CDFCCB-86AE-48BC-8165-82380702E1EB",
+      "contributorFullName": "Andrea Seres",
+      "width": "2049",
+      "caption": "",
+      "height": "1537"
+    },
+    {
+      "batchGuid": "11070BD8-A379-405A-B445-DA7D1976CD59",
+      "derivatives": {
+        "342": {
+          "fileSize": "42926",
+          "checksum": "01ad4bbe8ea072cfceecbe934527ea29c48974863d",
+          "width": "342",
+          "height": "257"
+        },
+        "2049": {
+          "fileSize": "1032490",
+          "checksum": "01bd2a7ea21a505ba2ae24622ca7bfa422467a5d66",
+          "width": "2049",
+          "height": "1537"
+        }
+      },
+      "contributorLastName": "Seres",
+      "batchDateCreated": "2020-10-20T07:17:48Z",
+      "dateCreated": "2019-10-12T22:46:25Z",
+      "contributorFirstName": "Andrea",
+      "photoGuid": "A311D225-2A9D-42A2-A7DE-98998F15981C",
+      "contributorFullName": "Andrea Seres",
+      "width": "2049",
+      "caption": "",
+      "height": "1537"
+    },
+    {
+      "batchGuid": "5ADA58B9-F8A5-4DB9-981E-8691D8BE7596",
+      "derivatives": {
+        "342": {
+          "fileSize": "42926",
+          "checksum": "01ad4bbe8ea072cfceecbe934527ea29c48974863d",
+          "width": "342",
+          "height": "257"
+        },
+        "2049": {
+          "fileSize": "1032490",
+          "checksum": "01bd2a7ea21a505ba2ae24622ca7bfa422467a5d66",
+          "width": "2049",
+          "height": "1537"
+        }
+      },
+      "contributorLastName": "Seres",
+      "batchDateCreated": "2020-10-20T07:19:44Z",
+      "dateCreated": "2019-10-12T22:46:25Z",
+      "contributorFirstName": "Andrea",
+      "photoGuid": "C672E28B-EEE9-4F1A-AACF-23A0A022A39A",
+      "contributorFullName": "Andrea Seres",
+      "width": "2049",
+      "caption": "",
+      "height": "1537"
+    },
+    {
+      "batchGuid": "6CF543C2-FBBC-4F50-99E3-2723DBA37412",
+      "derivatives": {
+        "342": {
+          "fileSize": "42926",
+          "checksum": "01ad4bbe8ea072cfceecbe934527ea29c48974863d",
+          "width": "342",
+          "height": "257"
+        },
+        "2049": {
+          "fileSize": "1032490",
+          "checksum": "01bd2a7ea21a505ba2ae24622ca7bfa422467a5d66",
+          "width": "2049",
+          "height": "1537"
+        }
+      },
+      "contributorLastName": "Seres",
+      "batchDateCreated": "2020-10-20T07:20:00Z",
+      "dateCreated": "2019-10-12T22:46:25Z",
+      "contributorFirstName": "Andrea",
+      "photoGuid": "44DE032E-D385-4E0C-869B-328A475EB0DE",
+      "contributorFullName": "Andrea Seres",
+      "width": "2049",
+      "caption": "",
+      "height": "1537"
+    },
+    {
+      "batchGuid": "2296E11E-6C81-4417-8910-02489BD78AC4",
+      "derivatives": {
+        "342": {
+          "fileSize": "42926",
+          "checksum": "01ad4bbe8ea072cfceecbe934527ea29c48974863d",
+          "width": "342",
+          "height": "257"
+        },
+        "2049": {
+          "fileSize": "1032490",
+          "checksum": "01bd2a7ea21a505ba2ae24622ca7bfa422467a5d66",
+          "width": "2049",
+          "height": "1537"
+        }
+      },
+      "contributorLastName": "Seres",
+      "batchDateCreated": "2020-10-20T07:20:14Z",
+      "dateCreated": "2019-10-12T22:46:25Z",
+      "contributorFirstName": "Andrea",
+      "photoGuid": "E4D9DC03-9DF9-4B30-8832-7B32B19F19A0",
+      "contributorFullName": "Andrea Seres",
+      "width": "2049",
+      "caption": "",
+      "height": "1537"
+    },
+    {
+      "batchGuid": "11070BD8-A379-405A-B445-DA7D1976CD59",
+      "derivatives": {
+        "456": {
+          "fileSize": "28953",
+          "checksum": "01cecd7e18ef268547550ec557abcf62e957999071",
+          "width": "456",
+          "height": "144"
+        },
+        "4878": {
+          "fileSize": "2444831",
+          "checksum": "0193cc2b05e422b46ba9c5ccf33fc636cb205025ff",
+          "width": "4878",
+          "height": "1537"
+        }
+      },
+      "contributorLastName": "Seres",
+      "batchDateCreated": "2020-10-20T07:17:48Z",
+      "dateCreated": "2019-10-12T01:07:17Z",
+      "contributorFirstName": "Andrea",
+      "photoGuid": "03557587-9AE4-4B85-98E5-1C5E8E167C08",
+      "contributorFullName": "Andrea Seres",
+      "width": "4878",
+      "caption": "",
+      "height": "1537"
+    },
+    {
+      "batchGuid": "5ADA58B9-F8A5-4DB9-981E-8691D8BE7596",
+      "derivatives": {
+        "456": {
+          "fileSize": "28953",
+          "checksum": "01cecd7e18ef268547550ec557abcf62e957999071",
+          "width": "456",
+          "height": "144"
+        },
+        "4878": {
+          "fileSize": "2444831",
+          "checksum": "0193cc2b05e422b46ba9c5ccf33fc636cb205025ff",
+          "width": "4878",
+          "height": "1537"
+        }
+      },
+      "contributorLastName": "Seres",
+      "batchDateCreated": "2020-10-20T07:19:44Z",
+      "dateCreated": "2019-10-12T01:07:17Z",
+      "contributorFirstName": "Andrea",
+      "photoGuid": "C55B62C2-41B0-451A-8A36-CEA7EDF8A30F",
+      "contributorFullName": "Andrea Seres",
+      "width": "4878",
+      "caption": "",
+      "height": "1537"
+    },
+    {
+      "batchGuid": "C6D79B96-529D-47A5-A07D-E79ABBA1F901",
+      "derivatives": {
+        "456": {
+          "fileSize": "28953",
+          "checksum": "01cecd7e18ef268547550ec557abcf62e957999071",
+          "width": "456",
+          "height": "144"
+        },
+        "4878": {
+          "fileSize": "2444831",
+          "checksum": "0193cc2b05e422b46ba9c5ccf33fc636cb205025ff",
+          "width": "4878",
+          "height": "1537"
+        }
+      },
+      "contributorLastName": "Seres",
+      "batchDateCreated": "2020-10-20T07:19:32Z",
+      "dateCreated": "2019-10-12T01:07:17Z",
+      "contributorFirstName": "Andrea",
+      "photoGuid": "3F238C7B-452F-492D-A525-A7CFF37366FB",
+      "contributorFullName": "Andrea Seres",
+      "width": "4878",
+      "caption": "",
+      "height": "1537"
+    },
+    {
+      "batchGuid": "2296E11E-6C81-4417-8910-02489BD78AC4",
+      "derivatives": {
+        "456": {
+          "fileSize": "28953",
+          "checksum": "01cecd7e18ef268547550ec557abcf62e957999071",
+          "width": "456",
+          "height": "144"
+        },
+        "4878": {
+          "fileSize": "2444831",
+          "checksum": "0193cc2b05e422b46ba9c5ccf33fc636cb205025ff",
+          "width": "4878",
+          "height": "1537"
+        }
+      },
+      "contributorLastName": "Seres",
+      "batchDateCreated": "2020-10-20T07:20:14Z",
+      "dateCreated": "2019-10-12T01:07:17Z",
+      "contributorFirstName": "Andrea",
+      "photoGuid": "B0DAB95B-1666-4DBC-A6BB-74F7071ED0A7",
+      "contributorFullName": "Andrea Seres",
+      "width": "4878",
+      "caption": "",
+      "height": "1537"
+    },
+    {
+      "batchGuid": "6CF543C2-FBBC-4F50-99E3-2723DBA37412",
+      "derivatives": {
+        "456": {
+          "fileSize": "28953",
+          "checksum": "01cecd7e18ef268547550ec557abcf62e957999071",
+          "width": "456",
+          "height": "144"
+        },
+        "4878": {
+          "fileSize": "2444831",
+          "checksum": "0193cc2b05e422b46ba9c5ccf33fc636cb205025ff",
+          "width": "4878",
+          "height": "1537"
+        }
+      },
+      "contributorLastName": "Seres",
+      "batchDateCreated": "2020-10-20T07:20:00Z",
+      "dateCreated": "2019-10-12T01:07:17Z",
+      "contributorFirstName": "Andrea",
+      "photoGuid": "AC657A7B-6A6A-4C25-B8FB-15E0C76DCFA7",
+      "contributorFullName": "Andrea Seres",
+      "width": "4878",
+      "caption": "",
+      "height": "1537"
+    },
+    {
+      "batchGuid": "5ADA58B9-F8A5-4DB9-981E-8691D8BE7596",
+      "derivatives": {
+        "342": {
+          "fileSize": "60397",
+          "checksum": "015a7eac0ec9b12f438d90456831febe5853736c5c",
+          "width": "257",
+          "height": "342"
+        },
+        "2049": {
+          "fileSize": "1786724",
+          "checksum": "0189a97b2ff741924961f5fb1753b4891609923a05",
+          "width": "1537",
+          "height": "2049"
+        }
+      },
+      "contributorLastName": "Seres",
+      "batchDateCreated": "2020-10-20T07:19:44Z",
+      "dateCreated": "2019-07-10T01:14:56Z",
+      "contributorFirstName": "Andrea",
+      "photoGuid": "985AB1C7-C1F9-4109-8D3F-144C798CD8B8",
+      "contributorFullName": "Andrea Seres",
+      "width": "1537",
+      "caption": "",
+      "height": "2049"
+    },
+    {
+      "batchGuid": "C6D79B96-529D-47A5-A07D-E79ABBA1F901",
+      "derivatives": {
+        "342": {
+          "fileSize": "60397",
+          "checksum": "015a7eac0ec9b12f438d90456831febe5853736c5c",
+          "width": "257",
+          "height": "342"
+        },
+        "2049": {
+          "fileSize": "1786724",
+          "checksum": "0189a97b2ff741924961f5fb1753b4891609923a05",
+          "width": "1537",
+          "height": "2049"
+        }
+      },
+      "contributorLastName": "Seres",
+      "batchDateCreated": "2020-10-20T07:19:32Z",
+      "dateCreated": "2019-07-10T01:14:56Z",
+      "contributorFirstName": "Andrea",
+      "photoGuid": "56F7A0E0-CD39-4155-8D49-73C370DB67C7",
+      "contributorFullName": "Andrea Seres",
+      "width": "1537",
+      "caption": "",
+      "height": "2049"
+    },
+    {
+      "batchGuid": "11070BD8-A379-405A-B445-DA7D1976CD59",
+      "derivatives": {
+        "342": {
+          "fileSize": "60397",
+          "checksum": "015a7eac0ec9b12f438d90456831febe5853736c5c",
+          "width": "257",
+          "height": "342"
+        },
+        "2049": {
+          "fileSize": "1786724",
+          "checksum": "0189a97b2ff741924961f5fb1753b4891609923a05",
+          "width": "1537",
+          "height": "2049"
+        }
+      },
+      "contributorLastName": "Seres",
+      "batchDateCreated": "2020-10-20T07:17:48Z",
+      "dateCreated": "2019-07-10T01:14:56Z",
+      "contributorFirstName": "Andrea",
+      "photoGuid": "3D34C499-B035-4281-9516-FBACFD39DA13",
+      "contributorFullName": "Andrea Seres",
+      "width": "1537",
+      "caption": "",
+      "height": "2049"
+    },
+    {
+      "batchGuid": "6CF543C2-FBBC-4F50-99E3-2723DBA37412",
+      "derivatives": {
+        "342": {
+          "fileSize": "60397",
+          "checksum": "015a7eac0ec9b12f438d90456831febe5853736c5c",
+          "width": "257",
+          "height": "342"
+        },
+        "2049": {
+          "fileSize": "1786724",
+          "checksum": "0189a97b2ff741924961f5fb1753b4891609923a05",
+          "width": "1537",
+          "height": "2049"
+        }
+      },
+      "contributorLastName": "Seres",
+      "batchDateCreated": "2020-10-20T07:20:00Z",
+      "dateCreated": "2019-07-10T01:14:56Z",
+      "contributorFirstName": "Andrea",
+      "photoGuid": "F9EE32B5-A765-439A-9D21-8CB74483FD46",
+      "contributorFullName": "Andrea Seres",
+      "width": "1537",
+      "caption": "",
+      "height": "2049"
+    },
+    {
+      "batchGuid": "2296E11E-6C81-4417-8910-02489BD78AC4",
+      "derivatives": {
+        "342": {
+          "fileSize": "60397",
+          "checksum": "015a7eac0ec9b12f438d90456831febe5853736c5c",
+          "width": "257",
+          "height": "342"
+        },
+        "2049": {
+          "fileSize": "1786724",
+          "checksum": "0189a97b2ff741924961f5fb1753b4891609923a05",
+          "width": "1537",
+          "height": "2049"
+        }
+      },
+      "contributorLastName": "Seres",
+      "batchDateCreated": "2020-10-20T07:20:14Z",
+      "dateCreated": "2019-07-10T01:14:56Z",
+      "contributorFirstName": "Andrea",
+      "photoGuid": "051151C3-B46A-499E-9EB3-23C17D75AA8A",
+      "contributorFullName": "Andrea Seres",
+      "width": "1537",
+      "caption": "",
+      "height": "2049"
+    },
+    {
+      "batchGuid": "5ADA58B9-F8A5-4DB9-981E-8691D8BE7596",
+      "derivatives": {
+        "342": {
+          "fileSize": "52663",
+          "checksum": "01fdfb6435c68bff703db8c4c468e14bbae22f691c",
+          "width": "342",
+          "height": "257"
+        },
+        "2049": {
+          "fileSize": "1581818",
+          "checksum": "015c9e6eb9e0c9ea82f92f46f9eec45f7f0182b520",
+          "width": "2049",
+          "height": "1537"
+        }
+      },
+      "contributorLastName": "Seres",
+      "batchDateCreated": "2020-10-20T07:19:44Z",
+      "dateCreated": "2019-07-09T00:26:01Z",
+      "contributorFirstName": "Andrea",
+      "photoGuid": "1EF80855-AFC6-4801-A3EF-3340C38E6886",
+      "contributorFullName": "Andrea Seres",
+      "width": "2049",
+      "caption": "",
+      "height": "1537"
+    },
+    {
+      "batchGuid": "11070BD8-A379-405A-B445-DA7D1976CD59",
+      "derivatives": {
+        "342": {
+          "fileSize": "52663",
+          "checksum": "01fdfb6435c68bff703db8c4c468e14bbae22f691c",
+          "width": "342",
+          "height": "257"
+        },
+        "2049": {
+          "fileSize": "1581818",
+          "checksum": "015c9e6eb9e0c9ea82f92f46f9eec45f7f0182b520",
+          "width": "2049",
+          "height": "1537"
+        }
+      },
+      "contributorLastName": "Seres",
+      "batchDateCreated": "2020-10-20T07:17:48Z",
+      "dateCreated": "2019-07-09T00:26:01Z",
+      "contributorFirstName": "Andrea",
+      "photoGuid": "B91CE060-CDDD-47FC-8481-5E4389CB956F",
+      "contributorFullName": "Andrea Seres",
+      "width": "2049",
+      "caption": "",
+      "height": "1537"
+    },
+    {
+      "batchGuid": "C6D79B96-529D-47A5-A07D-E79ABBA1F901",
+      "derivatives": {
+        "342": {
+          "fileSize": "52663",
+          "checksum": "01fdfb6435c68bff703db8c4c468e14bbae22f691c",
+          "width": "342",
+          "height": "257"
+        },
+        "2049": {
+          "fileSize": "1581818",
+          "checksum": "015c9e6eb9e0c9ea82f92f46f9eec45f7f0182b520",
+          "width": "2049",
+          "height": "1537"
+        }
+      },
+      "contributorLastName": "Seres",
+      "batchDateCreated": "2020-10-20T07:19:32Z",
+      "dateCreated": "2019-07-09T00:26:01Z",
+      "contributorFirstName": "Andrea",
+      "photoGuid": "239914E4-7976-44A4-A746-08B74A23CA65",
+      "contributorFullName": "Andrea Seres",
+      "width": "2049",
+      "caption": "",
+      "height": "1537"
+    },
+    {
+      "batchGuid": "2296E11E-6C81-4417-8910-02489BD78AC4",
+      "derivatives": {
+        "342": {
+          "fileSize": "52663",
+          "checksum": "01fdfb6435c68bff703db8c4c468e14bbae22f691c",
+          "width": "342",
+          "height": "257"
+        },
+        "2049": {
+          "fileSize": "1581818",
+          "checksum": "015c9e6eb9e0c9ea82f92f46f9eec45f7f0182b520",
+          "width": "2049",
+          "height": "1537"
+        }
+      },
+      "contributorLastName": "Seres",
+      "batchDateCreated": "2020-10-20T07:20:14Z",
+      "dateCreated": "2019-07-09T00:26:01Z",
+      "contributorFirstName": "Andrea",
+      "photoGuid": "59782A09-7424-4495-9978-4B5AB660B238",
+      "contributorFullName": "Andrea Seres",
+      "width": "2049",
+      "caption": "",
+      "height": "1537"
+    },
+    {
+      "batchGuid": "6CF543C2-FBBC-4F50-99E3-2723DBA37412",
+      "derivatives": {
+        "342": {
+          "fileSize": "52663",
+          "checksum": "01fdfb6435c68bff703db8c4c468e14bbae22f691c",
+          "width": "342",
+          "height": "257"
+        },
+        "2049": {
+          "fileSize": "1581818",
+          "checksum": "015c9e6eb9e0c9ea82f92f46f9eec45f7f0182b520",
+          "width": "2049",
+          "height": "1537"
+        }
+      },
+      "contributorLastName": "Seres",
+      "batchDateCreated": "2020-10-20T07:20:00Z",
+      "dateCreated": "2019-07-09T00:26:01Z",
+      "contributorFirstName": "Andrea",
+      "photoGuid": "F89CB2BE-9B59-4AA7-AA8C-D0B87BEC0551",
+      "contributorFullName": "Andrea Seres",
+      "width": "2049",
+      "caption": "",
+      "height": "1537"
+    },
+    {
+      "batchGuid": "6CF543C2-FBBC-4F50-99E3-2723DBA37412",
+      "derivatives": {
+        "342": {
+          "fileSize": "32713",
+          "checksum": "012274c50c0aaa5e629aa41f36106f6116dfddb345",
+          "width": "342",
+          "height": "257"
+        },
+        "2049": {
+          "fileSize": "726106",
+          "checksum": "014d8c3da6eda4196441a1348329756f815918a43c",
+          "width": "2049",
+          "height": "1537"
+        }
+      },
+      "contributorLastName": "Seres",
+      "batchDateCreated": "2020-10-20T07:20:00Z",
+      "dateCreated": "2019-01-21T06:19:25Z",
+      "contributorFirstName": "Andrea",
+      "photoGuid": "0E80503F-9466-46D6-959C-C7D6EB6A1E2B",
+      "contributorFullName": "Andrea Seres",
+      "width": "2049",
+      "caption": "",
+      "height": "1537"
+    },
+    {
+      "batchGuid": "2296E11E-6C81-4417-8910-02489BD78AC4",
+      "derivatives": {
+        "342": {
+          "fileSize": "32713",
+          "checksum": "012274c50c0aaa5e629aa41f36106f6116dfddb345",
+          "width": "342",
+          "height": "257"
+        },
+        "2049": {
+          "fileSize": "726106",
+          "checksum": "014d8c3da6eda4196441a1348329756f815918a43c",
+          "width": "2049",
+          "height": "1537"
+        }
+      },
+      "contributorLastName": "Seres",
+      "batchDateCreated": "2020-10-20T07:20:14Z",
+      "dateCreated": "2019-01-21T06:19:25Z",
+      "contributorFirstName": "Andrea",
+      "photoGuid": "CD5E2D11-5166-4353-878C-6968A299607A",
+      "contributorFullName": "Andrea Seres",
+      "width": "2049",
+      "caption": "",
+      "height": "1537"
+    },
+    {
+      "batchGuid": "11070BD8-A379-405A-B445-DA7D1976CD59",
+      "derivatives": {
+        "342": {
+          "fileSize": "32713",
+          "checksum": "012274c50c0aaa5e629aa41f36106f6116dfddb345",
+          "width": "342",
+          "height": "257"
+        },
+        "2049": {
+          "fileSize": "726106",
+          "checksum": "014d8c3da6eda4196441a1348329756f815918a43c",
+          "width": "2049",
+          "height": "1537"
+        }
+      },
+      "contributorLastName": "Seres",
+      "batchDateCreated": "2020-10-20T07:17:48Z",
+      "dateCreated": "2019-01-21T06:19:25Z",
+      "contributorFirstName": "Andrea",
+      "photoGuid": "EF65BAB2-BA1D-419F-A77D-56646A0F27ED",
+      "contributorFullName": "Andrea Seres",
+      "width": "2049",
+      "caption": "",
+      "height": "1537"
+    },
+    {
+      "batchGuid": "5ADA58B9-F8A5-4DB9-981E-8691D8BE7596",
+      "derivatives": {
+        "342": {
+          "fileSize": "32713",
+          "checksum": "012274c50c0aaa5e629aa41f36106f6116dfddb345",
+          "width": "342",
+          "height": "257"
+        },
+        "2049": {
+          "fileSize": "726106",
+          "checksum": "014d8c3da6eda4196441a1348329756f815918a43c",
+          "width": "2049",
+          "height": "1537"
+        }
+      },
+      "contributorLastName": "Seres",
+      "batchDateCreated": "2020-10-20T07:19:44Z",
+      "dateCreated": "2019-01-21T06:19:25Z",
+      "contributorFirstName": "Andrea",
+      "photoGuid": "BE498EB4-EE19-4A11-AFD1-B707D67CCD8E",
+      "contributorFullName": "Andrea Seres",
+      "width": "2049",
+      "caption": "",
+      "height": "1537"
+    },
+    {
+      "batchGuid": "C6D79B96-529D-47A5-A07D-E79ABBA1F901",
+      "derivatives": {
+        "342": {
+          "fileSize": "32713",
+          "checksum": "012274c50c0aaa5e629aa41f36106f6116dfddb345",
+          "width": "342",
+          "height": "257"
+        },
+        "2049": {
+          "fileSize": "726106",
+          "checksum": "014d8c3da6eda4196441a1348329756f815918a43c",
+          "width": "2049",
+          "height": "1537"
+        }
+      },
+      "contributorLastName": "Seres",
+      "batchDateCreated": "2020-10-20T07:19:32Z",
+      "dateCreated": "2019-01-21T06:19:25Z",
+      "contributorFirstName": "Andrea",
+      "photoGuid": "F5FB7685-08F0-4AEF-BD9C-888C9A7F239A",
+      "contributorFullName": "Andrea Seres",
+      "width": "2049",
+      "caption": "",
+      "height": "1537"
+    },
+    {
+      "batchGuid": "5ADA58B9-F8A5-4DB9-981E-8691D8BE7596",
+      "derivatives": {
+        "342": {
+          "fileSize": "38653",
+          "checksum": "01fecee614610bbe4ee202767b30a2274062946d34",
+          "width": "342",
+          "height": "257"
+        },
+        "2049": {
+          "fileSize": "1069606",
+          "checksum": "01484a7b34cae8a1858edc3a73bbad0deb79685ef5",
+          "width": "2049",
+          "height": "1537"
+        }
+      },
+      "contributorLastName": "Seres",
+      "batchDateCreated": "2020-10-20T07:19:44Z",
+      "dateCreated": "2019-01-19T00:18:02Z",
+      "contributorFirstName": "Andrea",
+      "photoGuid": "69BEB335-E842-443B-8DCB-FB654050CB16",
+      "contributorFullName": "Andrea Seres",
+      "width": "2049",
+      "caption": "",
+      "height": "1537"
+    },
+    {
+      "batchGuid": "11070BD8-A379-405A-B445-DA7D1976CD59",
+      "derivatives": {
+        "342": {
+          "fileSize": "38653",
+          "checksum": "01fecee614610bbe4ee202767b30a2274062946d34",
+          "width": "342",
+          "height": "257"
+        },
+        "2049": {
+          "fileSize": "1069606",
+          "checksum": "01484a7b34cae8a1858edc3a73bbad0deb79685ef5",
+          "width": "2049",
+          "height": "1537"
+        }
+      },
+      "contributorLastName": "Seres",
+      "batchDateCreated": "2020-10-20T07:17:48Z",
+      "dateCreated": "2019-01-19T00:18:02Z",
+      "contributorFirstName": "Andrea",
+      "photoGuid": "A4C65F41-DC30-4409-A13C-0AC5235087B1",
+      "contributorFullName": "Andrea Seres",
+      "width": "2049",
+      "caption": "",
+      "height": "1537"
+    },
+    {
+      "batchGuid": "C6D79B96-529D-47A5-A07D-E79ABBA1F901",
+      "derivatives": {
+        "342": {
+          "fileSize": "38653",
+          "checksum": "01fecee614610bbe4ee202767b30a2274062946d34",
+          "width": "342",
+          "height": "257"
+        },
+        "2049": {
+          "fileSize": "1069606",
+          "checksum": "01484a7b34cae8a1858edc3a73bbad0deb79685ef5",
+          "width": "2049",
+          "height": "1537"
+        }
+      },
+      "contributorLastName": "Seres",
+      "batchDateCreated": "2020-10-20T07:19:32Z",
+      "dateCreated": "2019-01-19T00:18:02Z",
+      "contributorFirstName": "Andrea",
+      "photoGuid": "A497C340-F1A0-47D4-B60B-E468AB33E9EE",
+      "contributorFullName": "Andrea Seres",
+      "width": "2049",
+      "caption": "",
+      "height": "1537"
+    },
+    {
+      "batchGuid": "6CF543C2-FBBC-4F50-99E3-2723DBA37412",
+      "derivatives": {
+        "342": {
+          "fileSize": "38653",
+          "checksum": "01fecee614610bbe4ee202767b30a2274062946d34",
+          "width": "342",
+          "height": "257"
+        },
+        "2049": {
+          "fileSize": "1069606",
+          "checksum": "01484a7b34cae8a1858edc3a73bbad0deb79685ef5",
+          "width": "2049",
+          "height": "1537"
+        }
+      },
+      "contributorLastName": "Seres",
+      "batchDateCreated": "2020-10-20T07:20:00Z",
+      "dateCreated": "2019-01-19T00:18:02Z",
+      "contributorFirstName": "Andrea",
+      "photoGuid": "FA366CF7-8862-470A-95DC-13B99B7307F6",
+      "contributorFullName": "Andrea Seres",
+      "width": "2049",
+      "caption": "",
+      "height": "1537"
+    },
+    {
+      "batchGuid": "2296E11E-6C81-4417-8910-02489BD78AC4",
+      "derivatives": {
+        "342": {
+          "fileSize": "38653",
+          "checksum": "01fecee614610bbe4ee202767b30a2274062946d34",
+          "width": "342",
+          "height": "257"
+        },
+        "2049": {
+          "fileSize": "1069606",
+          "checksum": "01484a7b34cae8a1858edc3a73bbad0deb79685ef5",
+          "width": "2049",
+          "height": "1537"
+        }
+      },
+      "contributorLastName": "Seres",
+      "batchDateCreated": "2020-10-20T07:20:14Z",
+      "dateCreated": "2019-01-19T00:18:02Z",
+      "contributorFirstName": "Andrea",
+      "photoGuid": "DD9AE253-B628-44AB-985D-A8275B537EAA",
+      "contributorFullName": "Andrea Seres",
+      "width": "2049",
+      "caption": "",
+      "height": "1537"
+    },
+    {
+      "batchGuid": "1CFBBEA0-26DD-4DE3-9393-F074762D68C3",
+      "derivatives": {
+        "342": {
+          "fileSize": "38653",
+          "checksum": "01fecee614610bbe4ee202767b30a2274062946d34",
+          "width": "342",
+          "height": "257"
+        },
+        "2049": {
+          "fileSize": "1069606",
+          "checksum": "01484a7b34cae8a1858edc3a73bbad0deb79685ef5",
+          "width": "2049",
+          "height": "1537"
+        }
+      },
+      "contributorLastName": "Seres",
+      "batchDateCreated": "2020-10-20T01:59:52Z",
+      "dateCreated": "2019-01-19T00:18:02Z",
+      "contributorFirstName": "Andrea",
+      "photoGuid": "DC2C8D3D-5D11-4B43-AAF3-96B551D31E07",
+      "contributorFullName": "Andrea Seres",
+      "width": "2049",
+      "caption": "",
+      "height": "1537"
+    },
+    {
+      "batchGuid": "C6D79B96-529D-47A5-A07D-E79ABBA1F901",
+      "derivatives": {
+        "342": {
+          "fileSize": "40055",
+          "checksum": "013d4c83b1d5405428d6ca863ceee88804e805cff6",
+          "width": "342",
+          "height": "257"
+        },
+        "2049": {
+          "fileSize": "1159597",
+          "checksum": "01512fe64a99c4a5f5e2681a554ea46636409546cd",
+          "width": "2049",
+          "height": "1537"
+        }
+      },
+      "contributorLastName": "Seres",
+      "batchDateCreated": "2020-10-20T07:19:32Z",
+      "dateCreated": "2019-01-19T00:16:20Z",
+      "contributorFirstName": "Andrea",
+      "photoGuid": "91CAF5EE-011D-4E66-8E60-50D20B27BC14",
+      "contributorFullName": "Andrea Seres",
+      "width": "2049",
+      "caption": "",
+      "height": "1537"
+    },
+    {
+      "batchGuid": "1CFBBEA0-26DD-4DE3-9393-F074762D68C3",
+      "derivatives": {
+        "342": {
+          "fileSize": "40055",
+          "checksum": "013d4c83b1d5405428d6ca863ceee88804e805cff6",
+          "width": "342",
+          "height": "257"
+        },
+        "2049": {
+          "fileSize": "1159597",
+          "checksum": "01512fe64a99c4a5f5e2681a554ea46636409546cd",
+          "width": "2049",
+          "height": "1537"
+        }
+      },
+      "contributorLastName": "Seres",
+      "batchDateCreated": "2020-10-20T01:59:52Z",
+      "dateCreated": "2019-01-19T00:16:20Z",
+      "contributorFirstName": "Andrea",
+      "photoGuid": "1890BFE9-7BE8-4F28-8C42-C9D751B1A0A0",
+      "contributorFullName": "Andrea Seres",
+      "width": "2049",
+      "caption": "",
+      "height": "1537"
+    },
+    {
+      "batchGuid": "6CF543C2-FBBC-4F50-99E3-2723DBA37412",
+      "derivatives": {
+        "342": {
+          "fileSize": "40055",
+          "checksum": "013d4c83b1d5405428d6ca863ceee88804e805cff6",
+          "width": "342",
+          "height": "257"
+        },
+        "2049": {
+          "fileSize": "1159597",
+          "checksum": "01512fe64a99c4a5f5e2681a554ea46636409546cd",
+          "width": "2049",
+          "height": "1537"
+        }
+      },
+      "contributorLastName": "Seres",
+      "batchDateCreated": "2020-10-20T07:20:00Z",
+      "dateCreated": "2019-01-19T00:16:20Z",
+      "contributorFirstName": "Andrea",
+      "photoGuid": "FBA51D17-A01A-4861-89AC-4A6FC8BE9F26",
+      "contributorFullName": "Andrea Seres",
+      "width": "2049",
+      "caption": "",
+      "height": "1537"
+    },
+    {
+      "batchGuid": "2296E11E-6C81-4417-8910-02489BD78AC4",
+      "derivatives": {
+        "342": {
+          "fileSize": "40055",
+          "checksum": "013d4c83b1d5405428d6ca863ceee88804e805cff6",
+          "width": "342",
+          "height": "257"
+        },
+        "2049": {
+          "fileSize": "1159597",
+          "checksum": "01512fe64a99c4a5f5e2681a554ea46636409546cd",
+          "width": "2049",
+          "height": "1537"
+        }
+      },
+      "contributorLastName": "Seres",
+      "batchDateCreated": "2020-10-20T07:20:14Z",
+      "dateCreated": "2019-01-19T00:16:20Z",
+      "contributorFirstName": "Andrea",
+      "photoGuid": "098BEBD5-06F2-4F75-8C62-66F629832584",
+      "contributorFullName": "Andrea Seres",
+      "width": "2049",
+      "caption": "",
+      "height": "1537"
+    },
+    {
+      "batchGuid": "11070BD8-A379-405A-B445-DA7D1976CD59",
+      "derivatives": {
+        "342": {
+          "fileSize": "40055",
+          "checksum": "013d4c83b1d5405428d6ca863ceee88804e805cff6",
+          "width": "342",
+          "height": "257"
+        },
+        "2049": {
+          "fileSize": "1159597",
+          "checksum": "01512fe64a99c4a5f5e2681a554ea46636409546cd",
+          "width": "2049",
+          "height": "1537"
+        }
+      },
+      "contributorLastName": "Seres",
+      "batchDateCreated": "2020-10-20T07:17:48Z",
+      "dateCreated": "2019-01-19T00:16:20Z",
+      "contributorFirstName": "Andrea",
+      "photoGuid": "35E05B43-8311-4681-BC50-4317B800D599",
+      "contributorFullName": "Andrea Seres",
+      "width": "2049",
+      "caption": "",
+      "height": "1537"
+    },
+    {
+      "batchGuid": "5ADA58B9-F8A5-4DB9-981E-8691D8BE7596",
+      "derivatives": {
+        "342": {
+          "fileSize": "40055",
+          "checksum": "013d4c83b1d5405428d6ca863ceee88804e805cff6",
+          "width": "342",
+          "height": "257"
+        },
+        "2049": {
+          "fileSize": "1159597",
+          "checksum": "01512fe64a99c4a5f5e2681a554ea46636409546cd",
+          "width": "2049",
+          "height": "1537"
+        }
+      },
+      "contributorLastName": "Seres",
+      "batchDateCreated": "2020-10-20T07:19:44Z",
+      "dateCreated": "2019-01-19T00:16:20Z",
+      "contributorFirstName": "Andrea",
+      "photoGuid": "7D4BD13D-1401-45B5-B934-8A8E99933D64",
+      "contributorFullName": "Andrea Seres",
+      "width": "2049",
+      "caption": "",
+      "height": "1537"
+    },
+    {
+      "batchGuid": "6CF543C2-FBBC-4F50-99E3-2723DBA37412",
+      "derivatives": {
+        "342": {
+          "fileSize": "32424",
+          "checksum": "019e5b6ae90df0b2762b8d126d8773164205fd3c8a",
+          "width": "342",
+          "height": "257"
+        },
+        "2049": {
+          "fileSize": "996270",
+          "checksum": "0142f3a1d8e9404407731b7983e17893d1ad72e542",
+          "width": "2049",
+          "height": "1537"
+        }
+      },
+      "contributorLastName": "Seres",
+      "batchDateCreated": "2020-10-20T07:20:00Z",
+      "dateCreated": "2019-01-19T00:12:13Z",
+      "contributorFirstName": "Andrea",
+      "photoGuid": "67E5D7CB-84FC-4E40-991B-A5F919719852",
+      "contributorFullName": "Andrea Seres",
+      "width": "2049",
+      "caption": "",
+      "height": "1537"
+    },
+    {
+      "batchGuid": "2296E11E-6C81-4417-8910-02489BD78AC4",
+      "derivatives": {
+        "342": {
+          "fileSize": "32424",
+          "checksum": "019e5b6ae90df0b2762b8d126d8773164205fd3c8a",
+          "width": "342",
+          "height": "257"
+        },
+        "2049": {
+          "fileSize": "996270",
+          "checksum": "0142f3a1d8e9404407731b7983e17893d1ad72e542",
+          "width": "2049",
+          "height": "1537"
+        }
+      },
+      "contributorLastName": "Seres",
+      "batchDateCreated": "2020-10-20T07:20:14Z",
+      "dateCreated": "2019-01-19T00:12:13Z",
+      "contributorFirstName": "Andrea",
+      "photoGuid": "506A9E2C-68B1-49D4-892E-E5B661A925E0",
+      "contributorFullName": "Andrea Seres",
+      "width": "2049",
+      "caption": "",
+      "height": "1537"
+    },
+    {
+      "batchGuid": "1CFBBEA0-26DD-4DE3-9393-F074762D68C3",
+      "derivatives": {
+        "342": {
+          "fileSize": "32424",
+          "checksum": "019e5b6ae90df0b2762b8d126d8773164205fd3c8a",
+          "width": "342",
+          "height": "257"
+        },
+        "2049": {
+          "fileSize": "996270",
+          "checksum": "0142f3a1d8e9404407731b7983e17893d1ad72e542",
+          "width": "2049",
+          "height": "1537"
+        }
+      },
+      "contributorLastName": "Seres",
+      "batchDateCreated": "2020-10-20T01:59:52Z",
+      "dateCreated": "2019-01-19T00:12:13Z",
+      "contributorFirstName": "Andrea",
+      "photoGuid": "BA6AD519-4ECC-4C6E-AF75-1562985B4407",
+      "contributorFullName": "Andrea Seres",
+      "width": "2049",
+      "caption": "",
+      "height": "1537"
+    },
+    {
+      "batchGuid": "C6D79B96-529D-47A5-A07D-E79ABBA1F901",
+      "derivatives": {
+        "342": {
+          "fileSize": "32424",
+          "checksum": "019e5b6ae90df0b2762b8d126d8773164205fd3c8a",
+          "width": "342",
+          "height": "257"
+        },
+        "2049": {
+          "fileSize": "996270",
+          "checksum": "0142f3a1d8e9404407731b7983e17893d1ad72e542",
+          "width": "2049",
+          "height": "1537"
+        }
+      },
+      "contributorLastName": "Seres",
+      "batchDateCreated": "2020-10-20T07:19:32Z",
+      "dateCreated": "2019-01-19T00:12:13Z",
+      "contributorFirstName": "Andrea",
+      "photoGuid": "2D2282ED-5F20-4295-8F71-44CBBA7CF249",
+      "contributorFullName": "Andrea Seres",
+      "width": "2049",
+      "caption": "",
+      "height": "1537"
+    },
+    {
+      "batchGuid": "5ADA58B9-F8A5-4DB9-981E-8691D8BE7596",
+      "derivatives": {
+        "342": {
+          "fileSize": "32424",
+          "checksum": "019e5b6ae90df0b2762b8d126d8773164205fd3c8a",
+          "width": "342",
+          "height": "257"
+        },
+        "2049": {
+          "fileSize": "996270",
+          "checksum": "0142f3a1d8e9404407731b7983e17893d1ad72e542",
+          "width": "2049",
+          "height": "1537"
+        }
+      },
+      "contributorLastName": "Seres",
+      "batchDateCreated": "2020-10-20T07:19:44Z",
+      "dateCreated": "2019-01-19T00:12:13Z",
+      "contributorFirstName": "Andrea",
+      "photoGuid": "8931197F-F80C-48D9-AA9C-C602326BB623",
+      "contributorFullName": "Andrea Seres",
+      "width": "2049",
+      "caption": "",
+      "height": "1537"
+    },
+    {
+      "batchGuid": "11070BD8-A379-405A-B445-DA7D1976CD59",
+      "derivatives": {
+        "342": {
+          "fileSize": "32424",
+          "checksum": "019e5b6ae90df0b2762b8d126d8773164205fd3c8a",
+          "width": "342",
+          "height": "257"
+        },
+        "2049": {
+          "fileSize": "996270",
+          "checksum": "0142f3a1d8e9404407731b7983e17893d1ad72e542",
+          "width": "2049",
+          "height": "1537"
+        }
+      },
+      "contributorLastName": "Seres",
+      "batchDateCreated": "2020-10-20T07:17:48Z",
+      "dateCreated": "2019-01-19T00:12:13Z",
+      "contributorFirstName": "Andrea",
+      "photoGuid": "60FA0EF8-990B-48AA-BD54-AE16D5B50A9E",
+      "contributorFullName": "Andrea Seres",
+      "width": "2049",
+      "caption": "",
+      "height": "1537"
+    },
+    {
+      "batchGuid": "2296E11E-6C81-4417-8910-02489BD78AC4",
+      "derivatives": {
+        "342": {
+          "fileSize": "36134",
+          "checksum": "017d71e5ab111df27fa37fa9eb92393e62715c328b",
+          "width": "342",
+          "height": "257"
+        },
+        "2049": {
+          "fileSize": "1053701",
+          "checksum": "01831f1d8a4e38a18b01af98670b809fc48ecc646f",
+          "width": "2049",
+          "height": "1537"
+        }
+      },
+      "contributorLastName": "Seres",
+      "batchDateCreated": "2020-10-20T07:20:14Z",
+      "dateCreated": "2019-01-14T08:54:02Z",
+      "contributorFirstName": "Andrea",
+      "photoGuid": "FBB7FFB4-C5E1-40AE-9904-06131B874AAE",
+      "contributorFullName": "Andrea Seres",
+      "width": "2049",
+      "caption": "",
+      "height": "1537"
+    },
+    {
+      "batchGuid": "1CFBBEA0-26DD-4DE3-9393-F074762D68C3",
+      "derivatives": {
+        "342": {
+          "fileSize": "36134",
+          "checksum": "017d71e5ab111df27fa37fa9eb92393e62715c328b",
+          "width": "342",
+          "height": "257"
+        },
+        "2049": {
+          "fileSize": "1053701",
+          "checksum": "01831f1d8a4e38a18b01af98670b809fc48ecc646f",
+          "width": "2049",
+          "height": "1537"
+        }
+      },
+      "contributorLastName": "Seres",
+      "batchDateCreated": "2020-10-20T01:59:52Z",
+      "dateCreated": "2019-01-14T08:54:02Z",
+      "contributorFirstName": "Andrea",
+      "photoGuid": "C9D30803-14C9-4D3B-AE03-225A245A2A6C",
+      "contributorFullName": "Andrea Seres",
+      "width": "2049",
+      "caption": "",
+      "height": "1537"
+    },
+    {
+      "batchGuid": "C6D79B96-529D-47A5-A07D-E79ABBA1F901",
+      "derivatives": {
+        "342": {
+          "fileSize": "36134",
+          "checksum": "017d71e5ab111df27fa37fa9eb92393e62715c328b",
+          "width": "342",
+          "height": "257"
+        },
+        "2049": {
+          "fileSize": "1053701",
+          "checksum": "01831f1d8a4e38a18b01af98670b809fc48ecc646f",
+          "width": "2049",
+          "height": "1537"
+        }
+      },
+      "contributorLastName": "Seres",
+      "batchDateCreated": "2020-10-20T07:19:32Z",
+      "dateCreated": "2019-01-14T08:54:02Z",
+      "contributorFirstName": "Andrea",
+      "photoGuid": "DF4C9FF3-31C2-4CEB-B09D-F86CC1B7E207",
+      "contributorFullName": "Andrea Seres",
+      "width": "2049",
+      "caption": "",
+      "height": "1537"
+    },
+    {
+      "batchGuid": "5ADA58B9-F8A5-4DB9-981E-8691D8BE7596",
+      "derivatives": {
+        "342": {
+          "fileSize": "36134",
+          "checksum": "017d71e5ab111df27fa37fa9eb92393e62715c328b",
+          "width": "342",
+          "height": "257"
+        },
+        "2049": {
+          "fileSize": "1053701",
+          "checksum": "01831f1d8a4e38a18b01af98670b809fc48ecc646f",
+          "width": "2049",
+          "height": "1537"
+        }
+      },
+      "contributorLastName": "Seres",
+      "batchDateCreated": "2020-10-20T07:19:44Z",
+      "dateCreated": "2019-01-14T08:54:02Z",
+      "contributorFirstName": "Andrea",
+      "photoGuid": "93FD6FD4-C8C7-40C1-B054-29E9AAB80D12",
+      "contributorFullName": "Andrea Seres",
+      "width": "2049",
+      "caption": "",
+      "height": "1537"
+    },
+    {
+      "batchGuid": "6CF543C2-FBBC-4F50-99E3-2723DBA37412",
+      "derivatives": {
+        "342": {
+          "fileSize": "36134",
+          "checksum": "017d71e5ab111df27fa37fa9eb92393e62715c328b",
+          "width": "342",
+          "height": "257"
+        },
+        "2049": {
+          "fileSize": "1053701",
+          "checksum": "01831f1d8a4e38a18b01af98670b809fc48ecc646f",
+          "width": "2049",
+          "height": "1537"
+        }
+      },
+      "contributorLastName": "Seres",
+      "batchDateCreated": "2020-10-20T07:20:00Z",
+      "dateCreated": "2019-01-14T08:54:02Z",
+      "contributorFirstName": "Andrea",
+      "photoGuid": "E8BAE8B1-2E97-4C76-B3BC-9C32C00F976F",
+      "contributorFullName": "Andrea Seres",
+      "width": "2049",
+      "caption": "",
+      "height": "1537"
+    },
+    {
+      "batchGuid": "11070BD8-A379-405A-B445-DA7D1976CD59",
+      "derivatives": {
+        "342": {
+          "fileSize": "36134",
+          "checksum": "017d71e5ab111df27fa37fa9eb92393e62715c328b",
+          "width": "342",
+          "height": "257"
+        },
+        "2049": {
+          "fileSize": "1053701",
+          "checksum": "01831f1d8a4e38a18b01af98670b809fc48ecc646f",
+          "width": "2049",
+          "height": "1537"
+        }
+      },
+      "contributorLastName": "Seres",
+      "batchDateCreated": "2020-10-20T07:17:48Z",
+      "dateCreated": "2019-01-14T08:54:02Z",
+      "contributorFirstName": "Andrea",
+      "photoGuid": "855CDEAB-844C-4886-97A3-306129557401",
+      "contributorFullName": "Andrea Seres",
+      "width": "2049",
+      "caption": "",
+      "height": "1537"
+    },
+    {
+      "batchGuid": "CA41EFE2-8D98-49FF-B4E3-32B6A5895352",
+      "derivatives": {
+        "342": {
+          "fileSize": "20527",
+          "checksum": "0124ee41679a3fcd724b8b8566cbe304bf1183865d",
+          "width": "342",
+          "height": "257"
+        },
+        "2048": {
+          "fileSize": "570861",
+          "checksum": "01dc223f3e1b26b4bcfc1798dba5baaac42aac1ed4",
+          "width": "2048",
+          "height": "1536"
+        }
+      },
+      "contributorLastName": "Seres",
+      "batchDateCreated": "2020-10-20T07:18:54Z",
+      "dateCreated": "2014-09-23T10:21:07Z",
+      "contributorFirstName": "Andrea",
+      "photoGuid": "0DE5726E-DC64-4370-8A5C-0BEA50AADDB0",
+      "contributorFullName": "Andrea Seres",
+      "width": "2048",
+      "caption": "",
+      "height": "1536"
+    },
+    {
+      "batchGuid": "CA41EFE2-8D98-49FF-B4E3-32B6A5895352",
+      "derivatives": {
+        "332": {
+          "fileSize": "19332",
+          "checksum": "01a39f03e5e4a6ced06f05aa72243fd9f6f4ead847",
+          "width": "322",
+          "height": "332"
+        },
+        "1585": {
+          "fileSize": "385367",
+          "checksum": "010bc5cf5e4fb41fef71abe9a5c6a4c77673f725cf",
+          "width": "1536",
+          "height": "1585"
+        }
+      },
+      "contributorLastName": "Seres",
+      "batchDateCreated": "2020-10-20T07:18:54Z",
+      "dateCreated": "2014-09-23T09:55:36Z",
+      "contributorFirstName": "Andrea",
+      "photoGuid": "46A10162-E2AC-4EEA-ADB9-9DD05A6E7B73",
+      "contributorFullName": "Andrea Seres",
+      "width": "1536",
+      "caption": "",
+      "height": "1585"
+    }
+  ],
+  "items": {}
+}

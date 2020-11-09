@@ -5,6 +5,7 @@ import com.google.gson.reflect.TypeToken
 import okhttp3.*
 import java.io.FileNotFoundException
 import java.io.IOException
+import java.io.InputStream
 import java.io.Reader
 import java.lang.reflect.Type
 
@@ -27,7 +28,7 @@ public class OkHttpResponse(public override val url: String, public val response
     override val code: Int
         get() = response.code()
 
-    override fun body(): String = response.body()!!.use { it.string() }
+    override fun string(): String = response.body()!!.use { it.string() }
 
     override fun <T> json(clazz: Class<T>): T = response.body()!!.use { it.json(clazz) }
 }

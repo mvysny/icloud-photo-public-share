@@ -15,12 +15,12 @@ public interface HttpResponse {
 
     public fun checkOk() {
         if (!isSuccessful) {
-            val msg = "${code}: ${body()} ($url)"
+            val msg = "${code}: ${string()} ($url)"
             if (code == 404) throw FileNotFoundException(msg)
             throw IOException(msg)
         }
     }
 
-    public fun body(): String
+    public fun string(): String
     public fun <T> json(clazz: Class<T>): T
 }
