@@ -46,6 +46,8 @@ dependencies {
     // okhttp 3.13.x supports only Android API 21+
     implementation("com.squareup.okhttp3:okhttp:3.12.2")
     implementation("com.google.code.gson:gson:2.8.5")
+
+    testImplementation("com.github.mvysny.dynatest:dynatest-engine:0.19")
 }
 
 val sourceJar = task("sourceJar", Jar::class) {
