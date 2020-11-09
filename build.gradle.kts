@@ -40,6 +40,12 @@ kotlin {
 
 dependencies {
     api(kotlin("stdlib")) // don't use -jdk8 to stay compatible with Android
+    implementation("org.slf4j:slf4j-api:1.7.30")
+    // Keep okhttp at 3.12.x to stay compatible with older Androids: https://medium.com/square-corner-blog/okhttp-3-13-requires-android-5-818bb78d07ce
+    // okhttp 3.12.x supports Android API 9+: https://github.com/square/okhttp
+    // okhttp 3.13.x supports only Android API 21+
+    implementation("com.squareup.okhttp3:okhttp:3.12.2")
+    implementation("com.google.code.gson:gson:2.8.5")
 }
 
 val sourceJar = task("sourceJar", Jar::class) {
