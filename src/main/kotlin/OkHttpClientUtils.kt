@@ -1,13 +1,36 @@
 package com.gitlab.mvysny.icloudphotopublicshare
 
 import com.google.gson.Gson
-import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
 import okhttp3.*
 import java.io.FileNotFoundException
 import java.io.IOException
 import java.io.Reader
 import java.lang.reflect.Type
+
+public class SimplifiedOkHttpClient(public val client: OkHttpClient) : SimplifiedHttpClient {
+
+    override fun <T> post(url: String, postJson: String, responseHandler: (HttpResponse) -> T): T {
+        val request: Request = url.toHttpUrl().buildRequest {
+            post(RequestBody.create(mimeJson, postJson))
+        }
+
+        val result: T = client.newCall(request).execute().use { response: Response ->
+            responseHandler(OkHttpResponse(url, response))
+        }
+
+        return result
+    }
+}
+
+public class OkHttpResponse(public override val url: String, public val response: Response) : HttpResponse {
+    override val code: Int
+        get() = response.code()
+
+    override fun body(): String = response.body()!!.use { it.string() }
+
+    override fun <T> json(clazz: Class<T>): T = response.body()!!.use { it.json(clazz) }
+}
 
 /**
  * Destroys the [OkHttpClient] including the dispatcher, connection pool, everything. WARNING: THIS MAY AFFECT
