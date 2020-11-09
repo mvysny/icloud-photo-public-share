@@ -3,7 +3,6 @@ package com.gitlab.mvysny.icloudphotopublicshare
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import okhttp3.MediaType
-import java.io.InputStream
 import java.net.URL
 
 public object ICloud {
@@ -48,8 +47,8 @@ public class ICloudClient(public val albumId: String, private var serverName: St
         }
     }
 
-    public fun download(photoGuid: String, derivative: ICloudDerivative): InputStream =
-            download(photoGuid, derivative.checksum!!)
+    public fun getDownloadUrl(photo: ICloudPhoto, derivative: ICloudDerivative): URL =
+            getDownloadUrl(photo.photoGuid!!, derivative.checksum!!)
 
     public fun getWebAsset(photo: ICloudPhoto): WebAsset = getWebAsset(photo.photoGuid!!)
 
@@ -59,10 +58,10 @@ public class ICloudClient(public val albumId: String, private var serverName: St
             response.json(WebAsset::class.java)
         }
 
-    public fun download(photoGuid: String, checksum: String): InputStream {
+    public fun getDownloadUrl(photoGuid: String, checksum: String): URL {
         val webAsset: WebAsset = getWebAsset(photoGuid)
         val url: URL = webAsset.getDownloadUrl(checksum)
-        return url.openStream()
+        return url
     }
 
     public companion object {

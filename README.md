@@ -14,9 +14,13 @@ You can then pass this link to this library, to list the images and/or download 
 ## How to use
 
 ```kotlin
-public fun main() {
+fun main() {
     ICloud.httpClient = SimplifiedOkHttpClient(OkHttpClient())
-    val share = ICloudClient("B0R5qXGF1GeKg4d").getShare()
-    println(share)
+    val client: ICloudClient = ICloudClient.parseURL("https://p27-sharedstreams.icloud.com/B0R5qXGF1GeKg4d/sharedstreams")
+    val share: ICloudShare = client.getShare()
+    val photo: ICloudPhoto = share.photos[0]
+    val derivative: ICloudDerivative = photo.derivatives.values.maxByOrNull { it.height }!!
+    val imageUrl: URL = client.getDownloadUrl(photo, derivative)
+    println(imageUrl)
 }
 ```
