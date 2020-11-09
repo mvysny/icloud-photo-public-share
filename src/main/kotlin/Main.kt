@@ -4,6 +4,9 @@ import okhttp3.OkHttpClient
 
 public fun main() {
     ICloud.httpClient = SimplifiedOkHttpClient(OkHttpClient())
-    val share = ICloudClient.parseURL("https://p27-sharedstreams.icloud.com/B0R5qXGF1GeKg4d/sharedstreams/webstream").getShare()
-    println(share)
+    val client: ICloudClient = ICloudClient.parseURL("https://p27-sharedstreams.icloud.com/B0R5qXGF1GeKg4d/sharedstreams/webstream")
+    val share: ICloudShare = client.getShare()
+    val webAsset = client.getWebAsset(share.photos[0])
+    println(webAsset)
+    println(webAsset.getDownloadUrl(share.photos[0].derivatives.values.first()))
 }
