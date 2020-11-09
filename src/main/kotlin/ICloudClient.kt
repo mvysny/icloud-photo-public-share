@@ -67,9 +67,13 @@ public class ICloudClient(public val albumId: String, private var serverName: St
     public companion object {
         private val urlRegex = Regex("https://(p\\d+-sharedstreams.icloud.com)/([A-Za-z0-9]+)/sharedstreams.*")
         /**
-         * Creates the client instance for URLs such as `https://p27-sharedstreams.icloud.com/B0R5qXGF1GeKg4d/sharedstreams`.
+         * Creates the client instance for URLs such as `https://p27-sharedstreams.icloud.com/B0R5qXGF1GeKg4d/sharedstreams`
+         * or `https://www.icloud.com/sharedalbum/#B0R5qXGF1GeKg4d`.
          */
         public fun parseURL(url: String): ICloudClient {
+            if (url.startsWith("https://www.icloud.com/sharedalbum/#")) {
+                return ICloudClient(url.removePrefix("https://www.icloud.com/sharedalbum/#"))
+            }
             val match: MatchResult = urlRegex.matchEntire(url) ?: throw IllegalArgumentException("Failed to parse $url: not a sharedstreams.icloud.com URL")
             return ICloudClient(match.groupValues[2], match.groupValues[1])
         }

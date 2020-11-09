@@ -23,6 +23,12 @@ class ICloudClientTest : DynaTest({
             }
         }
 
+        test("icloud.com URLs") {
+            expect("ICloudClient(albumId='B0R5qXGF1GeKg4d', serverName='p27-sharedstreams.icloud.com')") {
+                ICloudClient.parseURL("https://www.icloud.com/sharedalbum/#B0R5qXGF1GeKg4d").toString()
+            }
+        }
+
         test("incorrect URL") {
             expectThrows(IllegalArgumentException::class, "Failed to parse https://www.google.com: not a sharedstreams.icloud.com URL") {
                 ICloudClient.parseURL("https://www.google.com")
