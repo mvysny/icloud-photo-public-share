@@ -34,4 +34,4 @@ no authentication needed.
 
 # License
 
-See [LICENSE]
+See [LICENSE](LICENSE)
