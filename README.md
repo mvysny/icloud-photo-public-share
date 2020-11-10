@@ -28,3 +28,10 @@ fun main() {
     println(imageUrl)
 }
 ```
+
+The URL is a `https://`- based URL from which the image can be downloaded directly -
+no authentication needed.
+
+# License
+
+See [LICENSE]
