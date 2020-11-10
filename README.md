@@ -32,6 +32,19 @@ fun main() {
 The URL is a `https://`- based URL from which the image can be downloaded directly -
 no authentication needed.
 
+## Include in your project
+
+Add the following to your `build.gradle`:
+
+```groovy
+repositories {
+    maven { url "https://dl.bintray.com/mvysny/gitlab/" }
+}
+dependencies {
+    implementation('com.gitlab.mvysny.icloud-photo-public-share:icloud-photo-public-share:0.1')
+}
+```
+
 ## Compatibility
 
 The library is compatible with JDK 7+ and Android API 8+ (that's Android 2.2.x).
