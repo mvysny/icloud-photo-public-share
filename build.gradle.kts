@@ -3,8 +3,6 @@ import org.gradle.api.tasks.testing.logging.TestExceptionFormat
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import java.util.*
 
-val slf4jVersion = "1.7.30"
-
 val local = Properties()
 val localProperties: java.io.File = rootProject.file("local.properties")
 if (localProperties.exists()) {
@@ -40,7 +38,6 @@ kotlin {
 
 dependencies {
     api(kotlin("stdlib")) // don't use -jdk8 to stay compatible with Android
-    implementation("org.slf4j:slf4j-api:1.7.30")
     // Keep okhttp at 3.12.x to stay compatible with older Androids: https://medium.com/square-corner-blog/okhttp-3-13-requires-android-5-818bb78d07ce
     // okhttp 3.12.x supports Android API 9+: https://github.com/square/okhttp
     // okhttp 3.13.x supports only Android API 21+
@@ -65,7 +62,7 @@ publishing {
     publications {
         create("mavenJava", MavenPublication::class.java).apply {
             groupId = project.group.toString()
-            this.artifactId = "vok-orm"
+            this.artifactId = "icloud-photo-public-share"
             version = project.version.toString()
             pom {
                 description.set("iCloud photo public share client in Kotlin")
