@@ -32,6 +32,13 @@ fun main() {
 The URL is a `https://`- based URL from which the image can be downloaded directly -
 no authentication needed.
 
+## Compatibility
+
+The library is compatible with JDK 7+ and Android API 8+ (that's Android 2.2.x).
+
+Requires Kotlin. Uses the OkHttp library by default, but it's easy to write
+a different `SimplifiedHttpClient` implementation for literally any http client library.
+
 # License
 
 See [LICENSE](LICENSE)
