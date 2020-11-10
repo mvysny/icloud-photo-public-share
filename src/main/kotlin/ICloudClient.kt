@@ -5,6 +5,10 @@ import com.google.gson.GsonBuilder
 import okhttp3.MediaType
 import java.net.URL
 
+/**
+ * Global configuration for [ICloudClient]. Don't forget to set the [httpClient];
+ * usually you'll use [SimplifiedOkHttpClient].
+ */
 public object ICloud {
     /**
      * All REST client calls will reuse this client.
@@ -19,11 +23,26 @@ public object ICloud {
 }
 
 /**
+ * A client for icloud.com. No authentication needed: "anyone with the link can view".
+ *
+ * To use:
+ *
+ * * Call [getShare] to retrieve the list of all shared photos;
+ * * Pick the appropriate photo size from [ICloudPhoto.derivatives]
+ * * Call [getDownloadUrl] to obtain the download URL from the [ICloudPhoto] and [ICloudDerivative] pair.
+ * * The download link is usually valid for one hour.
+ *
  * @property albumId the album ID, something like `B0R5qXGF1GeKg4d`. Usually a part of the shared photo album URL
  * such as `https://p27-sharedstreams.icloud.com/B0R5qXGF1GeKg4d/sharedstreams/webstream`.
  * Use [parseURL] to parse such URLs.
+ * @property serverName the host name of the server to communicate with, usually in the form of `p27-sharedstreams.icloud.com`.
+ * Modified when icloud.com responds with a redirect request.
  */
-public class ICloudClient(public val albumId: String, private var serverName: String = "p27-sharedstreams.icloud.com") {
+public class ICloudClient(
+        public val albumId: String,
+        @Volatile
+        private var serverName: String = "p27-sharedstreams.icloud.com"
+) {
 
     private val url: String get() = "https://$serverName/$albumId/sharedstreams"
 
@@ -47,9 +66,17 @@ public class ICloudClient(public val albumId: String, private var serverName: St
         }
     }
 
+    /**
+     * Obtains the URL for given [photo] and [derivative],
+     * from which a jpg image can be downloaded. The link is usually
+     * valid for an hour.
+     */
     public fun getDownloadUrl(photo: ICloudPhoto, derivative: ICloudDerivative): URL =
             getDownloadUrl(photo.photoGuid!!, derivative.checksum!!)
 
+    /**
+     * Obtains [WebAsset] for given [photo].
+     */
     public fun getWebAsset(photo: ICloudPhoto): WebAsset = getWebAsset(photo.photoGuid!!)
 
     public fun getWebAsset(photoGuid: String): WebAsset =
@@ -58,6 +85,10 @@ public class ICloudClient(public val albumId: String, private var serverName: St
             response.json(WebAsset::class.java)
         }
 
+    /**
+     * Obtains the URL from which a jpg image can be downloaded. The link is usually
+     * valid for an hour.
+     */
     public fun getDownloadUrl(photoGuid: String, checksum: String): URL {
         val webAsset: WebAsset = getWebAsset(photoGuid)
         val url: URL = webAsset.getDownloadUrl(checksum)

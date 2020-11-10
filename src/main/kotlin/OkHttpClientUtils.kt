@@ -5,10 +5,12 @@ import com.google.gson.reflect.TypeToken
 import okhttp3.*
 import java.io.FileNotFoundException
 import java.io.IOException
-import java.io.InputStream
 import java.io.Reader
 import java.lang.reflect.Type
 
+/**
+ * [SimplifiedHttpClient] built on top of OkHttp. Uses [client].
+ */
 public class SimplifiedOkHttpClient(public val client: OkHttpClient) : SimplifiedHttpClient {
 
     override fun <T> post(url: String, postJson: String, responseHandler: (HttpResponse) -> T): T {

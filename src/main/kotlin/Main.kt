@@ -7,8 +7,12 @@ public fun main() {
     ICloud.httpClient = SimplifiedOkHttpClient(OkHttpClient())
     val client: ICloudClient = ICloudClient.parseURL("https://p27-sharedstreams.icloud.com/B0R5qXGF1GeKg4d/sharedstreams")
     val share: ICloudShare = client.getShare()
+
+    // download first photo
     val photo: ICloudPhoto = share.photos[0]
     val derivative: ICloudDerivative = photo.derivatives.values.maxByOrNull { it.height }!!
+
+    // the URL is only valid for an hour or so
     val imageUrl: URL = client.getDownloadUrl(photo, derivative)
     println(imageUrl)
 }

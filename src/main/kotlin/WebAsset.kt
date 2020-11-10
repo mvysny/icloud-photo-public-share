@@ -25,11 +25,21 @@ public data class WebAsset(
     }
 }
 
+/**
+ * iCloud location definition.
+ * @property scheme usually "https"
+ * @property hosts hostnames of the servers on which the photo is available. Usually there's just one host.
+ */
 public data class ILocation(
         var scheme: String? = null,
         val hosts: MutableList<String> = mutableListOf()
 )
 
+/**
+ * @property url_expiry ISO-formatted date when the URL will expire.
+ * @property url_location key in [WebAsset.locations], identifies the location from which the file can be downloaded.
+ * @property url_path URL path to the downloadable file.
+ */
 public data class WebItem(
         var url_expiry: String? = null,
         var url_location: String? = null,
