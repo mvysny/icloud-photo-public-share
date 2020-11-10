@@ -19,7 +19,7 @@ plugins {
 defaultTasks("clean", "build")
 
 group = "com.gitlab.mvysny.icloud-photo-public-share"
-version = "0.1-SNAPSHOT"
+version = "0.1"
 
 repositories {
     jcenter() // dokka is not in mavenCentral()
