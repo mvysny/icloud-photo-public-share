@@ -2,7 +2,7 @@ import org.gradle.api.tasks.testing.logging.TestExceptionFormat
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    kotlin("jvm") version "1.4.30"
+    kotlin("jvm") version "1.4.32"
     `maven-publish`
     signing
 }
@@ -33,9 +33,9 @@ dependencies {
     // okhttp 3.12.x supports Android API 9+: https://github.com/square/okhttp
     // okhttp 3.13.x supports only Android API 21+
     implementation("com.squareup.okhttp3:okhttp:3.12.2")
-    implementation("com.google.code.gson:gson:2.8.5")
+    implementation("com.google.code.gson:gson:2.8.7")
 
-    testImplementation("com.github.mvysny.dynatest:dynatest-engine:0.19")
+    testImplementation("com.github.mvysny.dynatest:dynatest-engine:0.20")
 }
 
 java {
@@ -96,7 +96,7 @@ signing {
 tasks.withType<Test> {
     useJUnitPlatform()
     testLogging {
-        // to see the exceptions of failed tests in Travis-CI console.
+        // to see the exceptions of failed tests in the CI console.
         exceptionFormat = TestExceptionFormat.FULL
         showStandardStreams = true
     }

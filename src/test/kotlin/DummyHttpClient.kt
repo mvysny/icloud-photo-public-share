@@ -18,7 +18,7 @@ class DummyHttpClient : SimplifiedHttpClient {
                 DummyHttpResponse(url, 330, """{"X-Apple-MMe-Host": "p27-sharedstreams.icloud.com"}""")
             }
             url == "https://p27-sharedstreams.icloud.com/B0R5qXGF1GeKg4d/sharedstreams/webasseturls" -> {
-                val json: JsonObject = JsonParser().parse(postJson) as JsonObject
+                val json: JsonObject = JsonParser.parseString(postJson) as JsonObject
                 val photoGuid: String = (json["photoGuids"] as JsonArray)[0].asString
                 DummyHttpResponse(url, 200, loadResource("example_photo_$photoGuid.json"))
             }
