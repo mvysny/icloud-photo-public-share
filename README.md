@@ -55,3 +55,7 @@ a different `SimplifiedHttpClient` implementation for literally any http client 
 # License
 
 See [LICENSE](LICENSE)
+
+# Contributing / Developing / Releasing
+
+See [Contributing](CONTRIBUTING.md).
