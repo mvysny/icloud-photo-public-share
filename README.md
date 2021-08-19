@@ -38,10 +38,10 @@ Add the following to your `build.gradle`:
 
 ```groovy
 repositories {
-    maven { url "https://dl.bintray.com/mvysny/gitlab/" }
+    mavenCentral()
 }
 dependencies {
-    implementation('com.gitlab.mvysny.icloud-photo-public-share:icloud-photo-public-share:0.1')
+    implementation('com.gitlab.mvysny.icloud-photo-public-share:icloud-photo-public-share:0.2')
 }
 ```
 
