@@ -24,9 +24,13 @@ build:jdk11:
   image: openjdk:11-jdk
   script:
     - ./gradlew --info --stacktrace --no-daemon
+build:jdk17:
+  image: openjdk:17-jdk
+  script:
+    - ./gradlew --info --stacktrace --no-daemon
 
 # also test on latest non-LTS version
-build:jdk15:
-  image: openjdk:15-jdk
+build:jdk16:
+  image: openjdk:16-jdk
   script:
     - ./gradlew --info --stacktrace --no-daemon
