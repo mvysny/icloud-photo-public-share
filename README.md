@@ -47,7 +47,8 @@ dependencies {
 
 ## Compatibility
 
-The library is compatible with JDK 7+ and Android API 8+ (that's Android 2.2.x).
+* 0.2: The library is compatible with JDK 7+ and Android API 8+ (that's Android 2.2.x).
+* 0.3+: Compatible with Android 5.0+ (SDK21+) and JDK8+.
 
 Requires Kotlin. Uses the OkHttp library by default, but it's easy to write
 a different `SimplifiedHttpClient` implementation for literally any http client library.

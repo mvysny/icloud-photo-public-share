@@ -2,7 +2,7 @@ import org.gradle.api.tasks.testing.logging.TestExceptionFormat
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    kotlin("jvm") version "1.5.31"
+    kotlin("jvm") version "1.9.0"
     `maven-publish`
     signing
 }
@@ -17,10 +17,7 @@ repositories {
 }
 
 tasks.withType<KotlinCompile> {
-    kotlinOptions.jvmTarget = "1.6"  // Android compatibility
-    if (System.getProperty("kotlin.jdkHome") != null) {
-        kotlinOptions.jdkHome = System.getProperty("kotlin.jdkHome")
-    }
+    kotlinOptions.jvmTarget = "1.8"  // Android 5.0 compatibility
 }
 
 kotlin {
@@ -33,14 +30,16 @@ dependencies {
     // okhttp 3.12.x supports Android API 9+: https://github.com/square/okhttp
     // okhttp 3.13.x supports only Android API 21+
     implementation("com.squareup.okhttp3:okhttp:3.12.2")
-    implementation("com.google.code.gson:gson:2.8.7")
+    implementation("com.google.code.gson:gson:2.10.1")
 
-    testImplementation("com.github.mvysny.dynatest:dynatest-engine:0.20")
+    testImplementation("com.github.mvysny.dynatest:dynatest:0.24")
 }
 
 java {
     withJavadocJar()
     withSourcesJar()
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
 }
 
 tasks.withType<Javadoc> {

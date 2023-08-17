@@ -9,12 +9,6 @@ cache:
     - .gradle/caches/
     - .gradle/build-cache/
 
-# Test on JDK7 for compatibility with old Androids
-build:jdk7:
-  image: mvysny/openjdk8_openjdk7:8u181.7u80
-  script:
-    - ./gradlew -Dkotlin.jdkHome=/jdk7 --info --stacktrace --no-daemon
-
 # Test on all Java LTS versions
 build:jdk8:
   image: openjdk:8-jdk
