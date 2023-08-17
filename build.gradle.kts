@@ -10,7 +10,7 @@ plugins {
 defaultTasks("clean", "build")
 
 group = "com.gitlab.mvysny.icloud-photo-public-share"
-version = "0.3-SNAPSHOT"
+version = "0.3"
 
 repositories {
     mavenCentral()
@@ -22,6 +22,10 @@ tasks.withType<KotlinCompile> {
 
 kotlin {
     explicitApi()
+}
+
+if (JavaVersion.current() > JavaVersion.VERSION_11 && gradle.startParameter.taskNames.contains("publish")) {
+    throw GradleException("Release this library with JDK 11 or lower, to ensure Android compatibility; current JDK is ${JavaVersion.current()}")
 }
 
 dependencies {
