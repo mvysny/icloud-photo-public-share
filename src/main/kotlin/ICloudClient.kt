@@ -3,6 +3,7 @@ package com.gitlab.mvysny.icloudphotopublicshare
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import okhttp3.MediaType
+import okhttp3.MediaType.Companion.toMediaType
 import java.net.URL
 
 /**
@@ -113,4 +114,4 @@ public class ICloudClient(
     override fun toString(): String = "ICloudClient(albumId='$albumId', serverName='$serverName')"
 }
 
-internal val mimeJson: MediaType = MediaType.get("application/json")
+internal val mimeJson: MediaType = "application/json".toMediaType()

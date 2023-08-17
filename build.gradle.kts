@@ -26,10 +26,7 @@ kotlin {
 
 dependencies {
     api(kotlin("stdlib")) // don't use -jdk8 to stay compatible with Android
-    // Keep okhttp at 3.12.x to stay compatible with older Androids: https://medium.com/square-corner-blog/okhttp-3-13-requires-android-5-818bb78d07ce
-    // okhttp 3.12.x supports Android API 9+: https://github.com/square/okhttp
-    // okhttp 3.13.x supports only Android API 21+
-    implementation("com.squareup.okhttp3:okhttp:3.12.2")
+    implementation("com.squareup.okhttp3:okhttp:4.10.0")
     implementation("com.google.code.gson:gson:2.10.1")
 
     testImplementation("com.github.mvysny.dynatest:dynatest:0.24")

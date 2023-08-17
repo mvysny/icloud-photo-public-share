@@ -3,6 +3,7 @@ package com.gitlab.mvysny.icloudphotopublicshare
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import okhttp3.*
+import okhttp3.HttpUrl.Companion.toHttpUrl
 import java.io.FileNotFoundException
 import java.io.IOException
 import java.io.Reader
@@ -28,11 +29,11 @@ public class SimplifiedOkHttpClient(public val client: OkHttpClient) : Simplifie
 
 public class OkHttpResponse(public override val url: String, public val response: Response) : HttpResponse {
     override val code: Int
-        get() = response.code()
+        get() = response.code
 
-    override fun string(): String = response.body()!!.use { it.string() }
+    override fun string(): String = response.body!!.use { it.string() }
 
-    override fun <T> json(clazz: Class<T>): T = response.body()!!.use { it.json(clazz) }
+    override fun <T> json(clazz: Class<T>): T = response.body!!.use { it.json(clazz) }
 }
 
 /**
@@ -40,9 +41,9 @@ public class OkHttpResponse(public override val url: String, public val response
  * OTHER http clients if they share e.g. dispatcher executor service.
  */
 public fun OkHttpClient.destroy() {
-    dispatcher().executorService().shutdown()
-    connectionPool().evictAll()
-    cache()?.close()
+    dispatcher.executorService.shutdown()
+    connectionPool.evictAll()
+    cache?.close()
 }
 
 /**
@@ -51,8 +52,8 @@ public fun OkHttpClient.destroy() {
  */
 public fun Response.checkOk(): Response {
     if (!isSuccessful) {
-        val msg = "${code()}: ${body()!!.string()} (${request().url()})"
-        if (code() == 404) throw FileNotFoundException(msg)
+        val msg = "${code}: ${body!!.string()} (${request.url})"
+        if (code == 404) throw FileNotFoundException(msg)
         throw IOException(msg)
     }
     return this
@@ -96,7 +97,7 @@ public fun <T> Gson.fromJsonArray(reader: Reader, itemClass: Class<T>): List<T> 
  */
 public fun <T> OkHttpClient.exec(request: Request, responseBlock: (ResponseBody) -> T): T =
         newCall(request).execute().use {
-            val body: ResponseBody = it.checkOk().body()!!
+            val body: ResponseBody = it.checkOk().body!!
             body.use {
                 responseBlock(body)
             }
@@ -114,8 +115,6 @@ public fun <T> Gson.fromJsonMap(reader: Reader, valueClass: Class<T>): Map<Strin
     val type: Type = TypeToken.getParameterized(Map::class.java, String::class.java, valueClass).type
     return fromJson<Map<String, T>>(reader, type)
 }
-
-public fun String.toHttpUrl(): HttpUrl = HttpUrl.get(this)
 
 /**
  * Parses this string as a `http://` or `https://` URL. You can configure the URL
