@@ -1,8 +1,9 @@
 import org.gradle.api.tasks.testing.logging.TestExceptionFormat
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    kotlin("jvm") version "1.9.23"
+    kotlin("jvm") version "2.0.0"
     `maven-publish`
     signing
 }
@@ -17,7 +18,7 @@ repositories {
 }
 
 tasks.withType<KotlinCompile> {
-    kotlinOptions.jvmTarget = "1.8"  // Android 5.0 compatibility
+    compilerOptions.jvmTarget = JvmTarget.JVM_1_8  // Android 5.0 compatibility
 }
 
 kotlin {
@@ -30,7 +31,7 @@ if (JavaVersion.current() > JavaVersion.VERSION_11 && gradle.startParameter.task
 
 dependencies {
     api(kotlin("stdlib")) // don't use -jdk8 to stay compatible with Android
-    implementation("com.squareup.okhttp3:okhttp:4.10.0")
+    implementation("com.squareup.okhttp3:okhttp:4.12.0")
     implementation("com.google.code.gson:gson:2.10.1")
 
     testImplementation("com.github.mvysny.dynatest:dynatest:0.25")
