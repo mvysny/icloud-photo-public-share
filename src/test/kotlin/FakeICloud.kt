@@ -2,6 +2,7 @@ package com.gitlab.mvysny.icloudphotopublicshare
 
 import com.google.gson.JsonArray
 import com.google.gson.JsonObject
+import com.google.gson.JsonParseException
 import com.google.gson.JsonParser
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -78,8 +79,13 @@ private class ICloudDispatcher : Dispatcher() {
             host != "p27-sharedstreams.icloud.com" -> notFound()
             path == "/B0R5qXGF1GeKg4d/sharedstreams/webstream" -> json(200, loadResource("example_shares.json"))
             path == "/B0R5qXGF1GeKg4d/sharedstreams/webasseturls" -> {
-                val photoGuid: String = ((JsonParser.parseString(body) as JsonObject)["photoGuids"] as JsonArray)[0].asString
-                json(200, loadResource("example_photo_$photoGuid.json"))
+                val photoGuid: String = try {
+                    ((JsonParser.parseString(body) as JsonObject)["photoGuids"] as JsonArray)[0].asString
+                } catch (e: JsonParseException) {
+                    return MockResponse().setResponseCode(400).setBody("malformed JSON $body")
+                }
+                val photo: String? = javaClass.classLoader.getResource("example_photo_$photoGuid.json")?.readText()
+                if (photo == null) notFound() else json(200, photo)
             }
             else -> notFound()
         }

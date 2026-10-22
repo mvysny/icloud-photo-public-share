@@ -2,7 +2,7 @@
 
 Improvements found in a review after the switch to plain OkHttp + MockWebServer. Pre-1.0, so
 breaking the API is fine; note each break in README's compatibility list. Numbers are the review's;
-1, 2, 7, 8, 10, 13 and 14 are done; 11 (an Android API check in the build) and 12 (publish from
+1, 2, 7, 8, 9, 10, 13 and 14 are done; 11 (an Android API check in the build) and 12 (publish from
 any JDK) are rejected, why in AGENTS.md and beside the check in `build.gradle.kts`. OkHttp 5 is
 deferred, why beside the dependency; JDK 25 in CI likewise, why in `.gitlab-ci.yml`.
 
@@ -23,8 +23,3 @@ deferred, why beside the dependency; JDK 25 in CI likewise, why in `.gitlab-ci.y
      then decide how the model exposes it.
    - Snake-case `WebItem.url_*` names leak iCloud's JSON into the public API; now that Gson maps
      only the internal `*Json` classes, renaming them is free — do it with this reshaping.
-
-## Robustness
-
-9. **Build request bodies with Gson**, not string templates — a `photoGuid` with a quote breaks
-   the JSON.

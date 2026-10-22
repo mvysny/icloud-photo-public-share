@@ -45,12 +45,12 @@ public class ICloudClient(
     private val url: String get() = "https://$serverName/$albumId/sharedstreams"
 
     /**
-     * POSTs [json] to this album's [endpoint] and maps the response to [clazz], following iCloud's 330 redirects to the
-     * server that holds the album.
+     * POSTs [body] as JSON to this album's [endpoint] and maps the response to [clazz], following iCloud's 330
+     * redirects to the server that holds the album.
      */
-    private fun <T> post(endpoint: String, json: String, clazz: Class<T>): T {
+    private fun <T> post(endpoint: String, body: Map<String, Any?>, clazz: Class<T>): T {
         repeat(MAX_REDIRECTS) {
-            httpClient.postJson("$url/$endpoint", json).use { response ->
+            httpClient.postJson("$url/$endpoint", body).use { response ->
                 if (response.code != 330) return response.checkOk().json(clazz)
                 val host: String = required(response.json(RedirectJson::class.java).host, "X-Apple-MMe-Host", "$url/$endpoint")
                 if (!serverNameRegex.matches(host)) throw IOException("330: redirect to unexpected host $host ($url/$endpoint)")
@@ -64,7 +64,7 @@ public class ICloudClient(
      * Fetches the album's name, owner and photo list.
      */
     public fun getShare(): ICloudShare =
-        post("webstream", "{\"streamCtag\":null}", ShareJson::class.java).toShare("$url/webstream")
+        post("webstream", mapOf("streamCtag" to null), ShareJson::class.java).toShare("$url/webstream")
 
     /**
      * Returns a download URL for [derivative] of [photo]; it expires in about an hour. Costs one request per call, so
@@ -83,7 +83,7 @@ public class ICloudClient(
      * Same as the [ICloudPhoto] overload, by [ICloudPhoto.photoGuid].
      */
     public fun getWebAsset(photoGuid: String): WebAsset =
-        post("webasseturls", "{\"photoGuids\": [\"$photoGuid\"]}", WebAssetJson::class.java).toWebAsset("$url/webasseturls")
+        post("webasseturls", mapOf("photoGuids" to listOf(photoGuid)), WebAssetJson::class.java).toWebAsset("$url/webasseturls")
 
     /**
      * Same as the [ICloudPhoto] overload, by [ICloudPhoto.photoGuid] and [ICloudDerivative.checksum].

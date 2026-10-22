@@ -1,6 +1,7 @@
 package com.gitlab.mvysny.icloudphotopublicshare
 
 import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 import okhttp3.MediaType
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
@@ -11,13 +12,13 @@ import java.io.FileNotFoundException
 import java.io.IOException
 
 private val mimeJson: MediaType = "application/json".toMediaType()
-private val gson: Gson = Gson()
+private val gson: Gson = GsonBuilder().serializeNulls().create()
 
 /**
- * POSTs [json] to [url]; the caller closes the response.
+ * POSTs [body] to [url], serialized to JSON with nulls kept; the caller closes the response.
  */
-internal fun OkHttpClient.postJson(url: String, json: String): Response {
-    val request: Request = Request.Builder().url(url).post(json.toRequestBody(mimeJson)).build()
+internal fun OkHttpClient.postJson(url: String, body: Any): Response {
+    val request: Request = Request.Builder().url(url).post(gson.toJson(body).toRequestBody(mimeJson)).build()
     return newCall(request).execute()
 }
 

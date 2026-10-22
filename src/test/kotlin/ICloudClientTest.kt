@@ -130,6 +130,14 @@ class ICloudClientTest {
         }
 
         @Test
+        fun `photo guid is escaped in the request`() {
+            val ex = assertFailsWith<FileNotFoundException> {
+                client().getWebAsset("a\"b")
+            }
+            assertContains(ex.message!!, "404: Not found (https://p27-sharedstreams.icloud.com/B0R5qXGF1GeKg4d/sharedstreams/webasseturls)")
+        }
+
+        @Test
         fun `missing id fails`() {
             val ex = assertFailsWith<IOException> {
                 client("Malformed").getShare()
