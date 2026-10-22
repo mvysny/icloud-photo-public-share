@@ -1,7 +1,7 @@
 # iCloud Photo Public Share
 
 [![Build](https://github.com/mvysny/icloud-photo-public-share/actions/workflows/build.yml/badge.svg)](https://github.com/mvysny/icloud-photo-public-share/actions/workflows/build.yml)
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.gitlab.mvysny.icloud-photo-public-share/icloud-photo-public-share/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.gitlab.mvysny.icloud-photo-public-share/icloud-photo-public-share)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.mvysny.icloud-photo-public-share/icloud-photo-public-share/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.mvysny.icloud-photo-public-share/icloud-photo-public-share)
 
 A Kotlin library which allows you to download photos from a publicly shared
 iCloud Photos (public shared folder).
@@ -40,7 +40,7 @@ repositories {
     mavenCentral()
 }
 dependencies {
-    implementation('com.gitlab.mvysny.icloud-photo-public-share:icloud-photo-public-share:0.3')
+    implementation('com.github.mvysny.icloud-photo-public-share:icloud-photo-public-share:0.4')
 }
 ```
 
