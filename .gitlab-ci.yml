@@ -23,6 +23,14 @@ build:jdk17:
   script:
     - ./gradlew --info --stacktrace --no-daemon
 
+# the doc layer's checks; needs only bash and git
+design-tripwires:
+  image: buildpack-deps:scm
+  cache: []
+  before_script: []
+  script:
+    - design/verify_design_tripwires.sh
+
 # also test on latest non-LTS version
 build:jdk16:
   image: openjdk:16-jdk

@@ -94,6 +94,13 @@ signing {
     sign(publishing.publications["mavenJava"])
 }
 
+// the doc layer's checks, see AGENTS.md; CI runs them in a job of their own
+val verifyDesignTripwires by tasks.registering(Exec::class) {
+    commandLine("design/verify_design_tripwires.sh")
+    onlyIf { System.getenv("CI") == null }
+}
+tasks.check { dependsOn(verifyDesignTripwires) }
+
 tasks.withType<Test> {
     useJUnitPlatform()
     testLogging {
