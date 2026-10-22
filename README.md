@@ -59,4 +59,4 @@ See [LICENSE](LICENSE)
 
 # Contributing / Developing / Releasing
 
-See [Contributing](CONTRIBUTING.md).
+See [Contributing](CONTRIBUTING.md) and [Releasing](RELEASING.md).

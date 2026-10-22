@@ -16,7 +16,8 @@ iCloud Photos (public shared folder).
 | File | Owns | Loaded |
 |---|---|---|
 | `README.md` | the pitch, usage, the Maven coordinates, compatibility per version | — |
-| `CONTRIBUTING.md` | the release procedure | — |
+| `CONTRIBUTING.md` | how to contribute | — |
+| `RELEASING.md` | the release procedure | — |
 | `AGENTS.md` (this) | promises, invariants, the module map, conventions, commands | every turn |
 | doc comments | what one symbol does and why it is shaped so | at the symbol |
 
@@ -38,7 +39,7 @@ Every fact lives in exactly one of these; the others link to it.
 - **Kotlin with `explicitApi()`.** Every public declaration says `public`; anything else is `internal` or `private`.
 - **Tests never touch the network.** A new iCloud response is recorded into `src/test/resources` and served by `DummyHttpClient`.
 - **Errors are loud.** Non-2xx raises `IOException` (404 → `FileNotFoundException`) carrying code, body and URL.
-- **Pre-1.0, `-SNAPSHOT` between releases.** Publish with JDK 11 or lower — the build refuses otherwise; steps in `CONTRIBUTING.md`.
+- **Pre-1.0, `-SNAPSHOT` between releases.** Publish with JDK 11 or lower — the build refuses otherwise; steps in `RELEASING.md`.
 
 ## Commands
 
