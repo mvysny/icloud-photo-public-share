@@ -53,7 +53,8 @@ dependencies {
   (`ICloudShare`, `ICloudPhoto`, `WebAsset`, …) is read-only with non-null ids, and a response missing an id fails
   with `IOException`. `getDownloadUrl` returns a `String` rather than a `java.net.URL`, whose `equals` resolves the
   host by DNS. `ICloudPhoto.largestDerivative` and `derivativeAtLeast(px)` pick a size;
-  `getWebAssets(photos)` fetches the URLs of many photos in one request. The groupId moves to
+  `getWebAssets(photos)` fetches the URLs of many photos in one request. The jar ships its R8/ProGuard rules, so an
+  app that shrinks its code needs none of its own. The groupId moves to
   `com.github.mvysny.icloud-photo-public-share` and the package to `com.github.mvysny.icloudphotopublicshare`; 0.3 and
   older stay under `com.gitlab.mvysny…`.
 

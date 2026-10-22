@@ -8,6 +8,7 @@ import java.io.IOException
 //
 // Implementation notes: Gson writes fields by reflection, so mapping straight into the read-only public model would
 // mutate final fields, which JDK 26 warns about (JEP 500) and a later JDK refuses. Hence `var`s here, `val`s there.
+// The `Json` suffix is load-bearing: the shipped R8/ProGuard rule (META-INF/proguard) keeps these classes by it.
 
 internal class ShareJson(
     var userFirstName: String? = null,
