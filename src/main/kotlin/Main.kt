@@ -2,6 +2,9 @@ package com.gitlab.mvysny.icloudphotopublicshare
 
 import java.net.URL
 
+/**
+ * Demo: prints a download URL for the first photo of a live album.
+ */
 public fun main() {
     val client: ICloudClient = ICloudClient.parseURL("https://www.icloud.com/sharedalbum/#B0R5qXGF1GeKg4d")
     val share: ICloudShare = client.getShare()

@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 /**
- * Information about a particular iCloud share. See [photos] for a list of photos.
+ * A shared album, as [ICloudClient.getShare] returns it.
  */
 public data class ICloudShare(
         var userFirstName: String? = null,
@@ -16,17 +16,14 @@ public data class ICloudShare(
 ) : Serializable
 
 /**
- * Meta-data about a particular iCloud photo.
- * @property batchGuid ?
- * @property derivatives lists all available sizes of the photo.
- * @property contributorFirstName
- * @property contributorLastName
- * @property photoGuid unique identifier of the photo, in the UUID formatting.
- * @property batchDateCreated ISO date such as `"2020-10-20T07:19:44Z"`
- * @property dateCreated ISO date such as `"2020-10-20T07:19:44Z"`.
- * @property width (original?) photo width
- * @property height (original?) photo height
- * @property caption usually blank
+ * One photo of an [ICloudShare]: its metadata and the sizes iCloud serves it in.
+ * @property derivatives the available sizes, keyed by the longer side in pixels, such as `"1024"`.
+ * @property photoGuid identifies the photo, in UUID format.
+ * @property batchDateCreated ISO 8601 instant such as `2020-10-20T07:19:44Z`.
+ * @property dateCreated ISO 8601 instant such as `2019-10-25T05:26:58Z`.
+ * @property width in pixels.
+ * @property height in pixels.
+ * @property caption usually blank.
  */
 public data class ICloudPhoto(
         var batchGuid: String? = null,
@@ -42,12 +39,11 @@ public data class ICloudPhoto(
 ) : Serializable
 
 /**
- * Information on a particular resized version of a photo. The [checksum] string
- * is an unique identifier and is important when obtaining the downloadable URL.
- * @property fileSize jpg file size, in bytes
- * @property checksum derivative ID
- * @property width width in pixels
- * @property height height in pixels
+ * One size of an [ICloudPhoto]; [ICloudClient.getDownloadUrl] turns it into a download URL.
+ * @property fileSize in bytes.
+ * @property checksum identifies this derivative; the key into [WebAsset.items].
+ * @property width in pixels.
+ * @property height in pixels.
  */
 public data class ICloudDerivative(
         var fileSize: Long = 0,
@@ -57,7 +53,8 @@ public data class ICloudDerivative(
 ) : Serializable
 
 /**
- * Sent by iCloud when the photo resides on a different server.
+ * The body of iCloud's 330 response: the album lives on another server.
+ * @property xapplemmehost that server's host name, such as `p27-sharedstreams.icloud.com`.
  */
 internal data class ICloudRedirect(
         @SerializedName("X-Apple-MMe-Host")
