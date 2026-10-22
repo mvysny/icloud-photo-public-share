@@ -5,8 +5,6 @@ To release the library to Maven Central:
 1. Edit `build.gradle.kts` and remove `-SNAPSHOT` in the `version=` stanza, e.g. "0.4"
 2. Edit `README.md`: bump the version in the snippet under "Include in your project" to match the release,
    and add a line to "Compatibility" if the supported JDK or Android version changed.
-   For 0.4 only: the snippet and the Maven Central badge also switch from `com.gitlab.mvysny…` to `com.github.mvysny…`,
-   the groupId of `build.gradle.kts`.
 3. Switch to JDK 11 or lower, to ensure Android compatibility; the build refuses to publish otherwise.
    Note that `mise.toml` pins JDK 17.
 4. Run `./gradlew clean build publish closeAndReleaseStagingRepositories`

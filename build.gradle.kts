@@ -13,7 +13,7 @@ plugins {
 defaultTasks("clean", "build")
 
 group = "com.github.mvysny.icloud-photo-public-share"
-version = "0.4"
+version = "0.5-SNAPSHOT"
 
 repositories {
     mavenCentral()
