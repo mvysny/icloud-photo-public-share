@@ -9,19 +9,14 @@ cache:
     - .gradle/caches/
     - .gradle/build-cache/
 
-# Test on all Java LTS versions
-build:jdk8:
-  image: openjdk:8-jdk
+# Test on the Java LTS versions; Gradle 8.14 runs on JDK 24 at most, so 25 waits for Gradle 9.1+
+build:
+  image: eclipse-temurin:${JDK}-jdk
+  parallel:
+    matrix:
+      - JDK: ["8", "11", "17", "21"]
   script:
-    - ./gradlew --info --stacktrace --no-daemon
-build:jdk11:
-  image: openjdk:11-jdk
-  script:
-    - ./gradlew --info --stacktrace --no-daemon
-build:jdk17:
-  image: openjdk:17-jdk
-  script:
-    - ./gradlew --info --stacktrace --no-daemon
+    - ./gradlew --no-daemon --no-watch-fs
 
 # the doc layer's checks; needs only bash and git
 design-tripwires:
@@ -30,9 +25,3 @@ design-tripwires:
   before_script: []
   script:
     - design/verify_design_tripwires.sh
-
-# also test on latest non-LTS version
-build:jdk16:
-  image: openjdk:16-jdk
-  script:
-    - ./gradlew --info --stacktrace --no-daemon

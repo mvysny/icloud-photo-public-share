@@ -26,7 +26,7 @@ Every fact lives in exactly one of these; the others link to it.
 ## Invariants
 
 - **Every iCloud request goes through `ICloudClient`'s `httpClient`.** A request on any other `OkHttpClient` escapes `FakeICloud`'s rerouting, so the tests hit the real iCloud.
-- **JVM target 1.8, plain `kotlin-stdlib`, no JDK 9+ API.** Anything newer compiles here and crashes on Android 5.0.
+- **JVM target 1.8, plain `kotlin-stdlib`, no JDK 9+ API.** Anything newer compiles here and crashes on Android 5.0; nothing in this build checks it — PhotoCloud (`../photocloud`), which uses this library, is the verification.
 - **Gson maps only the internal `*Json` classes (`ICloudJson.kt`), never the public model.** Their properties are `var`s with defaults; why is at the top of that file.
 
 ## Module map
@@ -44,9 +44,9 @@ Every fact lives in exactly one of these; the others link to it.
 
 ## Commands
 
-- `./gradlew` — `clean build`: compile, tests, then `design/verify_design_tripwires.sh` (skipped under CI). CI (`.gitlab-ci.yml`) runs it on JDK 8, 11, 16 and 17, plus the tripwire in a job of its own.
+- `./gradlew` — `clean build`: compile, tests, then `design/verify_design_tripwires.sh` (skipped under CI). CI (`.gitlab-ci.yml`) runs it on JDK 8, 11, 17 and 21, plus the tripwire in a job of its own.
 - `./gradlew test --tests '*ICloudClientTest'` — one test class.
-- `mise exec -- ./gradlew` when the shell hasn't activated mise — `mise.toml` pins JetBrains 17; under JDK 25 Kotlin 2.0.20 fails to parse the Java version.
+- `mise exec -- ./gradlew` when the shell hasn't activated mise — `mise.toml` pins JetBrains 17; Gradle 8.14 runs on JDK 24 at most.
 
 ## Maintenance of this file
 

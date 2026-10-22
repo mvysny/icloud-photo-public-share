@@ -2,8 +2,9 @@
 
 Improvements found in a review after the switch to plain OkHttp + MockWebServer. Pre-1.0, so
 breaking the API is fine; note each break in README's compatibility list. Numbers are the review's;
-1, 2, 7, 8 and 10 are done; 12 (publish from any JDK) is rejected, why beside the check in
-`build.gradle.kts`.
+1, 2, 7, 8, 10 and 14 are done; 11 (an Android API check in the build) and 12 (publish from any
+JDK) are rejected, why in AGENTS.md and beside the check in `build.gradle.kts`. OkHttp 5 is
+deferred, why beside the dependency.
 
 ## API
 
@@ -30,9 +31,8 @@ breaking the API is fine; note each break in README's compatibility list. Number
 
 ## Build and project
 
-11. **Verify the Android 5.0 promise mechanically.** JDK 8's API is not Android 21's; nothing
-    checks it. The animal-sniffer Gradle plugin with the `android-api-level-21` signature would.
-13. **CI JDKs.** CI tests on EOL JDK 16 — use 8, 11, 17, 21, 25. (OkHttp 5 is deferred, why beside
-    the dependency in `build.gradle.kts`.)
-14. **Stale AGENTS.md line.** The `mise` command line blames Kotlin 2.0.20 for failing under JDK 25;
-    the build is on Kotlin 2.4.21 now. Re-check, then fix or delete the line.
+13. **CI on JDK 25.** CI now tests 8, 11, 17, 21; Gradle 8.14 runs on JDK 24 at most, and JDK 25
+    needs Gradle 9.1+. But Gradle 9 itself needs JDK 17+ to run, so the JDK 8/11 jobs would have to
+    run Gradle on 17+ and launch the tests on 8/11 through a toolchain (`Test.javaLauncher`).
+    - `Q_gradle9_toolchains`: is JDK 25 coverage worth that restructuring, or wait until JDK 8/11
+      coverage can go?
