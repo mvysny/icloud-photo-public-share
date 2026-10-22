@@ -1,7 +1,7 @@
 package com.github.mvysny.icloudphotopublicshare
 
 /**
- * The download URLs of one photo's derivatives, as [ICloudClient.getWebAsset] returns them.
+ * The download URLs of the derivatives of one or more photos, as [ICloudClient.getWebAssets] returns them.
  * @property locations maps [WebItem.url_location] to the server serving it.
  * @property items maps [ICloudDerivative.checksum] to where that derivative downloads from.
  */

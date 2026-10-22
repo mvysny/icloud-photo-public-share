@@ -19,6 +19,7 @@ iCloud Photos (public shared folder).
 | `CONTRIBUTING.md` | how to contribute | — |
 | `RELEASING.md` | the release procedure | — |
 | `AGENTS.md` (this) | promises, invariants, the module map, conventions, commands | every turn |
+| `design/research.md` | what iCloud actually does, `R_` register | lazy |
 | doc comments | what one symbol does and why it is shaped so | at the symbol |
 
 Every fact lives in exactly one of these; the others link to it.

@@ -66,7 +66,7 @@ public class ICloudClient(
 
     /**
      * Returns a download URL for [derivative] of [photo]; it expires in about an hour. Costs one request per call, so
-     * for several derivatives of one photo fetch [getWebAsset] once instead.
+     * for several photos or derivatives fetch [getWebAssets] once instead.
      * @throws IllegalStateException if iCloud has no such derivative of [photo].
      */
     public fun getDownloadUrl(photo: ICloudPhoto, derivative: ICloudDerivative): String =
@@ -80,8 +80,32 @@ public class ICloudClient(
     /**
      * Same as the [ICloudPhoto] overload, by [ICloudPhoto.photoGuid].
      */
-    public fun getWebAsset(photoGuid: String): WebAsset =
-        post("webasseturls", mapOf("photoGuids" to listOf(photoGuid)), WebAssetJson::class.java).toWebAsset("$url/webasseturls")
+    public fun getWebAsset(photoGuid: String): WebAsset = getWebAssets(listOf(photoGuid))
+
+    /**
+     * Fetches the download URLs of every derivative of all [photos] in one request, however many:
+     *
+     * ```
+     * val share: ICloudShare = client.getShare()
+     * val webAsset: WebAsset = client.getWebAssets(share.photos)
+     * val imageUrls: List<String> = share.photos.map { webAsset.getDownloadUrl(it.largestDerivative) }
+     * ```
+     *
+     * The URLs expire in about an hour, so fetch a page of photos at a time rather than a large album at once.
+     * An empty [photos] costs no request.
+     */
+    public fun getWebAssets(photos: Collection<ICloudPhoto>): WebAsset = getWebAssets(photos.map { it.photoGuid })
+
+    /**
+     * Same as the [ICloudPhoto] overload, by [ICloudPhoto.photoGuid]. iCloud leaves an unknown GUID out of the result.
+     */
+    @JvmName("getWebAssetsByGuid")
+    public fun getWebAssets(photoGuids: Collection<String>): WebAsset {
+        // iCloud answers 400 to an empty photoGuids, R_webasseturls_batch
+        if (photoGuids.isEmpty()) return WebAsset(emptyMap(), emptyMap())
+        return post("webasseturls", mapOf("photoGuids" to photoGuids.distinct()), WebAssetJson::class.java)
+            .toWebAsset("$url/webasseturls")
+    }
 
     /**
      * Same as the [ICloudPhoto] overload, by [ICloudPhoto.photoGuid] and [ICloudDerivative.checksum].

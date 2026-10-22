@@ -2,16 +2,12 @@
 
 Improvements found in a review after the switch to plain OkHttp + MockWebServer. Pre-1.0, so
 breaking the API is fine; note each break in README's compatibility list. Numbers are the review's;
-1, 2, 4, 5, 7, 8, 9, 10, 13 and 14 are done; 11 (an Android API check in the build) and 12 (publish from
+1–5, 7, 8, 9, 10, 13 and 14 are done; 11 (an Android API check in the build) and 12 (publish from
 any JDK) are rejected, why in AGENTS.md and beside the check in `build.gradle.kts`. OkHttp 5 is
 deferred, why beside the dependency; JDK 25 in CI likewise, why in `.github/workflows/build.yml`.
 
 ## API
 
-3. **Batch `webasseturls`.** The endpoint takes a `photoGuids` *array*, but we send one GUID per
-   request: 86 photos = 86 requests. Add `getWebAssets(photos)`, chunked if iCloud caps it.
-   - `Q_batch_size`: does iCloud accept many GUIDs per request, and is there a cap? Needs one live
-     check, then a recorded response.
 6. **Videos.** Shared albums can hold videos; from memory (unverified) they carry `mediaAssetType`
    and non-numeric derivative keys like `PosterFrame`, `720p`, which would contradict the
    "keyed by the longer side in pixels" doc on `ICloudPhoto.derivatives`.

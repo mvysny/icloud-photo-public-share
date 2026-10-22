@@ -100,7 +100,7 @@ class ICloudClientTest {
         fun `photo url follows redirect`() {
             val client = client(serverName = "p23-sharedstreams.icloud.com")
             val url: String = client.getDownloadUrl("1F6DA863-398D-4BA6-9980-350C982F6276", "015c281ffb89b0c02204d548d5720b9132dd4bfb93")
-            assertContains(url, "/IMG_0050.JPG?")
+            assertContains(url, "/IMG_0066.JPG?")
             expect("ICloudClient(albumId='B0R5qXGF1GeKg4d', serverName='p27-sharedstreams.icloud.com')") { client.toString() }
         }
 
@@ -130,10 +130,38 @@ class ICloudClientTest {
 
         @Test
         fun `photo guid is escaped in the request`() {
-            val ex = assertFailsWith<FileNotFoundException> {
-                client().getWebAsset("a\"b")
+            // unescaped, the fake would answer 400 to the malformed JSON
+            expect(mapOf()) { client().getWebAsset("a\"b").items }
+        }
+
+        @Test
+        fun `web assets of the whole album in one request`() {
+            val client = client()
+            val photos: List<ICloudPhoto> = client.getShare().photos
+            val webAsset: WebAsset = client.getWebAssets(photos)
+            expect(2) { fakeICloud.requestCount }
+            for (photo in photos) {
+                for (derivative in photo.derivatives.values) {
+                    assertContains(webAsset.getDownloadUrl(derivative), "https://cvws.icloud-content.com/S/")
+                }
             }
-            assertContains(ex.message!!, "404: Not found (https://p27-sharedstreams.icloud.com/B0R5qXGF1GeKg4d/sharedstreams/webasseturls)")
+        }
+
+        @Test
+        fun `web assets of no photos cost no request`() {
+            expect(mapOf()) { client().getWebAssets(listOf<String>()).items }
+            expect(0) { fakeICloud.requestCount }
+        }
+
+        @Test
+        fun `unknown photo guid has no derivatives`() {
+            val photo: ICloudPhoto = client().getShare().photos.first()
+            val webAsset: WebAsset = client().getWebAssets(listOf(photo.photoGuid, "00000000-0000-0000-0000-000000000000"))
+            expect(photo.derivatives.values.map { it.checksum }.toSet()) { webAsset.items.keys }
+            val ex = assertFailsWith<IllegalStateException> {
+                client().getDownloadUrl("00000000-0000-0000-0000-000000000000", photo.largestDerivative.checksum)
+            }
+            assertContains(ex.message!!, "No item with checksum '${photo.largestDerivative.checksum}'")
         }
 
         @Test
@@ -159,7 +187,7 @@ class ICloudClientTest {
             val client = client()
             val photo: ICloudPhoto = client.getShare().photos.first()
             val url: String = client.getDownloadUrl(photo.photoGuid, "015c281ffb89b0c02204d548d5720b9132dd4bfb93")
-            expect("https://cvws.icloud-content.com/S/AVwoH_uJsMAiBNVI1XILkTLdS_uT/IMG_0050.JPG?o=Ah9jlrymSJpGvxzFyw5LRyXJJNoTsLu0472KzMOew_Ax&v=1&z=https%3A%2F%2Fp27-content.icloud.com%3A443&x=1&a=CAogakRqhS9LcLGye2zEnNf62yVFCT-b5kPSkfRfXo9p6iQSZxDsuprk2i4Y7NGt6douIgEAUgTdS_uTaia6pw47lOJbhJdNDzPgkgbHS67GO_nU-MIHjJUt6x8dpn_OnJyXWXImtrCSgVzEAPkKXOd2RFIbrGnbA3adQE1mQuNLvkhot9syoVl2nSY&e=1604928104&r=18253835-00d8-48f1-8bf2-255bb9167f19-1&s=DVy1ZCRXorj-P_BPiPH8HHfNrlE") {
+            expect("https://cvws.icloud-content.com/S/AVwoH_uJsMAiBNVI1XILkTLdS_uT/IMG_0066.JPG?o=AgRYjMCqvh4dqcQDfc740fbIMnnbGNGZrHl-gJXPo9oq&v=1&z=https%3A%2F%2Fp137-content.icloud.com%3A443&x=1&a=CAogwyOAxLMQwsIY4MsH8OjMwbnsmSSobjzs0Jl85SYQN3USZxCi5pCTljQYooXak5Y0IgEAUgTdS_uTaibzrmhK3f2Fvq36KI0upIpBKKvpNnQBK3bGse3_PYyeHLaqA88ikHImfU-gxk5kqlvz6A96T1GXMUdN-R7iRQBuShfeIY66mUIshhtFmVg&e=1792653296&r=20f55cf4-8728-402c-a496-c8cb902d4bfe-55&s=Km39Oh9MqQNwgK0XSIVkihw3k7A") {
                 url
             }
         }

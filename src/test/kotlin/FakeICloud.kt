@@ -24,7 +24,8 @@ import java.io.InputStream
  *
  * Knows album `B0R5qXGF1GeKg4d` on `p27-sharedstreams.icloud.com`; every other `pNN` host answers 330, redirecting there,
  * except `p99`, which redirects to itself forever, and `p98`, which redirects off iCloud. Album `Malformed` on `p27`
- * answers a photo without a `photoGuid`.
+ * answers a photo without a `photoGuid`. `webasseturls` answers like iCloud: any subset of the album's photos, unknown
+ * GUIDs left out, 400 for none.
  *
  * ## Implementation notes
  *
@@ -51,6 +52,11 @@ class FakeICloud : AutoCloseable {
             chain.proceed(rerouted).newBuilder().request(original).build()
         })
         .build()
+
+    /**
+     * How many requests reached the server so far, redirects included.
+     */
+    val requestCount: Int get() = server.requestCount
 
     override fun close() {
         server.shutdown()
@@ -79,16 +85,35 @@ private class ICloudDispatcher : Dispatcher() {
             host != "p27-sharedstreams.icloud.com" -> notFound()
             path == "/B0R5qXGF1GeKg4d/sharedstreams/webstream" -> json(200, loadResource("example_shares.json"))
             path == "/B0R5qXGF1GeKg4d/sharedstreams/webasseturls" -> {
-                val photoGuid: String = try {
-                    ((JsonParser.parseString(body) as JsonObject)["photoGuids"] as JsonArray)[0].asString
+                val photoGuids: JsonArray? = try {
+                    (JsonParser.parseString(body) as JsonObject)["photoGuids"] as JsonArray?
                 } catch (e: JsonParseException) {
                     return MockResponse().setResponseCode(400).setBody("malformed JSON $body")
                 }
-                val photo: String? = javaClass.classLoader.getResource("example_photo_$photoGuid.json")?.readText()
-                if (photo == null) notFound() else json(200, photo)
+                if (photoGuids == null || photoGuids.isEmpty) {
+                    return MockResponse().setResponseCode(400).setBody("Validation Failed: missing photoGuids")
+                }
+                json(200, webAssetUrls(photoGuids.map { it.asString }.toSet()))
             }
             else -> notFound()
         }
+    }
+
+    /**
+     * Cuts the recorded `webasseturls` response of the whole album down to [photoGuids], dropping unknown ones.
+     */
+    private fun webAssetUrls(photoGuids: Set<String>): String {
+        val photos: JsonArray = JsonParser.parseString(loadResource("example_shares.json")).asJsonObject["photos"].asJsonArray
+        val checksums: Set<String> = photos.map { it.asJsonObject }
+            .filter { it["photoGuid"].asString in photoGuids }
+            .flatMap { photo -> photo["derivatives"].asJsonObject.entrySet().map { it.value.asJsonObject["checksum"].asString } }
+            .toSet()
+        val recorded: JsonObject = JsonParser.parseString(loadResource("example_webasseturls.json")).asJsonObject
+        val items = JsonObject()
+        recorded["items"].asJsonObject.entrySet().filter { it.key in checksums }.forEach { items.add(it.key, it.value) }
+        val locations = JsonObject()
+        if (items.size() > 0) recorded["locations"].asJsonObject.entrySet().forEach { locations.add(it.key, it.value) }
+        return JsonObject().apply { add("locations", locations); add("items", items) }.toString()
     }
 
     private fun redirectTo(host: String): MockResponse = json(330, """{"X-Apple-MMe-Host": "$host"}""")
