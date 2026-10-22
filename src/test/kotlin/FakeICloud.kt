@@ -24,7 +24,7 @@ import java.io.InputStream
  *
  * Knows album `B0R5qXGF1GeKg4d` on `p27-sharedstreams.icloud.com`; every other `pNN` host answers 330, redirecting there,
  * except `p99`, which redirects to itself forever, and `p98`, which redirects off iCloud. Album `Malformed` on `p27`
- * answers a photo without a `photoGuid`. `webasseturls` answers like iCloud: any subset of the album's photos, unknown
+ * answers a photo without a `photoGuid`, album `Broken` a 500. `webasseturls` answers like iCloud: any subset of the album's photos, unknown
  * GUIDs left out, 400 for none.
  *
  * ## Implementation notes
@@ -78,6 +78,8 @@ private class ICloudDispatcher : Dispatcher() {
         return when {
             path == "/Malformed/sharedstreams/webstream" && host == "p27-sharedstreams.icloud.com" ->
                 json(200, """{"photos": [{"photoGuid": null, "derivatives": {}}]}""")
+            path == "/Broken/sharedstreams/webstream" && host == "p27-sharedstreams.icloud.com" ->
+                MockResponse().setResponseCode(500).setBody("Internal error")
             !path.startsWith("/B0R5qXGF1GeKg4d/") -> notFound()
             host == "p99-sharedstreams.icloud.com" -> redirectTo(host)
             host == "p98-sharedstreams.icloud.com" -> redirectTo("example.com")

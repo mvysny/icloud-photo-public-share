@@ -8,6 +8,7 @@ import java.io.FileNotFoundException
 import java.io.IOException
 import kotlin.test.assertContains
 import kotlin.test.assertFailsWith
+import kotlin.test.assertFalse
 import kotlin.test.expect
 
 class ICloudClientTest {
@@ -156,12 +157,23 @@ class ICloudClientTest {
         @Test
         fun `unknown photo guid has no derivatives`() {
             val photo: ICloudPhoto = client().getShare().photos.first()
+            val checksums: Set<String> = photo.derivatives.values.map { it.checksum }.toSet()
+            expect(checksums) { client().getWebAsset(photo).items.keys }
             val webAsset: WebAsset = client().getWebAssets(listOf(photo.photoGuid, "00000000-0000-0000-0000-000000000000"))
-            expect(photo.derivatives.values.map { it.checksum }.toSet()) { webAsset.items.keys }
+            expect(checksums) { webAsset.items.keys }
             val ex = assertFailsWith<IllegalStateException> {
                 client().getDownloadUrl("00000000-0000-0000-0000-000000000000", photo.largestDerivative.checksum)
             }
             assertContains(ex.message!!, "No item with checksum '${photo.largestDerivative.checksum}'")
+        }
+
+        @Test
+        fun `server error reporting`() {
+            val ex = assertFailsWith<IOException> {
+                client("Broken").getShare()
+            }
+            assertFalse(ex is FileNotFoundException)
+            assertContains(ex.message!!, "500: Internal error (https://p27-sharedstreams.icloud.com/Broken/sharedstreams/webstream)")
         }
 
         @Test
@@ -186,7 +198,7 @@ class ICloudClientTest {
         fun `photo url`() {
             val client = client()
             val photo: ICloudPhoto = client.getShare().photos.first()
-            val url: String = client.getDownloadUrl(photo.photoGuid, "015c281ffb89b0c02204d548d5720b9132dd4bfb93")
+            val url: String = client.getDownloadUrl(photo, photo.largestDerivative)
             expect("https://cvws.icloud-content.com/S/AVwoH_uJsMAiBNVI1XILkTLdS_uT/IMG_0066.JPG?o=AgRYjMCqvh4dqcQDfc740fbIMnnbGNGZrHl-gJXPo9oq&v=1&z=https%3A%2F%2Fp137-content.icloud.com%3A443&x=1&a=CAogwyOAxLMQwsIY4MsH8OjMwbnsmSSobjzs0Jl85SYQN3USZxCi5pCTljQYooXak5Y0IgEAUgTdS_uTaibzrmhK3f2Fvq36KI0upIpBKKvpNnQBK3bGse3_PYyeHLaqA88ikHImfU-gxk5kqlvz6A96T1GXMUdN-R7iRQBuShfeIY66mUIshhtFmVg&e=1792653296&r=20f55cf4-8728-402c-a496-c8cb902d4bfe-55&s=Km39Oh9MqQNwgK0XSIVkihw3k7A") {
                 url
             }
