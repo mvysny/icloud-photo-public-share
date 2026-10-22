@@ -1,18 +1,17 @@
 package com.gitlab.mvysny.icloudphotopublicshare
 
-import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 /**
  * A shared album, as [ICloudClient.getShare] returns it.
  */
 public data class ICloudShare(
-        var userFirstName: String? = null,
-        var userLastName: String? = null,
-        var streamName: String? = null,
-        var streamCtag: String? = null,
-        var itemsReturned: Int = 0,
-        var photos: MutableList<ICloudPhoto> = mutableListOf()
+        val userFirstName: String?,
+        val userLastName: String?,
+        val streamName: String?,
+        val streamCtag: String?,
+        val itemsReturned: Int,
+        val photos: List<ICloudPhoto>
 ) : Serializable
 
 /**
@@ -26,16 +25,16 @@ public data class ICloudShare(
  * @property caption usually blank.
  */
 public data class ICloudPhoto(
-        var batchGuid: String? = null,
-        var derivatives: MutableMap<String, ICloudDerivative> = mutableMapOf(),
-        var contributorFirstName: String? = null,
-        var contributorLastName: String? = null,
-        var photoGuid: String? = null,
-        var batchDateCreated: String? = null,
-        var dateCreated: String? = null,
-        var width: Int = 0,
-        var height: Int = 0,
-        var caption: String? = null
+        val batchGuid: String?,
+        val derivatives: Map<String, ICloudDerivative>,
+        val contributorFirstName: String?,
+        val contributorLastName: String?,
+        val photoGuid: String,
+        val batchDateCreated: String?,
+        val dateCreated: String?,
+        val width: Int,
+        val height: Int,
+        val caption: String?
 ) : Serializable
 
 /**
@@ -46,17 +45,8 @@ public data class ICloudPhoto(
  * @property height in pixels.
  */
 public data class ICloudDerivative(
-        var fileSize: Long = 0,
-        var checksum: String? = null,
-        var width: Int = 0,
-        var height: Int = 0
+        val fileSize: Long,
+        val checksum: String,
+        val width: Int,
+        val height: Int
 ) : Serializable
-
-/**
- * The body of iCloud's 330 response: the album lives on another server.
- * @property xapplemmehost that server's host name, such as `p27-sharedstreams.icloud.com`.
- */
-internal data class ICloudRedirect(
-        @SerializedName("X-Apple-MMe-Host")
-        var xapplemmehost: String? = null
-)

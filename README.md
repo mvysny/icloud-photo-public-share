@@ -48,8 +48,10 @@ dependencies {
 
 * 0.2: The library is compatible with JDK 7+ and Android API 8+ (that's Android 2.2.x).
 * 0.3+: Compatible with Android 5.0+ (SDK21+) and JDK8+.
-* 0.4+: `ICloud.httpClient` is a plain `OkHttpClient` with a ready default; replace it to configure timeouts, a proxy
-  or a cache. `SimplifiedHttpClient` and the public OkHttp helper functions are gone.
+* 0.4+: `ICloudClient` and `parseURL` take an optional `OkHttpClient`; pass one to configure timeouts, a proxy or a
+  cache. The `ICloud` global object, `SimplifiedHttpClient` and the public OkHttp helper functions are gone. The model
+  (`ICloudShare`, `ICloudPhoto`, `WebAsset`, …) is read-only with non-null ids, and a response missing an id fails
+  with `IOException`.
 
 Requires Kotlin and OkHttp.
 

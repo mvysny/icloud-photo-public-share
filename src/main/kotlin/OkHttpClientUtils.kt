@@ -1,5 +1,6 @@
 package com.gitlab.mvysny.icloudphotopublicshare
 
+import com.google.gson.Gson
 import okhttp3.MediaType
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
@@ -10,13 +11,14 @@ import java.io.FileNotFoundException
 import java.io.IOException
 
 private val mimeJson: MediaType = "application/json".toMediaType()
+private val gson: Gson = Gson()
 
 /**
- * POSTs [json] to [url] and hands the response to [handler], closing it afterwards.
+ * POSTs [json] to [url]; the caller closes the response.
  */
-internal fun <T> OkHttpClient.postJson(url: String, json: String, handler: (Response) -> T): T {
+internal fun OkHttpClient.postJson(url: String, json: String): Response {
     val request: Request = Request.Builder().url(url).post(json.toRequestBody(mimeJson)).build()
-    return newCall(request).execute().use(handler)
+    return newCall(request).execute()
 }
 
 /**
@@ -33,6 +35,6 @@ internal fun Response.checkOk(): Response {
 }
 
 /**
- * Maps the body to [clazz] with [ICloud.gson].
+ * Maps the body to [clazz], one of the `*Json` classes.
  */
-internal fun <T> Response.json(clazz: Class<T>): T = body!!.use { ICloud.gson.fromJson(it.charStream(), clazz) }
+internal fun <T> Response.json(clazz: Class<T>): T = body!!.use { gson.fromJson(it.charStream(), clazz) }

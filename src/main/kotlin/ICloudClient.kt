@@ -1,27 +1,9 @@
 package com.gitlab.mvysny.icloudphotopublicshare
 
-import com.google.gson.Gson
-import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import java.io.FileNotFoundException
 import java.io.IOException
 import java.net.URL
-
-/**
- * Global configuration for [ICloudClient]. Configure it before the first request: the fields are read without
- * synchronization.
- */
-public object ICloud {
-    /**
-     * Every iCloud request goes through this client; replace it to configure timeouts, a proxy or a cache.
-     */
-    public var httpClient: OkHttpClient = OkHttpClient()
-
-    /**
-     * Maps iCloud's JSON responses to [ICloudShare], [WebAsset] and the rest of the model.
-     */
-    public var gson: Gson = GsonBuilder().create()
-}
 
 /**
  * Reads a publicly shared iCloud album; no Apple ID needed:
@@ -33,45 +15,56 @@ public object ICloud {
  * val imageUrl: URL = client.getDownloadUrl(photo, derivative)   // valid for about an hour
  * ```
  *
- * Each `get*` call blocks on an HTTP request through [ICloud.httpClient], so keep them off Android's main thread. They
- * throw [IOException] on a network failure or a non-2xx response, [FileNotFoundException] for 404.
+ * Each `get*` call blocks on an HTTP request, so keep them off Android's main thread. They throw [IOException] on a
+ * network failure, a non-2xx or a malformed response, [FileNotFoundException] for 404.
  *
  * Thread-safe.
  *
  * @property albumId such as `B0R5qXGF1GeKg4d` in `https://www.icloud.com/sharedalbum/#B0R5qXGF1GeKg4d`; [parseURL]
  *   extracts it.
- * @param serverName the iCloud server holding the album. A wrong one costs [getShare] an extra request (it follows
- *   iCloud's redirect and remembers the right server) but fails the other `get*` calls until [getShare] has run.
+ * @param serverName the iCloud server holding the album. A wrong one costs one extra request: iCloud redirects, and the
+ *   client remembers the right server.
+ * @param httpClient carries every request; pass your own to configure timeouts, a proxy or a cache. By default all
+ *   clients share one.
+ * @throws IllegalArgumentException if [albumId] is not letters and digits, or [serverName] is not a
+ *   `pNN-sharedstreams.icloud.com` host.
  */
 public class ICloudClient(
         public val albumId: String,
         @Volatile
-        private var serverName: String = "p27-sharedstreams.icloud.com"
+        private var serverName: String = "p27-sharedstreams.icloud.com",
+        private val httpClient: OkHttpClient = sharedHttpClient
 ) {
+    init {
+        require(albumIdRegex.matches(albumId)) { "Invalid album ID '$albumId': expected letters and digits" }
+        require(serverNameRegex.matches(serverName)) {
+            "Invalid server name '$serverName': expected a pNN-sharedstreams.icloud.com host"
+        }
+    }
 
     private val url: String get() = "https://$serverName/$albumId/sharedstreams"
 
     /**
-     * Fetches the album's name, owner and photo list, following iCloud's redirect to the server that holds it.
+     * POSTs [json] to this album's [endpoint] and maps the response to [clazz], following iCloud's 330 redirects to the
+     * server that holds the album.
      */
-    public fun getShare(): ICloudShare {
-        while (true) {
-            val share: ICloudShare? = ICloud.httpClient.postJson("$url/webstream", "{\"streamCtag\":null}") { response ->
-                if (response.code == 330) {
-                    // redirect to another server
-                    val redirect: ICloudRedirect = response.json(ICloudRedirect::class.java)
-                    serverName = redirect.xapplemmehost!!
-                    null
-                } else {
-                    response.checkOk().json(ICloudShare::class.java)
-                }
-            }
-
-            if (share != null) {
-                return share
+    private fun <T> post(endpoint: String, json: String, clazz: Class<T>): T {
+        repeat(MAX_REDIRECTS) {
+            httpClient.postJson("$url/$endpoint", json).use { response ->
+                if (response.code != 330) return response.checkOk().json(clazz)
+                val host: String = required(response.json(RedirectJson::class.java).host, "X-Apple-MMe-Host", "$url/$endpoint")
+                if (!serverNameRegex.matches(host)) throw IOException("330: redirect to unexpected host $host ($url/$endpoint)")
+                serverName = host
             }
         }
+        throw IOException("330: more than $MAX_REDIRECTS redirects ($url/$endpoint)")
     }
+
+    /**
+     * Fetches the album's name, owner and photo list.
+     */
+    public fun getShare(): ICloudShare =
+        post("webstream", "{\"streamCtag\":null}", ShareJson::class.java).toShare("$url/webstream")
 
     /**
      * Returns a download URL for [derivative] of [photo]; it expires in about an hour. Costs one request per call, so
@@ -79,20 +72,18 @@ public class ICloudClient(
      * @throws IllegalStateException if iCloud has no such derivative of [photo].
      */
     public fun getDownloadUrl(photo: ICloudPhoto, derivative: ICloudDerivative): URL =
-            getDownloadUrl(photo.photoGuid!!, derivative.checksum!!)
+            getDownloadUrl(photo.photoGuid, derivative.checksum)
 
     /**
      * Fetches the download URLs of every derivative of [photo] in one request; pick one with [WebAsset.getDownloadUrl].
      */
-    public fun getWebAsset(photo: ICloudPhoto): WebAsset = getWebAsset(photo.photoGuid!!)
+    public fun getWebAsset(photo: ICloudPhoto): WebAsset = getWebAsset(photo.photoGuid)
 
     /**
      * Same as the [ICloudPhoto] overload, by [ICloudPhoto.photoGuid].
      */
     public fun getWebAsset(photoGuid: String): WebAsset =
-        ICloud.httpClient.postJson("$url/webasseturls", "{\"photoGuids\": [\"$photoGuid\"]}") { response ->
-            response.checkOk().json(WebAsset::class.java)
-        }
+        post("webasseturls", "{\"photoGuids\": [\"$photoGuid\"]}", WebAssetJson::class.java).toWebAsset("$url/webasseturls")
 
     /**
      * Same as the [ICloudPhoto] overload, by [ICloudPhoto.photoGuid] and [ICloudDerivative.checksum].
@@ -105,18 +96,24 @@ public class ICloudClient(
     }
 
     public companion object {
-        private val urlRegex = Regex("https://(p\\d+-sharedstreams.icloud.com)/([A-Za-z0-9]+)/sharedstreams.*")
+        private const val MAX_REDIRECTS = 5
+        private val sharedHttpClient: OkHttpClient by lazy { OkHttpClient() }
+        private val albumIdRegex = Regex("[A-Za-z0-9]+")
+        private val serverNameRegex = Regex("p\\d+-sharedstreams\\.icloud\\.com")
+        private val sharedStreamsUrlRegex = Regex("https://(${serverNameRegex.pattern})/(${albumIdRegex.pattern})/sharedstreams.*")
+        private val sharedAlbumUrlRegex = Regex("https://www\\.icloud\\.com/sharedalbum/#(${albumIdRegex.pattern})")
+
         /**
          * Creates a client for an album URL such as `https://www.icloud.com/sharedalbum/#B0R5qXGF1GeKg4d` or
          * `https://p27-sharedstreams.icloud.com/B0R5qXGF1GeKg4d/sharedstreams`.
+         * @param httpClient see [ICloudClient].
          * @throws IllegalArgumentException if [url] is neither form.
          */
-        public fun parseURL(url: String): ICloudClient {
-            if (url.startsWith("https://www.icloud.com/sharedalbum/#")) {
-                return ICloudClient(url.removePrefix("https://www.icloud.com/sharedalbum/#"))
-            }
-            val match: MatchResult = urlRegex.matchEntire(url) ?: throw IllegalArgumentException("Failed to parse $url: not a sharedstreams.icloud.com URL")
-            return ICloudClient(match.groupValues[2], match.groupValues[1])
+        public fun parseURL(url: String, httpClient: OkHttpClient = sharedHttpClient): ICloudClient {
+            sharedAlbumUrlRegex.matchEntire(url)?.let { return ICloudClient(it.groupValues[1], httpClient = httpClient) }
+            val match: MatchResult = sharedStreamsUrlRegex.matchEntire(url)
+                ?: throw IllegalArgumentException("Failed to parse $url: not an iCloud shared album URL")
+            return ICloudClient(match.groupValues[2], match.groupValues[1], httpClient)
         }
     }
 

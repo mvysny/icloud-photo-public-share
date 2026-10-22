@@ -25,19 +25,19 @@ Every fact lives in exactly one of these; the others link to it.
 
 ## Invariants
 
-- **Every iCloud request goes through `ICloud.httpClient`.** A request on any other `OkHttpClient` escapes `FakeICloud`'s rerouting, so the tests hit the real iCloud.
+- **Every iCloud request goes through `ICloudClient`'s `httpClient`.** A request on any other `OkHttpClient` escapes `FakeICloud`'s rerouting, so the tests hit the real iCloud.
 - **JVM target 1.8, plain `kotlin-stdlib`, no JDK 9+ API.** Anything newer compiles here and crashes on Android 5.0.
-- **Every property of a Gson-mapped class has a default value.** Without a no-arg constructor Gson allocates through `Unsafe`, so a missing JSON field leaves a non-null Kotlin property null.
+- **Gson maps only the internal `*Json` classes (`ICloudJson.kt`), never the public model.** Their properties are `var`s with defaults; why is at the top of that file.
 
 ## Module map
 
-- `src/main/kotlin` — the whole library, one package `com.gitlab.mvysny.icloudphotopublicshare`: client, JSON model, OkHttp helpers. Entry point `ICloudClient.parseURL`; `Main.kt` is a demo against a live album.
+- `src/main/kotlin` — the whole library, one package `com.gitlab.mvysny.icloudphotopublicshare`: client, public model, internal JSON mapping, OkHttp helpers. Entry point `ICloudClient.parseURL`.
 - `src/test/kotlin` — JUnit 5 tests against `FakeICloud`, a MockWebServer replaying the recorded iCloud responses in `src/test/resources`.
 
 ## Conventions
 
 - **Kotlin with `explicitApi()`.** Every public declaration says `public`; anything else is `internal` or `private`.
-- **Tests never leave localhost.** A new iCloud response is recorded into `src/test/resources` and served by `FakeICloud`.
+- **Tests never leave localhost.** Every `ICloudClient` in a test takes `fakeICloud.client`; a new iCloud response is recorded into `src/test/resources` and served by `FakeICloud`.
 - **`mockwebserver` and `okhttp` share one version.** MockWebServer 4.x needs the matching OkHttp internals.
 - **Errors are loud.** Non-2xx raises `IOException` (404 → `FileNotFoundException`) carrying code, body and URL.
 - **Pre-1.0, `-SNAPSHOT` between releases.** Publish with JDK 11 or lower — the build refuses otherwise; steps in `RELEASING.md`.

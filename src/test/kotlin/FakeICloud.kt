@@ -17,12 +17,13 @@ import java.io.InputStream
  *
  * ```
  * FakeICloud().use { fake ->
- *     ICloud.httpClient = fake.client
- *     ICloudClient("B0R5qXGF1GeKg4d").getShare()
+ *     ICloudClient("B0R5qXGF1GeKg4d", httpClient = fake.client).getShare()
  * }
  * ```
  *
- * Knows album `B0R5qXGF1GeKg4d` on `p27-sharedstreams.icloud.com`; every other `pNN` host answers 330, redirecting there.
+ * Knows album `B0R5qXGF1GeKg4d` on `p27-sharedstreams.icloud.com`; every other `pNN` host answers 330, redirecting there,
+ * except `p99`, which redirects to itself forever, and `p98`, which redirects off iCloud. Album `Malformed` on `p27`
+ * answers a photo without a `photoGuid`.
  *
  * ## Implementation notes
  *
@@ -62,21 +63,29 @@ private class ICloudDispatcher : Dispatcher() {
             return MockResponse().setResponseCode(400).setBody("expected a JSON POST, got ${request.method} $contentType")
         }
         val host: String = request.getHeader("Host")!!
+        val path: String = request.path!!
         val body: String = request.body.readUtf8()
+        if (path.endsWith("/webstream") && body != """{"streamCtag":null}""") {
+            return MockResponse().setResponseCode(400).setBody("unexpected body $body")
+        }
         return when {
-            request.path == "/B0R5qXGF1GeKg4d/sharedstreams/webstream" -> when {
-                body != """{"streamCtag":null}""" -> MockResponse().setResponseCode(400).setBody("unexpected body $body")
-                host == "p27-sharedstreams.icloud.com" -> json(200, loadResource("example_shares.json"))
-                host.endsWith("-sharedstreams.icloud.com") -> json(330, """{"X-Apple-MMe-Host": "p27-sharedstreams.icloud.com"}""")
-                else -> notFound()
-            }
-            request.path == "/B0R5qXGF1GeKg4d/sharedstreams/webasseturls" && host == "p27-sharedstreams.icloud.com" -> {
+            path == "/Malformed/sharedstreams/webstream" && host == "p27-sharedstreams.icloud.com" ->
+                json(200, """{"photos": [{"photoGuid": null, "derivatives": {}}]}""")
+            !path.startsWith("/B0R5qXGF1GeKg4d/") -> notFound()
+            host == "p99-sharedstreams.icloud.com" -> redirectTo(host)
+            host == "p98-sharedstreams.icloud.com" -> redirectTo("example.com")
+            host != "p27-sharedstreams.icloud.com" && host.endsWith("-sharedstreams.icloud.com") -> redirectTo("p27-sharedstreams.icloud.com")
+            host != "p27-sharedstreams.icloud.com" -> notFound()
+            path == "/B0R5qXGF1GeKg4d/sharedstreams/webstream" -> json(200, loadResource("example_shares.json"))
+            path == "/B0R5qXGF1GeKg4d/sharedstreams/webasseturls" -> {
                 val photoGuid: String = ((JsonParser.parseString(body) as JsonObject)["photoGuids"] as JsonArray)[0].asString
                 json(200, loadResource("example_photo_$photoGuid.json"))
             }
             else -> notFound()
         }
     }
+
+    private fun redirectTo(host: String): MockResponse = json(330, """{"X-Apple-MMe-Host": "$host"}""")
 
     private fun json(code: Int, body: String): MockResponse =
         MockResponse().setResponseCode(code).setHeader("Content-Type", "application/json").setBody(body)
