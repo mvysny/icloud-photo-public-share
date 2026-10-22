@@ -36,6 +36,7 @@ dependencies {
     implementation("com.google.code.gson:gson:2.14.0")
 
     testImplementation(kotlin("test"))
+    testImplementation("com.squareup.okhttp3:mockwebserver:4.12.0")
     // JUnit 6 needs JDK 17, but CI still tests on JDK 8
     testImplementation(platform("org.junit:junit-bom:5.14.4"))
     testImplementation("org.junit.jupiter:junit-jupiter")

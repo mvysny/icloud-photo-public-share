@@ -25,19 +25,20 @@ Every fact lives in exactly one of these; the others link to it.
 
 ## Invariants
 
-- **Every iCloud request goes through `ICloud.httpClient`.** A direct OkHttp call bypasses `DummyHttpClient`, so the tests silently stop covering it.
+- **Every iCloud request goes through `ICloud.httpClient`.** A request on any other `OkHttpClient` escapes `FakeICloud`'s rerouting, so the tests hit the real iCloud.
 - **JVM target 1.8, plain `kotlin-stdlib`, no JDK 9+ API.** Anything newer compiles here and crashes on Android 5.0.
 - **Every property of a Gson-mapped class has a default value.** Without a no-arg constructor Gson allocates through `Unsafe`, so a missing JSON field leaves a non-null Kotlin property null.
 
 ## Module map
 
-- `src/main/kotlin` — the whole library, one package `com.gitlab.mvysny.icloudphotopublicshare`: client, JSON model, HTTP seam, its OkHttp implementation. Entry point `ICloudClient.parseURL`; `Main.kt` is a demo against a live album.
-- `src/test/kotlin` — JUnit 5 tests over `DummyHttpClient`, which replays the recorded iCloud responses in `src/test/resources`.
+- `src/main/kotlin` — the whole library, one package `com.gitlab.mvysny.icloudphotopublicshare`: client, JSON model, OkHttp helpers. Entry point `ICloudClient.parseURL`; `Main.kt` is a demo against a live album.
+- `src/test/kotlin` — JUnit 5 tests against `FakeICloud`, a MockWebServer replaying the recorded iCloud responses in `src/test/resources`.
 
 ## Conventions
 
 - **Kotlin with `explicitApi()`.** Every public declaration says `public`; anything else is `internal` or `private`.
-- **Tests never touch the network.** A new iCloud response is recorded into `src/test/resources` and served by `DummyHttpClient`.
+- **Tests never leave localhost.** A new iCloud response is recorded into `src/test/resources` and served by `FakeICloud`.
+- **`mockwebserver` and `okhttp` share one version.** MockWebServer 4.x needs the matching OkHttp internals.
 - **Errors are loud.** Non-2xx raises `IOException` (404 → `FileNotFoundException`) carrying code, body and URL.
 - **Pre-1.0, `-SNAPSHOT` between releases.** Publish with JDK 11 or lower — the build refuses otherwise; steps in `RELEASING.md`.
 

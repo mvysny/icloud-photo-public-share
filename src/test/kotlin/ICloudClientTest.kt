@@ -1,5 +1,7 @@
 package com.gitlab.mvysny.icloudphotopublicshare
 
+import okhttp3.OkHttpClient
+import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
@@ -10,9 +12,20 @@ import kotlin.test.assertFailsWith
 import kotlin.test.expect
 
 class ICloudClientTest {
+    private lateinit var fakeICloud: FakeICloud
+    private lateinit var originalHttpClient: OkHttpClient
+
     @BeforeEach
     fun setupHttpClient() {
-        ICloud.httpClient = DummyHttpClient()
+        fakeICloud = FakeICloud()
+        originalHttpClient = ICloud.httpClient
+        ICloud.httpClient = fakeICloud.client
+    }
+
+    @AfterEach
+    fun tearDownHttpClient() {
+        ICloud.httpClient = originalHttpClient
+        fakeICloud.close()
     }
 
     @Nested
@@ -47,7 +60,7 @@ class ICloudClientTest {
     }
 
     @Nested
-    inner class DummyHttpClientTests {
+    inner class FakeICloudTests {
         @Test
         fun smoke() {
             val client = ICloudClient("B0R5qXGF1GeKg4d")

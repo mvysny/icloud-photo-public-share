@@ -15,7 +15,6 @@ You can then pass this link to this library, to list the images and/or download 
 
 ```kotlin
 fun main() {
-    ICloud.httpClient = SimplifiedOkHttpClient(OkHttpClient())
     val client: ICloudClient = ICloudClient.parseURL("https://www.icloud.com/sharedalbum/#B0R5qXGF1GeKg4d")
     val share: ICloudShare = client.getShare()
 
@@ -49,9 +48,10 @@ dependencies {
 
 * 0.2: The library is compatible with JDK 7+ and Android API 8+ (that's Android 2.2.x).
 * 0.3+: Compatible with Android 5.0+ (SDK21+) and JDK8+.
+* 0.4+: `ICloud.httpClient` is a plain `OkHttpClient` with a ready default; replace it to configure timeouts, a proxy
+  or a cache. `SimplifiedHttpClient` and the public OkHttp helper functions are gone.
 
-Requires Kotlin. Uses the OkHttp library by default, but it's easy to write
-a different `SimplifiedHttpClient` implementation for literally any http client library.
+Requires Kotlin and OkHttp.
 
 # License
 

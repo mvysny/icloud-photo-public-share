@@ -2,19 +2,17 @@ package com.gitlab.mvysny.icloudphotopublicshare
 
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
-import okhttp3.MediaType
-import okhttp3.MediaType.Companion.toMediaType
+import okhttp3.OkHttpClient
 import java.net.URL
 
 /**
- * Global configuration for [ICloudClient]. Don't forget to set the [httpClient];
- * usually you'll use [SimplifiedOkHttpClient].
+ * Global configuration for [ICloudClient].
  */
 public object ICloud {
     /**
-     * All REST client calls will reuse this client.
+     * Every iCloud request goes through this client; replace it to configure timeouts, a proxy or a cache.
      */
-    public var httpClient: SimplifiedHttpClient? = null
+    public var httpClient: OkHttpClient = OkHttpClient()
 
     /**
      * The default [Gson] interface used by all serialization/deserialization methods. Simply reassign with another [Gson]
@@ -49,15 +47,14 @@ public class ICloudClient(
 
     public fun getShare(): ICloudShare {
         while (true) {
-            val share: ICloudShare? = ICloud.httpClient!!.post("$url/webstream", "{\"streamCtag\":null}") { response ->
+            val share: ICloudShare? = ICloud.httpClient.postJson("$url/webstream", "{\"streamCtag\":null}") { response ->
                 if (response.code == 330) {
                     // redirect to another server
                     val redirect: ICloudRedirect = response.json(ICloudRedirect::class.java)
                     serverName = redirect.xapplemmehost!!
                     null
                 } else {
-                    response.checkOk()
-                    response.json(ICloudShare::class.java)
+                    response.checkOk().json(ICloudShare::class.java)
                 }
             }
 
@@ -81,9 +78,8 @@ public class ICloudClient(
     public fun getWebAsset(photo: ICloudPhoto): WebAsset = getWebAsset(photo.photoGuid!!)
 
     public fun getWebAsset(photoGuid: String): WebAsset =
-        ICloud.httpClient!!.post("$url/webasseturls", "{\"photoGuids\": [\"$photoGuid\"]}") { response: HttpResponse ->
-            response.checkOk()
-            response.json(WebAsset::class.java)
+        ICloud.httpClient.postJson("$url/webasseturls", "{\"photoGuids\": [\"$photoGuid\"]}") { response ->
+            response.checkOk().json(WebAsset::class.java)
         }
 
     /**
@@ -113,5 +109,3 @@ public class ICloudClient(
 
     override fun toString(): String = "ICloudClient(albumId='$albumId', serverName='$serverName')"
 }
-
-internal val mimeJson: MediaType = "application/json".toMediaType()
