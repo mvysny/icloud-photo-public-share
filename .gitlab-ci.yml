@@ -9,7 +9,8 @@ cache:
     - .gradle/caches/
     - .gradle/build-cache/
 
-# Test on the Java LTS versions; Gradle 8.14 runs on JDK 24 at most, so 25 waits for Gradle 9.1+
+# Test on the Java LTS versions. JDK 25 needs Gradle 9.1+, which itself runs on JDK 17+ only: 25 comes when 8 and 11 go,
+# not via toolchains.
 build:
   image: eclipse-temurin:${JDK}-jdk
   parallel:

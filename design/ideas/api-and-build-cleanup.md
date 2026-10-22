@@ -2,9 +2,9 @@
 
 Improvements found in a review after the switch to plain OkHttp + MockWebServer. Pre-1.0, so
 breaking the API is fine; note each break in README's compatibility list. Numbers are the review's;
-1, 2, 7, 8, 10 and 14 are done; 11 (an Android API check in the build) and 12 (publish from any
-JDK) are rejected, why in AGENTS.md and beside the check in `build.gradle.kts`. OkHttp 5 is
-deferred, why beside the dependency.
+1, 2, 7, 8, 10, 13 and 14 are done; 11 (an Android API check in the build) and 12 (publish from
+any JDK) are rejected, why in AGENTS.md and beside the check in `build.gradle.kts`. OkHttp 5 is
+deferred, why beside the dependency; JDK 25 in CI likewise, why in `.gitlab-ci.yml`.
 
 ## API
 
@@ -28,11 +28,3 @@ deferred, why beside the dependency.
 
 9. **Build request bodies with Gson**, not string templates — a `photoGuid` with a quote breaks
    the JSON.
-
-## Build and project
-
-13. **CI on JDK 25.** CI now tests 8, 11, 17, 21; Gradle 8.14 runs on JDK 24 at most, and JDK 25
-    needs Gradle 9.1+. But Gradle 9 itself needs JDK 17+ to run, so the JDK 8/11 jobs would have to
-    run Gradle on 17+ and launch the tests on 8/11 through a toolchain (`Test.javaLauncher`).
-    - `Q_gradle9_toolchains`: is JDK 25 coverage worth that restructuring, or wait until JDK 8/11
-      coverage can go?
