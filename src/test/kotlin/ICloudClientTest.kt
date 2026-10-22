@@ -1,17 +1,24 @@
 package com.gitlab.mvysny.icloudphotopublicshare
 
-import com.github.mvysny.dynatest.DynaTest
-import com.github.mvysny.dynatest.expectThrows
+import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.Nested
+import org.junit.jupiter.api.Test
 import java.io.FileNotFoundException
-import java.lang.IllegalArgumentException
 import java.net.URL
+import kotlin.test.assertContains
+import kotlin.test.assertFailsWith
 import kotlin.test.expect
 
-class ICloudClientTest : DynaTest({
-    beforeGroup { ICloud.httpClient = DummyHttpClient() }
+class ICloudClientTest {
+    @BeforeEach
+    fun setupHttpClient() {
+        ICloud.httpClient = DummyHttpClient()
+    }
 
-    group("URL parsing") {
-        test("simple") {
+    @Nested
+    inner class URLParsing {
+        @Test
+        fun simple() {
             expect("ICloudClient(albumId='B0R5qXGF1GeKg4d', serverName='p23-sharedstreams.icloud.com')") {
                 ICloudClient.parseURL("https://p23-sharedstreams.icloud.com/B0R5qXGF1GeKg4d/sharedstreams/webstream").toString()
             }
@@ -23,37 +30,49 @@ class ICloudClientTest : DynaTest({
             }
         }
 
-        test("icloud.com URLs") {
+        @Test
+        fun `icloud-com URLs`() {
             expect("ICloudClient(albumId='B0R5qXGF1GeKg4d', serverName='p27-sharedstreams.icloud.com')") {
                 ICloudClient.parseURL("https://www.icloud.com/sharedalbum/#B0R5qXGF1GeKg4d").toString()
             }
         }
 
-        test("incorrect URL") {
-            expectThrows(IllegalArgumentException::class, "Failed to parse https://www.google.com: not a sharedstreams.icloud.com URL") {
+        @Test
+        fun `incorrect URL`() {
+            val ex = assertFailsWith<IllegalArgumentException> {
                 ICloudClient.parseURL("https://www.google.com")
             }
+            assertContains(ex.message!!, "Failed to parse https://www.google.com: not a sharedstreams.icloud.com URL")
         }
     }
 
-    group("dummy http client") {
-        test("smoke") {
+    @Nested
+    inner class DummyHttpClientTests {
+        @Test
+        fun smoke() {
             val client = ICloudClient("B0R5qXGF1GeKg4d")
             expect(86) { client.getShare().photos.size }
             expect("ICloudClient(albumId='B0R5qXGF1GeKg4d', serverName='p27-sharedstreams.icloud.com')") { client.toString() }
         }
-        test("redirect") {
+
+        @Test
+        fun redirect() {
             val client = ICloudClient("B0R5qXGF1GeKg4d", "p23-sharedstreams.icloud.com")
             expect(86) { client.getShare().photos.size }
             expect("ICloudClient(albumId='B0R5qXGF1GeKg4d', serverName='p27-sharedstreams.icloud.com')") { client.toString() }
         }
-        test("404 reporting") {
+
+        @Test
+        fun `404 reporting`() {
             val client = ICloudClient("nonexisting", "p23-sharedstreams.icloud.com")
-            expectThrows(FileNotFoundException::class, "404: Not found (https://p23-sharedstreams.icloud.com/nonexisting/") {
+            val ex = assertFailsWith<FileNotFoundException> {
                 client.getShare()
             }
+            assertContains(ex.message!!, "404: Not found (https://p23-sharedstreams.icloud.com/nonexisting/")
         }
-        test("photo url") {
+
+        @Test
+        fun `photo url`() {
             val client = ICloudClient("B0R5qXGF1GeKg4d")
             val photo: ICloudPhoto = client.getShare().photos.first()
             val url: URL = client.getDownloadUrl(photo.photoGuid!!, "015c281ffb89b0c02204d548d5720b9132dd4bfb93")
@@ -62,4 +81,4 @@ class ICloudClientTest : DynaTest({
             }
         }
     }
-})
+}

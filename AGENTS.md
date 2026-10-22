@@ -31,7 +31,7 @@ Every fact lives in exactly one of these; the others link to it.
 ## Module map
 
 - `src/main/kotlin` — the whole library, one package `com.gitlab.mvysny.icloudphotopublicshare`: client, JSON model, HTTP seam, its OkHttp implementation. Entry point `ICloudClient.parseURL`; `Main.kt` is a demo against a live album.
-- `src/test/kotlin` — DynaTest suites over `DummyHttpClient`, which replays the recorded iCloud responses in `src/test/resources`.
+- `src/test/kotlin` — JUnit 5 tests over `DummyHttpClient`, which replays the recorded iCloud responses in `src/test/resources`.
 
 ## Conventions
 

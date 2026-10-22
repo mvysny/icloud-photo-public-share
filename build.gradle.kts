@@ -34,7 +34,11 @@ dependencies {
     implementation("com.squareup.okhttp3:okhttp:4.12.0")
     implementation("com.google.code.gson:gson:2.10.1")
 
-    testImplementation("com.github.mvysny.dynatest:dynatest:0.25")
+    testImplementation(kotlin("test"))
+    // JUnit 6 needs JDK 17, but CI still tests on JDK 8
+    testImplementation(platform("org.junit:junit-bom:5.14.4"))
+    testImplementation("org.junit.jupiter:junit-jupiter")
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 
 java {
@@ -65,7 +69,7 @@ publishing {
             version = project.version.toString()
             pom {
                 description.set("iCloud photo public share client in Kotlin")
-                name.set("VoK-ORM")
+                name.set("iCloud Client")
                 url.set("https://gitlab.com/mvysny/icloud-photo-public-share")
                 licenses {
                     license {
