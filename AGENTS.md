@@ -44,7 +44,7 @@ Every fact lives in exactly one of these; the others link to it.
 
 ## Commands
 
-- `./gradlew` — `clean build`: compile, tests, then `design/verify_design_tripwires.sh` (skipped under CI). CI (`.gitlab-ci.yml`) runs it on JDK 8, 11, 17 and 21, plus the tripwire in a job of its own.
+- `./gradlew` — `clean build`: compile, tests, then `design/verify_design_tripwires.sh` (skipped under CI). CI (`.github/workflows/build.yml`) runs it on JDK 8, 11, 17 and 21, plus the tripwire in a job of its own.
 - `./gradlew test --tests '*ICloudClientTest'` — one test class.
 - `mise exec -- ./gradlew` when the shell hasn't activated mise — `mise.toml` pins JetBrains 17; Gradle 8.14 runs on JDK 24 at most.
 

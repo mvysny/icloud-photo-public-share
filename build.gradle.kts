@@ -66,7 +66,7 @@ publishing {
             pom {
                 description.set("iCloud photo public share client in Kotlin")
                 name.set("iCloud Client")
-                url.set("https://gitlab.com/mvysny/icloud-photo-public-share")
+                url.set("https://github.com/mvysny/icloud-photo-public-share")
                 licenses {
                     license {
                         name.set("The MIT License")
@@ -82,7 +82,7 @@ publishing {
                     }
                 }
                 scm {
-                    url.set("https://gitlab.com/mvysny/icloud-photo-public-share")
+                    url.set("https://github.com/mvysny/icloud-photo-public-share")
                 }
             }
             from(components["java"])

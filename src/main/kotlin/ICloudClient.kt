@@ -9,7 +9,7 @@ import java.net.URL
  * Reads a publicly shared iCloud album; no Apple ID needed:
  *
  * ```
- * val client: ICloudClient = ICloudClient.parseURL("https://www.icloud.com/sharedalbum/#B0R5qXGF1GeKg4d")
+ * val client: ICloudClient = ICloudClient.parseURL("https://www.icloud.com/sharedalbum/#B0AbCdEfGhIjKlM")
  * val photo: ICloudPhoto = client.getShare().photos[0]
  * val derivative: ICloudDerivative = photo.derivatives.values.maxByOrNull { it.height }!!
  * val imageUrl: URL = client.getDownloadUrl(photo, derivative)   // valid for about an hour
@@ -20,7 +20,7 @@ import java.net.URL
  *
  * Thread-safe.
  *
- * @property albumId such as `B0R5qXGF1GeKg4d` in `https://www.icloud.com/sharedalbum/#B0R5qXGF1GeKg4d`; [parseURL]
+ * @property albumId such as `B0AbCdEfGhIjKlM` in `https://www.icloud.com/sharedalbum/#B0AbCdEfGhIjKlM`; [parseURL]
  *   extracts it.
  * @param serverName the iCloud server holding the album. A wrong one costs one extra request: iCloud redirects, and the
  *   client remembers the right server.
@@ -104,8 +104,8 @@ public class ICloudClient(
         private val sharedAlbumUrlRegex = Regex("https://www\\.icloud\\.com/sharedalbum/#(${albumIdRegex.pattern})")
 
         /**
-         * Creates a client for an album URL such as `https://www.icloud.com/sharedalbum/#B0R5qXGF1GeKg4d` or
-         * `https://p27-sharedstreams.icloud.com/B0R5qXGF1GeKg4d/sharedstreams`.
+         * Creates a client for an album URL such as `https://www.icloud.com/sharedalbum/#B0AbCdEfGhIjKlM` or
+         * `https://p27-sharedstreams.icloud.com/B0AbCdEfGhIjKlM/sharedstreams`.
          * @param httpClient see [ICloudClient].
          * @throws IllegalArgumentException if [url] is neither form.
          */

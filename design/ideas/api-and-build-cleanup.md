@@ -4,7 +4,7 @@ Improvements found in a review after the switch to plain OkHttp + MockWebServer.
 breaking the API is fine; note each break in README's compatibility list. Numbers are the review's;
 1, 2, 7, 8, 9, 10, 13 and 14 are done; 11 (an Android API check in the build) and 12 (publish from
 any JDK) are rejected, why in AGENTS.md and beside the check in `build.gradle.kts`. OkHttp 5 is
-deferred, why beside the dependency; JDK 25 in CI likewise, why in `.gitlab-ci.yml`.
+deferred, why beside the dependency; JDK 25 in CI likewise, why in `.github/workflows/build.yml`.
 
 ## API
 
