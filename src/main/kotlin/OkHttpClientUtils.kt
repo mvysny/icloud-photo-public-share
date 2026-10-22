@@ -4,6 +4,7 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import okhttp3.*
 import okhttp3.HttpUrl.Companion.toHttpUrl
+import okhttp3.RequestBody.Companion.toRequestBody
 import java.io.FileNotFoundException
 import java.io.IOException
 import java.io.Reader
@@ -16,7 +17,7 @@ public class SimplifiedOkHttpClient(public val client: OkHttpClient) : Simplifie
 
     override fun <T> post(url: String, postJson: String, responseHandler: (HttpResponse) -> T): T {
         val request: Request = url.toHttpUrl().buildRequest {
-            post(RequestBody.create(mimeJson, postJson))
+            post(postJson.toRequestBody(mimeJson))
         }
 
         val result: T = client.newCall(request).execute().use { response: Response ->

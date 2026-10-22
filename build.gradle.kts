@@ -3,7 +3,7 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    kotlin("jvm") version "2.0.20"
+    kotlin("jvm") version "2.4.21"
     `maven-publish`
     signing
 }
@@ -32,7 +32,7 @@ if (JavaVersion.current() > JavaVersion.VERSION_11 && gradle.startParameter.task
 dependencies {
     api(kotlin("stdlib")) // don't use -jdk8 to stay compatible with Android
     implementation("com.squareup.okhttp3:okhttp:4.12.0")
-    implementation("com.google.code.gson:gson:2.10.1")
+    implementation("com.google.code.gson:gson:2.14.0")
 
     testImplementation(kotlin("test"))
     // JUnit 6 needs JDK 17, but CI still tests on JDK 8
