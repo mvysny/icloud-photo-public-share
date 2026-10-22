@@ -26,12 +26,15 @@ kotlin {
     explicitApi()
 }
 
+// JDK 12+ adds Java members that collide with Kotlin stdlib ones (seen with the Stream API); kotlinc then prefers the
+// Java member, which Android lacks, so the call throws there at runtime.
 if (JavaVersion.current() > JavaVersion.VERSION_11 && gradle.startParameter.taskNames.contains("publish")) {
     throw GradleException("Release this library with JDK 11 or lower, to ensure Android compatibility; current JDK is ${JavaVersion.current()}")
 }
 
 dependencies {
     api(kotlin("stdlib")) // don't use -jdk8 to stay compatible with Android
+    // stays on 4.x for now: OkHttp 5 splits into separate JVM and Android artifacts
     implementation("com.squareup.okhttp3:okhttp:4.12.0")
     implementation("com.google.code.gson:gson:2.14.0")
 

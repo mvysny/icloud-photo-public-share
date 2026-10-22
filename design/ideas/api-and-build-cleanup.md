@@ -2,7 +2,8 @@
 
 Improvements found in a review after the switch to plain OkHttp + MockWebServer. Pre-1.0, so
 breaking the API is fine; note each break in README's compatibility list. Numbers are the review's;
-1, 2, 7, 8 and 10 are done.
+1, 2, 7, 8 and 10 are done; 12 (publish from any JDK) is rejected, why beside the check in
+`build.gradle.kts`.
 
 ## API
 
@@ -31,10 +32,7 @@ breaking the API is fine; note each break in README's compatibility list. Number
 
 11. **Verify the Android 5.0 promise mechanically.** JDK 8's API is not Android 21's; nothing
     checks it. The animal-sniffer Gradle plugin with the `android-api-level-21` signature would.
-12. **Publish from any JDK.** Kotlin's `-Xjdk-release=1.8` (and `options.release = 8` for javac)
-    compiles against the JDK 8 class library from any JDK, retiring the "publish with JDK 11 or
-    lower" rule.
-13. **Upgrades and CI.** OkHttp 5.x (still Android 5.0 / Java 8; MockWebServer follows). CI tests
-    on EOL JDK 16 — use 8, 11, 17, 21, 25.
+13. **CI JDKs.** CI tests on EOL JDK 16 — use 8, 11, 17, 21, 25. (OkHttp 5 is deferred, why beside
+    the dependency in `build.gradle.kts`.)
 14. **Stale AGENTS.md line.** The `mise` command line blames Kotlin 2.0.20 for failing under JDK 25;
     the build is on Kotlin 2.4.21 now. Re-check, then fix or delete the line.
