@@ -11,7 +11,7 @@ plugins {
 
 defaultTasks("clean", "build")
 
-group = "com.gitlab.mvysny.icloud-photo-public-share"
+group = "com.github.mvysny.icloud-photo-public-share"
 version = "0.4-SNAPSHOT"
 
 repositories {

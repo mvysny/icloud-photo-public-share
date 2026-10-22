@@ -40,7 +40,7 @@ repositories {
     mavenCentral()
 }
 dependencies {
-    implementation('com.gitlab.mvysny.icloud-photo-public-share:icloud-photo-public-share:0.2')
+    implementation('com.gitlab.mvysny.icloud-photo-public-share:icloud-photo-public-share:0.3')
 }
 ```
 
@@ -51,7 +51,8 @@ dependencies {
 * 0.4+: `ICloudClient` and `parseURL` take an optional `OkHttpClient`; pass one to configure timeouts, a proxy or a
   cache. The `ICloud` global object, `SimplifiedHttpClient` and the public OkHttp helper functions are gone. The model
   (`ICloudShare`, `ICloudPhoto`, `WebAsset`, …) is read-only with non-null ids, and a response missing an id fails
-  with `IOException`.
+  with `IOException`. The groupId moves to `com.github.mvysny.icloud-photo-public-share` and the package to
+  `com.github.mvysny.icloudphotopublicshare`; 0.3 and older stay under `com.gitlab.mvysny…`.
 
 Requires Kotlin and OkHttp.
 

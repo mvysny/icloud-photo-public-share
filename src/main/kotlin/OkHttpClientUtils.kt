@@ -1,4 +1,4 @@
-package com.gitlab.mvysny.icloudphotopublicshare
+package com.github.mvysny.icloudphotopublicshare
 
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder

@@ -1,4 +1,4 @@
-package com.gitlab.mvysny.icloudphotopublicshare
+package com.github.mvysny.icloudphotopublicshare
 
 import okhttp3.OkHttpClient
 import java.io.FileNotFoundException

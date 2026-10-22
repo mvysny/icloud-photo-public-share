@@ -31,7 +31,7 @@ Every fact lives in exactly one of these; the others link to it.
 
 ## Module map
 
-- `src/main/kotlin` — the whole library, one package `com.gitlab.mvysny.icloudphotopublicshare`: client, public model, internal JSON mapping, OkHttp helpers. Entry point `ICloudClient.parseURL`.
+- `src/main/kotlin` — the whole library, one package `com.github.mvysny.icloudphotopublicshare`: client, public model, internal JSON mapping, OkHttp helpers. Entry point `ICloudClient.parseURL`.
 - `src/test/kotlin` — JUnit 5 tests against `FakeICloud`, a MockWebServer replaying the recorded iCloud responses in `src/test/resources`.
 
 ## Conventions
