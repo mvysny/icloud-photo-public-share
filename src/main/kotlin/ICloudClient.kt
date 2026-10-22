@@ -3,7 +3,6 @@ package com.github.mvysny.icloudphotopublicshare
 import okhttp3.OkHttpClient
 import java.io.FileNotFoundException
 import java.io.IOException
-import java.net.URL
 
 /**
  * Reads a publicly shared iCloud album; no Apple ID needed:
@@ -11,8 +10,7 @@ import java.net.URL
  * ```
  * val client: ICloudClient = ICloudClient.parseURL("https://www.icloud.com/sharedalbum/#B0AbCdEfGhIjKlM")
  * val photo: ICloudPhoto = client.getShare().photos[0]
- * val derivative: ICloudDerivative = photo.derivatives.values.maxByOrNull { it.height }!!
- * val imageUrl: URL = client.getDownloadUrl(photo, derivative)   // valid for about an hour
+ * val imageUrl: String = client.getDownloadUrl(photo, photo.largestDerivative)   // valid for about an hour
  * ```
  *
  * Each `get*` call blocks on an HTTP request, so keep them off Android's main thread. They throw [IOException] on a
@@ -71,7 +69,7 @@ public class ICloudClient(
      * for several derivatives of one photo fetch [getWebAsset] once instead.
      * @throws IllegalStateException if iCloud has no such derivative of [photo].
      */
-    public fun getDownloadUrl(photo: ICloudPhoto, derivative: ICloudDerivative): URL =
+    public fun getDownloadUrl(photo: ICloudPhoto, derivative: ICloudDerivative): String =
             getDownloadUrl(photo.photoGuid, derivative.checksum)
 
     /**
@@ -89,11 +87,8 @@ public class ICloudClient(
      * Same as the [ICloudPhoto] overload, by [ICloudPhoto.photoGuid] and [ICloudDerivative.checksum].
      * @throws IllegalStateException if iCloud has no such derivative of the photo.
      */
-    public fun getDownloadUrl(photoGuid: String, checksum: String): URL {
-        val webAsset: WebAsset = getWebAsset(photoGuid)
-        val url: URL = webAsset.getDownloadUrl(checksum)
-        return url
-    }
+    public fun getDownloadUrl(photoGuid: String, checksum: String): String =
+        getWebAsset(photoGuid).getDownloadUrl(checksum)
 
     public companion object {
         private const val MAX_REDIRECTS = 5

@@ -1,7 +1,5 @@
 package com.github.mvysny.icloudphotopublicshare
 
-import java.net.URL
-
 /**
  * The download URLs of one photo's derivatives, as [ICloudClient.getWebAsset] returns them.
  * @property locations maps [WebItem.url_location] to the server serving it.
@@ -14,22 +12,23 @@ public data class WebAsset(
 
     /**
      * Returns the download URL of [derivative]; it expires at [WebItem.url_expiry], about an hour after the fetch.
+     * A `String` rather than a `java.net.URL`, whose `equals` and `hashCode` resolve the host by DNS.
      * @throws IllegalStateException if this asset has no such derivative, say one of another photo.
      */
-    public fun getDownloadUrl(derivative: ICloudDerivative): URL = getDownloadUrl(derivative.checksum)
+    public fun getDownloadUrl(derivative: ICloudDerivative): String = getDownloadUrl(derivative.checksum)
 
     /**
      * Same as the [ICloudDerivative] overload, by [ICloudDerivative.checksum].
      * @throws IllegalStateException if this asset has no such derivative.
      */
-    public fun getDownloadUrl(checksum: String): URL {
+    public fun getDownloadUrl(checksum: String): String {
         val item: WebItem = checkNotNull(items[checksum]) {
             "No item with checksum '$checksum'. Available items: ${items.values.toList()}"
         }
         val location: ILocation? = locations[item.url_location]
         val scheme: String = location?.scheme ?: "https"
         val hostName: String = location?.hosts?.firstOrNull() ?: item.url_location
-        return URL("$scheme://$hostName${item.url_path}")
+        return "$scheme://$hostName${item.url_path}"
     }
 }
 

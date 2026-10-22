@@ -35,7 +35,24 @@ public data class ICloudPhoto(
         val width: Int,
         val height: Int,
         val caption: String?
-) : Serializable
+) : Serializable {
+    /**
+     * The derivative with the longest longer side, usually the full-size photo.
+     * @throws IllegalStateException if this photo has no derivatives.
+     */
+    public val largestDerivative: ICloudDerivative
+        get() = checkNotNull(derivatives.values.maxByOrNull { it.longerSide }) { "Photo $photoGuid has no derivatives" }
+
+    /**
+     * Returns the smallest derivative whose longer side is at least [px] pixels; null if all are smaller:
+     *
+     * ```
+     * val thumbnail: ICloudDerivative = photo.derivativeAtLeast(400) ?: photo.largestDerivative
+     * ```
+     */
+    public fun derivativeAtLeast(px: Int): ICloudDerivative? =
+        derivatives.values.filter { it.longerSide >= px }.minByOrNull { it.longerSide }
+}
 
 /**
  * One size of an [ICloudPhoto]; [ICloudClient.getDownloadUrl] turns it into a download URL.
@@ -50,3 +67,5 @@ public data class ICloudDerivative(
         val width: Int,
         val height: Int
 ) : Serializable
+
+private val ICloudDerivative.longerSide: Int get() = maxOf(width, height)

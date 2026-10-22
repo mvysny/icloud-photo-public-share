@@ -2,7 +2,7 @@
 
 Improvements found in a review after the switch to plain OkHttp + MockWebServer. Pre-1.0, so
 breaking the API is fine; note each break in README's compatibility list. Numbers are the review's;
-1, 2, 7, 8, 9, 10, 13 and 14 are done; 11 (an Android API check in the build) and 12 (publish from
+1, 2, 4, 5, 7, 8, 9, 10, 13 and 14 are done; 11 (an Android API check in the build) and 12 (publish from
 any JDK) are rejected, why in AGENTS.md and beside the check in `build.gradle.kts`. OkHttp 5 is
 deferred, why beside the dependency; JDK 25 in CI likewise, why in `.github/workflows/build.yml`.
 
@@ -12,10 +12,6 @@ deferred, why beside the dependency; JDK 25 in CI likewise, why in `.github/work
    request: 86 photos = 86 requests. Add `getWebAssets(photos)`, chunked if iCloud caps it.
    - `Q_batch_size`: does iCloud accept many GUIDs per request, and is there a cap? Needs one live
      check, then a recorded response.
-4. **Return `URI` or `String`, not `java.net.URL`.** `URL.equals`/`hashCode` resolve the host via
-   DNS — a trap for anyone putting the URLs into a set or a map key.
-5. **Size helpers.** `derivatives.values.maxByOrNull { it.height }!!` is the common case; offer
-   `ICloudPhoto.largestDerivative` / `derivativeAtLeast(px)`.
 6. **Videos.** Shared albums can hold videos; from memory (unverified) they carry `mediaAssetType`
    and non-numeric derivative keys like `PosterFrame`, `720p`, which would contradict the
    "keyed by the longer side in pixels" doc on `ICloudPhoto.derivatives`.

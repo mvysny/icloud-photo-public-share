@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
 import java.io.FileNotFoundException
 import java.io.IOException
-import java.net.URL
 import kotlin.test.assertContains
 import kotlin.test.assertFailsWith
 import kotlin.test.expect
@@ -100,8 +99,8 @@ class ICloudClientTest {
         @Test
         fun `photo url follows redirect`() {
             val client = client(serverName = "p23-sharedstreams.icloud.com")
-            val url: URL = client.getDownloadUrl("1F6DA863-398D-4BA6-9980-350C982F6276", "015c281ffb89b0c02204d548d5720b9132dd4bfb93")
-            assertContains(url.toString(), "/IMG_0050.JPG?")
+            val url: String = client.getDownloadUrl("1F6DA863-398D-4BA6-9980-350C982F6276", "015c281ffb89b0c02204d548d5720b9132dd4bfb93")
+            assertContains(url, "/IMG_0050.JPG?")
             expect("ICloudClient(albumId='B0R5qXGF1GeKg4d', serverName='p27-sharedstreams.icloud.com')") { client.toString() }
         }
 
@@ -146,12 +145,22 @@ class ICloudClientTest {
         }
 
         @Test
+        fun `derivative by size`() {
+            val photo: ICloudPhoto = client().getShare().photos.first()
+            expect("015c281ffb89b0c02204d548d5720b9132dd4bfb93") { photo.largestDerivative.checksum }
+            expect("01a9c356dc72e68ff5a74dbe67ee01d7fc10f3762f") { photo.derivativeAtLeast(300)?.checksum }
+            expect("01a9c356dc72e68ff5a74dbe67ee01d7fc10f3762f") { photo.derivativeAtLeast(342)?.checksum }
+            expect("015c281ffb89b0c02204d548d5720b9132dd4bfb93") { photo.derivativeAtLeast(343)?.checksum }
+            expect(null) { photo.derivativeAtLeast(1025) }
+        }
+
+        @Test
         fun `photo url`() {
             val client = client()
             val photo: ICloudPhoto = client.getShare().photos.first()
-            val url: URL = client.getDownloadUrl(photo.photoGuid, "015c281ffb89b0c02204d548d5720b9132dd4bfb93")
+            val url: String = client.getDownloadUrl(photo.photoGuid, "015c281ffb89b0c02204d548d5720b9132dd4bfb93")
             expect("https://cvws.icloud-content.com/S/AVwoH_uJsMAiBNVI1XILkTLdS_uT/IMG_0050.JPG?o=Ah9jlrymSJpGvxzFyw5LRyXJJNoTsLu0472KzMOew_Ax&v=1&z=https%3A%2F%2Fp27-content.icloud.com%3A443&x=1&a=CAogakRqhS9LcLGye2zEnNf62yVFCT-b5kPSkfRfXo9p6iQSZxDsuprk2i4Y7NGt6douIgEAUgTdS_uTaia6pw47lOJbhJdNDzPgkgbHS67GO_nU-MIHjJUt6x8dpn_OnJyXWXImtrCSgVzEAPkKXOd2RFIbrGnbA3adQE1mQuNLvkhot9syoVl2nSY&e=1604928104&r=18253835-00d8-48f1-8bf2-255bb9167f19-1&s=DVy1ZCRXorj-P_BPiPH8HHfNrlE") {
-                url.toString()
+                url
             }
         }
     }

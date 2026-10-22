@@ -20,10 +20,10 @@ fun main() {
 
     // download first photo
     val photo: ICloudPhoto = share.photos[0]
-    val derivative: ICloudDerivative = photo.derivatives.values.maxByOrNull { it.height }!!
+    val derivative: ICloudDerivative = photo.largestDerivative   // or photo.derivativeAtLeast(400) for a thumbnail
 
     // the URL is only valid for an hour or so
-    val imageUrl: URL = client.getDownloadUrl(photo, derivative)
+    val imageUrl: String = client.getDownloadUrl(photo, derivative)
     println(imageUrl)
 }
 ```
@@ -51,8 +51,10 @@ dependencies {
 * 0.4+: `ICloudClient` and `parseURL` take an optional `OkHttpClient`; pass one to configure timeouts, a proxy or a
   cache. The `ICloud` global object, `SimplifiedHttpClient` and the public OkHttp helper functions are gone. The model
   (`ICloudShare`, `ICloudPhoto`, `WebAsset`, …) is read-only with non-null ids, and a response missing an id fails
-  with `IOException`. The groupId moves to `com.github.mvysny.icloud-photo-public-share` and the package to
-  `com.github.mvysny.icloudphotopublicshare`; 0.3 and older stay under `com.gitlab.mvysny…`.
+  with `IOException`. `getDownloadUrl` returns a `String` rather than a `java.net.URL`, whose `equals` resolves the
+  host by DNS. `ICloudPhoto.largestDerivative` and `derivativeAtLeast(px)` pick a size. The groupId moves to
+  `com.github.mvysny.icloud-photo-public-share` and the package to `com.github.mvysny.icloudphotopublicshare`; 0.3 and
+  older stay under `com.gitlab.mvysny…`.
 
 Requires Kotlin and OkHttp.
 
