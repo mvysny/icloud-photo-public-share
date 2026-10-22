@@ -5,3 +5,7 @@ build
 out
 local.properties
 .attach_pid*
+.settings
+bin
+.classpath
+.project
